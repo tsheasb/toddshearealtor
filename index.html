@@ -33,7 +33,14 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero__media ph" data-parallax="0.18" data-ph="Hero photograph — editorial lifestyle, 2400×1600"></div>
+    <div class="hero__media" data-parallax="0.18">
+        <picture>
+          <source media="(max-width: 720px)" srcset="/assets/hero/hero-tall.jpg">
+          <img src="/assets/hero/hero-wide.jpg"
+               alt="Santa Barbara coastline and Stearns Wharf at golden hour"
+               width="2400" height="1348" fetchpriority="high">
+        </picture>
+      </div>
     <div class="hero__scrim"></div>
     <div class="hero__inner shell">
       <div class="stripes" data-reveal><span></span><span></span></div>
@@ -46,22 +53,32 @@
     </div>
   </section>
 
-  <!-- PROOF -->
-  <section class="section section--tight">
+  <!-- WHO -->
+  <section class="section section--tight life">
     <div class="shell">
-      <div class="proof">
-        <div class="proof__item" data-reveal data-reveal-delay="0">
-          <div class="proof__num" data-count="116">116</div>
-          <div class="proof__label">Closings since 2017</div>
-        </div>
-        <div class="proof__item" data-reveal data-reveal-delay="110">
-          <div class="proof__num" data-count="9" data-count-suffix=" yrs">9 yrs</div>
-          <div class="proof__label">Santa Ynez to Ventura</div>
-        </div>
-        <div class="proof__item" data-reveal data-reveal-delay="220">
-          <div class="proof__num">2023</div>
-          <div class="proof__label">President, SB Assoc. of Realtors</div>
-        </div>
+      <div class="section-head" data-reveal>
+        <div class="stripes"><span></span><span></span></div>
+        <p class="eyebrow">Who you're working with</p>
+        <h2>Santa Barbara isn't a market to me. It's the address.</h2>
+      </div>
+
+      <div class="life__band">
+        <figure class="life__item" data-reveal data-reveal-delay="0">
+          <div class="life__media"><img src="/assets/life/golf.jpg" alt="Todd Shea mid-swing on a Santa Barbara course" width="1000" height="1250" loading="lazy" data-scroll-scale></div>
+          <figcaption>Tee time before the first showing.</figcaption>
+        </figure>
+        <figure class="life__item" data-reveal data-reveal-delay="110">
+          <div class="life__media"><img src="/assets/life/surf.jpg" alt="Todd Shea walking into the water with a board" width="1000" height="1250" loading="lazy" data-scroll-scale></div>
+          <figcaption>In the water whenever it's worth it.</figcaption>
+        </figure>
+        <figure class="life__item" data-reveal data-reveal-delay="220">
+          <div class="life__media"><img src="/assets/life/cooking.jpg" alt="Todd Shea cooking at home in Goleta" width="1000" height="1250" loading="lazy" data-scroll-scale></div>
+          <figcaption>Most nights end at the cutting board.</figcaption>
+        </figure>
+        <figure class="life__item" data-reveal data-reveal-delay="330">
+          <div class="life__media"><img src="/assets/life/melissa.jpg" alt="Todd and Melissa Shea on the beach at sunset" width="1000" height="1250" loading="lazy" data-scroll-scale></div>
+          <figcaption>Twenty-plus years with Melissa.</figcaption>
+        </figure>
       </div>
     </div>
   </section>

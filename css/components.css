@@ -13,11 +13,47 @@
   background: var(--panel);
 }
 .hero__media { position: absolute; inset: 0; }
+.hero__media picture { display: block; width: 100%; height: 100%; }
 .hero__media img { width: 100%; height: 100%; object-fit: cover; }
+/* Hero scrim.
+
+   Legibility is handled by a soft radial pool anchored to the lower-left
+   where the copy sits, plus a light bottom gradient. A full-width scrim
+   strong enough for the headline was measured pushing the wharf and town
+   on the right to 0.03–0.06 luminance, i.e. deleting the subject of the
+   photograph. This keeps the darkening where the text is and lets the
+   rest of the image stay an image.
+
+   Verified on the rendered page — see the hero contrast test in the
+   README before changing these values. */
 .hero__scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(22,19,17,0.94) 0%, rgba(22,19,17,0.55) 45%, rgba(22,19,17,0.25) 100%);
+  background:
+    radial-gradient(135% 125% at 8% 92%,
+      rgba(22,19,17,0.93) 0%,
+      rgba(22,19,17,0.86) 26%,
+      rgba(22,19,17,0.68) 44%,
+      rgba(22,19,17,0.34) 62%,
+      rgba(22,19,17,0.08) 80%,
+      rgba(22,19,17,0.00) 92%),
+    linear-gradient(to top,
+      rgba(22,19,17,0.58) 0%,
+      rgba(22,19,17,0.26) 28%,
+      rgba(22,19,17,0.06) 58%,
+      rgba(22,19,17,0.00) 100%);
+}
+
+@media (max-width: 720px) {
+  /* Narrow screens stack the copy over most of the frame, so the
+     vertical gradient does the work instead of a corner pool. */
+  .hero__scrim {
+    background: linear-gradient(to top,
+      rgba(22,19,17,0.93) 0%,
+      rgba(22,19,17,0.72) 40%,
+      rgba(22,19,17,0.34) 72%,
+      rgba(22,19,17,0.14) 100%);
+  }
 }
 /* The hero sits on a dark scrimmed photograph, so every element inside it
    uses the dark-surface colour tokens regardless of the light page base. */
@@ -418,3 +454,63 @@
   .stripes span { transform: none !important; }
   [data-scroll-scale], [data-scroll-rotate] { transform: none !important; }
 }
+
+/* ---------- Life band ----------
+   Four portraits directly under the hero. This is deliberately the first
+   thing after the headline: the personal material leads, the numbers come
+   later on the Todd page. Keep captions to one short line — the pictures
+   are doing the work, not the copy.                                     */
+
+.life__band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+}
+@media (max-width: 900px) { .life__band { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 460px) { .life__band { grid-template-columns: 1fr; } }
+
+.life__item { margin: 0; }
+.life__media {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  margin-bottom: 0.85rem;
+  background: var(--panel-light);
+}
+.life__media img { width: 100%; height: 100%; object-fit: cover; }
+
+.life__item figcaption {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--asphalt-dim);
+  max-width: 26ch;
+}
+.section--dark .life__item figcaption { color: var(--bone-dim); }
+
+.life .section-head h2 { max-width: 22ch; }
+
+/* ---------- The room (SBAOR toast) ---------- */
+
+.room__media { margin-bottom: clamp(1.75rem, 4vw, 2.5rem); }
+.room__media img { width: 100%; height: auto; display: block; }
+.room__copy { max-width: 58ch; }
+.room__copy h2 { margin-bottom: 0.9rem; }
+
+/* ---------- Wide inline figure ----------
+   Full-column photograph used where a portrait crop would lose the
+   subject — e.g. a building that needs its width to read.            */
+
+.wide-figure {
+  margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+}
+.wide-figure img { width: 100%; height: auto; display: block; }
+.wide-figure figcaption {
+  margin-top: 0.9rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--asphalt-dim);
+  max-width: 52ch;
+}
+.section--dark .wide-figure figcaption,
+.section--panel .wide-figure figcaption { color: var(--bone-dim); }
+
+
