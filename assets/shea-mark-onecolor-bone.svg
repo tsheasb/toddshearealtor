@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <title>SHEA mark — one color, bone</title>
+  <g transform="translate(200,200) scale(1.9)">
+    <circle cx="0" cy="0" r="88" fill="none" stroke="#F4F1E8" stroke-width="10"/>
+    <g transform="translate(0,-6)">
+      <path d="M-36 32 L-4 -38 L18 -38 L-14 32 Z" fill="#F4F1E8"/>
+      <path d="M-2 32 L30 -38 L42 -38 L10 32 Z" fill="#F4F1E8"/>
+    </g>
+    <path d="M-48 48 Q-24 36 0 48 T48 48" fill="none" stroke="#F4F1E8" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>
