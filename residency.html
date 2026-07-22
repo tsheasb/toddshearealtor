@@ -33,16 +33,16 @@
 
   <section class="masthead">
     <div class="shell">
-      <div class="stripes"><span></span><span></span></div>
-      <p class="eyebrow">Every other week</p>
-      <h1>SB Residency</h1>
-      <p class="lede masthead__lede">The market in plain numbers, three listings worth a look, and whatever's currently holding my attention.</p>
+      <div class="stripes" data-reveal><span></span><span></span></div>
+      <p class="eyebrow" data-reveal data-reveal-delay="70">Every other week</p>
+      <h1 data-words>SB Residency</h1>
+      <p class="lede masthead__lede" data-reveal data-reveal-delay="200">The market in plain numbers, three listings worth a look, and whatever's currently holding my attention.</p>
     </div>
   </section>
 
   <section class="section section--tight">
     <div class="shell">
-      <div class="issue-list" data-issue-list>
+      <div class="issue-list" data-issue-list data-reveal>
 
         <a class="issue" href="/posts/placeholder-issue-01.html">
           <span class="issue__date">Jul 22, 2026</span>
@@ -61,7 +61,7 @@
   </section>
 
   <section class="section offmarket">
-    <div class="shell offmarket__inner">
+    <div class="shell offmarket__inner" data-reveal>
       <div>
         <div class="stripes"><span style="background:var(--bone)"></span><span style="background:var(--asphalt)"></span></div>
         <h2>Get it in your inbox.</h2>
@@ -137,5 +137,6 @@
 </footer>
 
 <script src="js/site.js"></script>
+<script src="js/motion.js"></script>
 </body>
 </html>

@@ -33,13 +33,13 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero__media ph" data-ph="Hero photograph — editorial lifestyle, 2400×1600"></div>
+    <div class="hero__media ph" data-parallax="0.18" data-ph="Hero photograph — editorial lifestyle, 2400×1600"></div>
     <div class="hero__scrim"></div>
     <div class="hero__inner shell">
-      <div class="stripes"><span></span><span></span></div>
-      <h1>Live life on vacation.</h1>
-      <p class="hero__lede">It isn't just a motto &mdash; it's the mindset Todd brings to every client, and the feeling you'll have living in Santa Barbara. Santa Ynez Valley to Ventura.</p>
-      <div class="hero__actions">
+      <div class="stripes" data-reveal><span></span><span></span></div>
+      <h1 data-words>Live life on vacation.</h1>
+      <p class="hero__lede" data-reveal data-reveal-delay="180">It isn't just a motto &mdash; it's the mindset Todd brings to every client, and the feeling you'll have living in Santa Barbara. Santa Ynez Valley to Ventura.</p>
+      <div class="hero__actions" data-reveal data-reveal-delay="280">
         <a class="btn btn--clay" href="#offmarket">Get off-market access</a>
         <a class="btn btn--onDark" href="/about.html">Meet Todd</a>
       </div>
@@ -50,15 +50,15 @@
   <section class="section section--tight">
     <div class="shell">
       <div class="proof">
-        <div class="proof__item">
-          <div class="proof__num">116</div>
+        <div class="proof__item" data-reveal data-reveal-delay="0">
+          <div class="proof__num" data-count="116">116</div>
           <div class="proof__label">Closings since 2017</div>
         </div>
-        <div class="proof__item">
-          <div class="proof__num">9 yrs</div>
+        <div class="proof__item" data-reveal data-reveal-delay="110">
+          <div class="proof__num" data-count="9" data-count-suffix=" yrs">9 yrs</div>
           <div class="proof__label">Santa Ynez to Ventura</div>
         </div>
-        <div class="proof__item">
+        <div class="proof__item" data-reveal data-reveal-delay="220">
           <div class="proof__num">2023</div>
           <div class="proof__label">President, SB Assoc. of Realtors</div>
         </div>
@@ -69,7 +69,7 @@
   <!-- POSITIONING -->
   <section class="section section--tint">
     <div class="shell split">
-      <div class="split__media ph ph--light" data-ph="Portrait — on site, working, 1200×1500"></div>
+      <div class="split__media ph ph--light" data-reveal data-ph="Portrait — on site, working, 1200×1500"></div>
       <div>
         <div class="stripes"><span></span><span></span></div>
         <p class="eyebrow eyebrow--clay">What this is</p>
@@ -88,26 +88,26 @@
   <!-- RECENT WORK -->
   <section class="section">
     <div class="shell">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <div class="stripes"><span></span><span></span></div>
         <p class="eyebrow">Recent work</p>
         <h2>A few that closed</h2>
       </div>
       <div class="work">
-        <a class="work__card" href="#">
-          <div class="work__media"><img src="/assets/work/palomino-ridge.jpg" alt="2800 Palomino Ridge Lane, Santa Barbara" loading="lazy" width="1600" height="1200"></div>
+        <a class="work__card" href="#" data-reveal data-reveal-delay="0">
+          <div class="work__media"><img src="/assets/work/palomino-ridge.jpg" alt="2800 Palomino Ridge Lane, Santa Barbara" data-scroll-scale loading="lazy" width="1600" height="1200"></div>
           <div class="work__tag">Sold &middot; Represented seller</div>
           <div class="work__title">2800 Palomino Ridge Lane</div>
           <div class="work__meta">Santa Barbara &middot; $2,255,000</div>
         </a>
-        <a class="work__card" href="#">
-          <div class="work__media"><img src="/assets/work/conejo-road.jpg" alt="350 Conejo Road, Santa Barbara" loading="lazy" width="1600" height="1200"></div>
+        <a class="work__card" href="#" data-reveal data-reveal-delay="130">
+          <div class="work__media"><img src="/assets/work/conejo-road.jpg" alt="350 Conejo Road, Santa Barbara" data-scroll-scale loading="lazy" width="1600" height="1200"></div>
           <div class="work__tag">Sold &middot; Represented seller</div>
           <div class="work__title">350 Conejo Road</div>
           <div class="work__meta">Santa Barbara &middot; $2,100,000</div>
         </a>
-        <a class="work__card" href="#">
-          <div class="work__media"><img src="/assets/work/ortega-hill.jpg" alt="2176 Ortega Hill Road, Summerland" loading="lazy" width="1600" height="1200"></div>
+        <a class="work__card" href="#" data-reveal data-reveal-delay="260">
+          <div class="work__media"><img src="/assets/work/ortega-hill.jpg" alt="2176 Ortega Hill Road, Summerland" data-scroll-scale loading="lazy" width="1600" height="1200"></div>
           <div class="work__tag">Sold &middot; Represented seller</div>
           <div class="work__title">2176 Ortega Hill Road</div>
           <div class="work__meta">Summerland &middot; $2,040,000</div>
@@ -120,7 +120,7 @@
 
   <!-- OFF-MARKET -->
   <section class="section offmarket" id="offmarket">
-    <div class="shell offmarket__inner">
+    <div class="shell offmarket__inner" data-reveal>
       <div>
         <div class="stripes"><span style="background:var(--bone)"></span><span style="background:var(--asphalt)"></span></div>
         <h2>The best ones never hit the MLS.</h2>
@@ -143,13 +143,13 @@
   <!-- SB RESIDENCY TEASER -->
   <section class="section">
     <div class="shell">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <div class="stripes"><span></span><span></span></div>
         <p class="eyebrow">Every other week</p>
         <h2>SB Residency</h2>
         <p class="muted" style="max-width:52ch">The market, three listings worth a look, and whatever's currently holding my attention. Straight to your inbox.</p>
       </div>
-      <div class="issue-list" data-issue-list>
+      <div class="issue-list" data-issue-list data-reveal>
 
         <a class="issue" href="/posts/placeholder-issue-01.html">
           <span class="issue__date">Jul 22, 2026</span>
@@ -174,7 +174,7 @@
         </div>
         <a class="ig-handle" href="https://www.instagram.com/toddshearealtor/" target="_blank" rel="noopener">@toddshearealtor →</a>
       </div>
-      <div class="ig-grid" data-ig-grid data-ig-count="8">
+      <div class="ig-grid" data-reveal data-ig-grid data-ig-count="8">
         <div class="ig-cell ph" data-ph="IG"></div>
         <div class="ig-cell ph" data-ph="IG"></div>
         <div class="ig-cell ph" data-ph="IG"></div>
@@ -243,5 +243,6 @@
 </footer>
 
 <script src="js/site.js"></script>
+<script src="js/motion.js"></script>
 </body>
 </html>

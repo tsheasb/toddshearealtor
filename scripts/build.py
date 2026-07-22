@@ -217,7 +217,7 @@ def render_post(post):
 <main id="main">
   <article class="section">
     <div class="shell">
-      <div class="article">
+      <div class="article" data-reveal>
         <div class="stripes"><span></span><span></span></div>
         <p class="article__meta">No. {post['number']:03d} · {post['date'].strftime('%B %-d, %Y')}</p>
         <h1 style="font-size:clamp(2rem,4.5vw,3.4rem);margin-bottom:2rem">{html.escape(post['title'])}</h1>
@@ -237,6 +237,7 @@ def render_post(post):
 {SHELL_FOOTER}
 
 <script src="/js/site.js"></script>
+<script src="/js/motion.js"></script>
 </body>
 </html>
 """

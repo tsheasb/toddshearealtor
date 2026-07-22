@@ -329,3 +329,92 @@
 .masthead { padding-block: clamp(3.5rem, 8vw, 6rem) clamp(2rem, 4vw, 3rem); }
 .masthead h1 { max-width: 18ch; }
 .masthead__lede { max-width: 54ch; margin-top: 1.25rem; }
+
+/* ============================================================
+   Scroll motion
+   Elements are visible by default. The pre-reveal state only
+   applies when JS has set data-motion="on" on <html>, so a JS
+   failure or reduced-motion preference leaves everything readable.
+   ============================================================ */
+
+[data-motion="on"] [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+[data-motion="on"] [data-reveal][data-revealed="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Parallax layer sits slightly oversized so the drift never
+   exposes an edge. */
+[data-motion="on"] [data-parallax] {
+  will-change: transform;
+}
+.hero__media[data-parallax] {
+  top: -8%;
+  height: 116%;
+}
+
+/* The counters keep a stable width while digits change so the
+   layout doesn't jitter mid-count. */
+.proof__num {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  [data-parallax] { transform: none !important; }
+}
+
+/* ---------- Word-by-word headline ---------- */
+
+.word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+[data-motion="on"] .word__inner {
+  display: inline-block;
+  transform: translateY(105%);
+  transition: transform 0.72s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+[data-motion="on"] [data-words-in="true"] .word__inner {
+  transform: none;
+}
+
+/* ---------- Stripe draw ---------- */
+
+[data-motion="on"] .stripes span {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+[data-motion="on"] .stripes span:nth-child(2) { transition-delay: 0.12s; }
+[data-motion="on"] .stripes[data-drawn="true"] span { transform: none; }
+
+/* ---------- Scroll-scaled media ---------- */
+
+[data-motion="on"] [data-scroll-scale] {
+  will-change: transform;
+}
+/* The media wrapper clips the oversized image so the scale never
+   pushes past the card edge. */
+.work__media, .split__media { overflow: hidden; }
+
+/* ---------- Mark rotation ---------- */
+
+[data-motion="on"] [data-scroll-rotate] {
+  will-change: transform;
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word__inner { transform: none !important; }
+  .stripes span { transform: none !important; }
+  [data-scroll-scale], [data-scroll-rotate] { transform: none !important; }
+}

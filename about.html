@@ -33,17 +33,17 @@
 
   <section class="masthead">
     <div class="shell">
-      <div class="stripes"><span></span><span></span></div>
-      <p class="eyebrow">Meet Todd</p>
-      <h1>Live life on vacation.</h1>
-      <p class="lede masthead__lede">It isn't just a motto &mdash; it's the mindset Todd brings to every client, and the
+      <div class="stripes" data-reveal><span></span><span></span></div>
+      <p class="eyebrow" data-reveal data-reveal-delay="70">Meet Todd</p>
+      <h1 data-words>Live life on vacation.</h1>
+      <p class="lede masthead__lede" data-reveal data-reveal-delay="200">It isn't just a motto &mdash; it's the mindset Todd brings to every client, and the
       feeling you'll have living in Santa Barbara.</p>
     </div>
   </section>
 
   <section class="section section--tight">
     <div class="shell split">
-      <div class="split__media"><img src="/assets/todd/todd-portrait.jpg" alt="Todd Shea, Santa Barbara" width="1200" height="1500"></div>
+      <div class="split__media" data-reveal><img src="/assets/todd/todd-portrait.jpg" alt="Todd Shea, Santa Barbara" data-scroll-scale width="1200" height="1500"></div>
       <div>
         <p class="eyebrow eyebrow--dim">The approach</p>
         <p class="lede">Creativity, integrity, and a relentless standard for the experience. No detail is
@@ -60,22 +60,22 @@
 
   <section class="section section--tint">
     <div class="shell">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <div class="stripes"><span></span><span></span></div>
         <p class="eyebrow eyebrow--clay">The work</p>
         <h2>Two steps ahead</h2>
       </div>
       <div class="proof" style="gap:clamp(2rem,5vw,4rem)">
-        <div class="proof__item">
+        <div class="proof__item" data-reveal data-reveal-delay="0">
           <h3>Built around visibility</h3>
           <p class="muted">Social media, digital marketing, and AI-driven tools &mdash; moving faster and
           reaching further than the traditional playbook allows.</p>
         </div>
-        <div class="proof__item">
+        <div class="proof__item" data-reveal data-reveal-delay="110">
           <h3>Fast, direct communication</h3>
           <p class="muted">A partner who's always thinking two steps ahead, not catching up.</p>
         </div>
-        <div class="proof__item">
+        <div class="proof__item" data-reveal data-reveal-delay="220">
           <h3>Serious backing</h3>
           <p class="muted">The full weight of Berkshire Hathaway HomeServices California Properties behind
           every transaction.</p>
@@ -86,7 +86,7 @@
 
   <section class="section section--dark">
     <div class="shell split split--flip">
-      <div class="split__media split__media--mark"><img src="/assets/shea-mark-on-dark.svg" alt="The Shea Salt Seal" width="400" height="400"></div>
+      <div class="split__media split__media--mark" data-reveal><img src="/assets/shea-mark-on-dark.svg" alt="The Shea Salt Seal" data-scroll-rotate width="400" height="400"></div>
       <div>
         <div class="stripes"><span></span><span></span></div>
         <p class="eyebrow">The mark</p>
@@ -100,7 +100,7 @@
 
   <section class="section section--tint">
     <div class="shell split">
-      <div class="split__media"><img src="/assets/todd/todd-coaching.jpg" alt="Todd Shea coaching at Santa Barbara Volleyball Club" width="1200" height="1500"></div>
+      <div class="split__media" data-reveal><img src="/assets/todd/todd-coaching.jpg" alt="Todd Shea coaching at Santa Barbara Volleyball Club" data-scroll-scale width="1200" height="1500"></div>
       <div>
         <div class="stripes"><span></span><span></span></div>
         <p class="eyebrow">Off the clock</p>
@@ -115,22 +115,22 @@
 
   <section class="section">
     <div class="shell">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <div class="stripes"><span></span><span></span></div>
         <p class="eyebrow">For the record</p>
         <h2>Credentials</h2>
       </div>
       <div class="proof">
-        <div class="proof__item">
+        <div class="proof__item" data-reveal data-reveal-delay="330">
           <div class="proof__num">2023</div>
           <div class="proof__label">President, Santa Barbara Association of Realtors</div>
         </div>
-        <div class="proof__item">
+        <div class="proof__item" data-reveal data-reveal-delay="440">
           <div class="proof__num">Board</div>
           <div class="proof__label">Current SBAOR board member</div>
         </div>
-        <div class="proof__item">
-          <div class="proof__num">116</div>
+        <div class="proof__item" data-reveal data-reveal-delay="550">
+          <div class="proof__num" data-count="116">116</div>
           <div class="proof__label">Transactions closed since 2017</div>
         </div>
       </div>
@@ -138,7 +138,7 @@
   </section>
 
   <section class="section offmarket">
-    <div class="shell offmarket__inner">
+    <div class="shell offmarket__inner" data-reveal>
       <div>
         <div class="stripes"><span style="background:var(--bone)"></span><span style="background:var(--asphalt)"></span></div>
         <h2>The best ones never hit the MLS.</h2>
@@ -214,5 +214,6 @@
 </footer>
 
 <script src="js/site.js"></script>
+<script src="js/motion.js"></script>
 </body>
 </html>

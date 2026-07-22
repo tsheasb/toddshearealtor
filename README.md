@@ -223,6 +223,34 @@ issue pages will drift out of sync with the rest of the site.
 
 ---
 
+
+## Scroll motion
+
+`js/motion.js` adds three effects, all opt-in via data attributes:
+
+| Attribute | Effect |
+|---|---|
+| `data-reveal` | fades and rises as the element enters view |
+| `data-reveal-delay="120"` | staggers a group (ms) |
+| `data-count="116"` | counts up to the number on first view |
+| `data-count-suffix=" yrs"` | appended to the counted value |
+| `data-parallax="0.18"` | drifts at a fraction of scroll speed |
+| `data-words` | splits an H1 into words that rise in sequence |
+| `data-scroll-scale` | image scales 1.06 → 1.00 while crossing the viewport |
+| `data-scroll-rotate` | gentle −7° → +7° rotation (the Salt Seal only) |
+
+The `.stripes` brand device draws itself left-to-right wherever it appears —
+no attribute needed, it's automatic.
+
+**Safe by default.** Elements are visible in CSS; the pre-reveal hidden state
+only applies once JS sets `data-motion="on"` on `<html>`. If JS fails or is
+blocked, the page reads normally. The script exits immediately when the
+visitor prefers reduced motion, and stops mid-session if they turn it on.
+
+To animate something new, add `data-reveal` to the wrapper — no JS changes
+needed. Keep it to section-level containers rather than individual words;
+the point is rhythm, not spectacle.
+
 ## Brand
 
 Per `shea-brand-guidelines.pdf` v1:
