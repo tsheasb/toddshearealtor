@@ -203,7 +203,13 @@ From the 2026 disclaimer sheet, these apply once real content goes up:
 
 ### Content still outstanding
 
-- [ ] Three testimonials, three sold properties, first real SB Residency issue
+- [x] Three sold properties on the homepage — Palomino Ridge, Conejo Road,
+      Ortega Hill, with the required MLS disclaimer (as of July 22, 2026).
+      **Update that date whenever the properties change.**
+- [ ] Listing attribution — if any featured property was listed by another
+      brokerage, MLS rules require naming the listing agent and brokerage on
+      the card. All three current properties were Todd's own listings.
+- [ ] Three testimonials, first real SB Residency issue
 - [ ] Photography — hero, portraits, work cards, client photos
 - [ ] Stand up `/lead` and `/instagram`, then fill in `CONFIG`
 - [ ] Enable HTTPS once GitHub's DNS check passes
@@ -223,7 +229,7 @@ Per `shea-brand-guidelines.pdf` v1:
 
 | Token | Hex | Use |
 |---|---|---|
-| Sunset Clay | `#D85A30` | Stripe 1, lead accent |
+| Sunset Clay | `#D85A30` | Stripe 1, lead accent, eyebrows on light |
 | Golden Hour | `#EF9F27` | Stripe 2, sub-line on dark |
 | Bone | `#F4F1E8` | Ring + type on dark |
 | Asphalt | `#161311` | Home turf background |
@@ -234,3 +240,35 @@ Rules honoured in the CSS: flat only (no shadows, glows, or gradients);
 stripes always Clay then Gold, never recoloured individually; the mark is
 never rotated, skewed, or placed over photography without a solid panel;
 type is Helvetica/Arial Bold, all caps, generous letter-spacing.
+
+### Light-first layout
+
+The brand sheet says Asphalt is home turf and the brand looks best on dark,
+with Bone as the light-mode surface. This site runs the inverse: **Bone is the
+base**, with Asphalt used for three deliberate contrast blocks (hero, Instagram
+grid, footer) and a Deep Shorebreak panel for the off-market capture. Both
+colours are used as the sheet specifies — the default is just flipped.
+
+Section classes:
+
+| Class | Surface |
+|---|---|
+| *(none)* | Bone — the base |
+| `.section--tint` | `#EAE6DA`, a soft tint of Bone |
+| `.section--dark` | Asphalt, Bone type |
+| `.offmarket` | Deep Shorebreak panel |
+
+### One derived colour — needs adding to the brand sheet
+
+`--deep-text: #2968A7` is Deep Shorebreak darkened to 76% brightness. Brand
+Deep Shorebreak only reaches 3.18:1 against Bone, which fails WCAG AA for
+body-size text; the darkened tint reaches 5.12:1. It is used **only** for small
+text and links on light surfaces, and for the off-market panel fill so Bone
+type on it stays legible. Brand Deep Shorebreak is still used unchanged for
+borders, rules, and large type.
+
+Per the guidelines ("Don't introduce new colors without updating this sheet"),
+this should either be added to the brand sheet as an approved text tint, or
+replaced with an approved alternative. Flagged rather than assumed.
+
+All text/background pairs on the site pass WCAG AA (4.5:1 normal, 3:1 large).

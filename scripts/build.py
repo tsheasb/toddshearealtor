@@ -226,8 +226,8 @@ def render_post(post):
         <div class="article__signoff">
           <div class="stripes"><span></span><span></span></div>
           <p class="muted" style="font-size:0.9rem">Todd Shea · Santa Barbara<br>
-          <a href="/residency.html" style="color:var(--gold)">All issues</a> ·
-          <a href="/rss.xml" style="color:var(--gold)">RSS</a></p>
+          <a href="/residency.html" style="color:var(--deep-text)">All issues</a> ·
+          <a href="/rss.xml" style="color:var(--deep-text)">RSS</a></p>
         </div>
       </div>
     </div>

@@ -18,7 +18,16 @@
   --bone-faint:   rgba(244, 241, 232, 0.13);
   --asphalt-dim:  rgba(22, 19, 17, 0.66);
   --asphalt-faint:rgba(22, 19, 17, 0.13);
-  --panel:        #1F1B18;
+  --panel:        #1F1B18;   /* dark contrast block */
+  --panel-light:  #EAE6DA;   /* subtle tint on Bone */
+
+  /* Accessibility tint of Deep Shorebreak. Deep (#378ADD) only reaches
+     3.18:1 on Bone, which fails WCAG AA for body-size text. This is the
+     same hue darkened to 76% brightness — 5.12:1 on Bone, 4.63:1 on the
+     tint. Used for small text and links on light surfaces only; the
+     brand Deep Shorebreak is still used for fills, rules, and large type.
+     Flag to add to the brand sheet. */
+  --deep-text:    #2968A7;
 
   /* Type — Helvetica/Arial per guidelines */
   --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -44,8 +53,8 @@ html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--asphalt);
-  color: var(--bone);
+  background: var(--bone);
+  color: var(--asphalt);
   font-family: var(--sans);
   font-size: 17px;
   line-height: 1.6;
@@ -57,8 +66,12 @@ img, svg { max-width: 100%; display: block; }
 a { color: inherit; }
 
 :focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--deep);
   outline-offset: 3px;
+}
+.section--dark :focus-visible, .section--panel :focus-visible, .hero :focus-visible,
+.site-footer :focus-visible, .offmarket :focus-visible {
+  outline-color: var(--gold);
 }
 
 .shell {
@@ -90,11 +103,12 @@ a { color: inherit; }
   font-weight: 700;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--clay);
   margin: 0 0 1.1rem;
 }
 .eyebrow--clay { color: var(--clay); }
-.eyebrow--dim  { color: var(--bone-dim); }
+.eyebrow--dim  { color: var(--asphalt-dim); }
+.eyebrow--blue { color: var(--deep-text); }
 
 h1, h2, h3, h4 {
   font-weight: 700;
@@ -129,18 +143,27 @@ p { margin: 0 0 1.15rem; max-width: var(--measure); }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   padding: 1.05rem 2.2rem;
-  border: 2px solid var(--bone);
+  border: 2px solid var(--asphalt);
   background: transparent;
-  color: var(--bone);
+  color: var(--asphalt);
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
 }
-.btn:hover, .btn:focus-visible { background: var(--bone); color: var(--asphalt); }
+.btn:hover, .btn:focus-visible { background: var(--asphalt); color: var(--bone); }
 
 .btn--clay { background: var(--clay); border-color: var(--clay); color: var(--bone); }
 .btn--clay:hover, .btn--clay:focus-visible { background: var(--gold); border-color: var(--gold); color: var(--asphalt); }
 
+/* Deep Shorebreak button — the blue gets a real job on the light base */
+.btn--blue { background: var(--deep); border-color: var(--deep); color: var(--bone); }
+.btn--blue:hover, .btn--blue:focus-visible { background: var(--asphalt); border-color: var(--asphalt); color: var(--bone); }
+
+/* For use over the dark hero image */
+.btn--onDark { border-color: var(--bone); color: var(--bone); }
+.btn--onDark:hover, .btn--onDark:focus-visible { background: var(--bone); color: var(--asphalt); }
+
+/* Legacy alias */
 .btn--dark { border-color: var(--asphalt); color: var(--asphalt); }
 .btn--dark:hover, .btn--dark:focus-visible { background: var(--asphalt); color: var(--bone); }
 
@@ -166,8 +189,8 @@ p { margin: 0 0 1.15rem; max-width: var(--measure); }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--asphalt);
-  border-bottom: 1px solid var(--bone-faint);
+  background: var(--bone);
+  border-bottom: 1px solid var(--asphalt-faint);
 }
 .site-header__inner {
   display: flex;
@@ -186,20 +209,20 @@ p { margin: 0 0 1.15rem; max-width: var(--measure); }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--bone-dim);
+  color: var(--asphalt-dim);
   padding-block: 0.35rem;
   border-bottom: 2px solid transparent;
   transition: color 0.16s ease, border-color 0.16s ease;
   white-space: nowrap;
 }
-.nav a:hover, .nav a:focus-visible { color: var(--bone); }
-.nav a[aria-current="page"] { color: var(--bone); border-bottom-color: var(--clay); }
+.nav a:hover, .nav a:focus-visible { color: var(--asphalt); }
+.nav a[aria-current="page"] { color: var(--asphalt); border-bottom-color: var(--clay); }
 
 .nav-toggle {
   display: none;
   background: none;
-  border: 2px solid var(--bone-faint);
-  color: var(--bone);
+  border: 2px solid var(--asphalt-faint);
+  color: var(--asphalt);
   padding: 0.6rem 0.9rem;
   font-size: 0.7rem;
   font-weight: 700;
@@ -219,12 +242,12 @@ p { margin: 0 0 1.15rem; max-width: var(--measure); }
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    background: var(--asphalt);
-    border-bottom: 1px solid var(--bone-faint);
+    background: var(--bone);
+    border-bottom: 1px solid var(--asphalt-faint);
     padding: 0.5rem var(--gutter) 1.5rem;
   }
   .nav[data-open="true"] { display: flex; }
-  .nav a { width: 100%; padding-block: 0.95rem; border-bottom: 1px solid var(--bone-faint); }
+  .nav a { width: 100%; padding-block: 0.95rem; border-bottom: 1px solid var(--asphalt-faint); }
   .nav a[aria-current="page"] { border-bottom-color: var(--clay); }
   .site-header__inner { position: relative; }
 }
@@ -233,10 +256,25 @@ p { margin: 0 0 1.15rem; max-width: var(--measure); }
 
 .section { padding-block: clamp(4rem, 9vw, 7.5rem); }
 .section--tight { padding-block: clamp(3rem, 6vw, 5rem); }
-.section--light { background: var(--bone); color: var(--asphalt); }
+/* Dark contrast block — used sparingly against the Bone base */
+.section--dark { background: var(--asphalt); color: var(--bone); }
+.section--dark .muted { color: var(--bone-dim); }
+.section--dark .eyebrow--dim { color: var(--bone-dim); }
+.section--dark h1, .section--dark h2, .section--dark h3, .section--dark h4 { color: var(--bone); }
+.section--panel h1, .section--panel h2, .section--panel h3, .section--panel h4 { color: var(--bone); }
+.section--dark .btn { border-color: var(--bone); color: var(--bone); }
+.section--dark .btn:hover, .section--dark .btn:focus-visible { background: var(--bone); color: var(--asphalt); }
+
+/* Subtle tint block on the light base */
+.section--tint { background: var(--panel-light); }
+
+/* Legacy aliases kept so existing markup keeps working */
+.section--light { background: var(--panel-light); color: var(--asphalt); }
 .section--light .muted { color: var(--asphalt-dim); }
 .section--light .eyebrow--dim { color: var(--asphalt-dim); }
-.section--panel { background: var(--panel); }
+.section--panel { background: var(--asphalt); color: var(--bone); }
+.section--panel .muted { color: var(--bone-dim); }
+.section--panel .eyebrow--dim { color: var(--bone-dim); }
 
 .section-head { margin-bottom: clamp(2.25rem, 4vw, 3.5rem); }
 
@@ -244,7 +282,8 @@ p { margin: 0 0 1.15rem; max-width: var(--measure); }
 
 .site-footer {
   background: var(--asphalt);
-  border-top: 1px solid var(--bone-faint);
+  color: var(--bone);
+  border-top: 3px solid var(--deep);
   padding-block: clamp(3rem, 6vw, 4.5rem) 2rem;
 }
 .site-footer__grid {
