@@ -131,19 +131,82 @@ cadence. Mailchimp sends automatically whenever a new item appears in the feed.
 
 ## Before launch
 
-- [x] Phone number — (805) 453-7730, live in every footer and on Contact
-- [x] BHHS legal disclosure text in the footer of every page
-- [x] DRE licence number — `02028163`, live in every footer and in
-      `scripts/build.py`
-- [ ] Drop the official **BHHS California Properties lockup**, **Equal Housing
-      Opportunity**, and **REALTOR®** artwork into the three slots in the
-      footer legal block, then delete the italic placeholder note. Artwork
-      comes from BHHS marketing — do not recreate it.
-- [ ] Replace all placeholder copy (search for "Placeholder")
-- [ ] Real photography for hero, portraits, work cards, client photos
-- [ ] BHHS-approved TCPA consent wording on both forms
+- [x] Phone number — (805) 453-7730
+- [x] DRE licence number — `02028163`
+- [x] Bio copy — Home hero and About page
+- [x] Exact BHHS disclaimer text (independently owned and operated franchisee,
+      Brand Guidelines Jul 2025, p7) in the footer of every page
+- [x] Market-share claim removed — p13 prohibits franchisees from quoting
+      company statistics
+
+### BHHS compliance
+
+- [x] **Company logo installed** — `assets/bhhs/bhhscp-secondary-white.png`
+      (BHHSCP secondary lockup, white, on the Asphalt footer of every page).
+      The primary vertical lockup is also in `assets/bhhs/` if a taller
+      placement is ever needed.
+- [x] **Equal Housing and REALTOR® badges installed**, converted to
+      white-on-transparent from the supplied GIF and TIFF.
+- [x] **2026 disclaimer** — uses the California Properties wording effective
+      01-01-2026. Note this is the *HomeServices of America-owned* version
+      ("an independently operated subsidiary of HomeServices of America, Inc."),
+      not the independently-owned-and-operated franchisee wording in the global
+      July 2025 guide. Source: "All Marketing LEGAL DISCLAIMERS", 01-01-2026.
+- [ ] **Confirm the standalone site is permitted.** Global Brand Guidelines p15
+      describes agents being given a page on the franchisee's site
+      (`bhhsexample.com/todd-shea`) and does not explicitly authorise an
+      agent-owned domain. `toddshearealtor.com` contains no form of the BHHS
+      name, which satisfies the rule as written, but confirm with BHHS
+      California Properties and GlobalBranding@HSFranchise.com before launch.
+- [ ] **Web linking review** — to link this site from the BHHS global site,
+      email GlobalBranding@HSFranchise.com with name, company name, and URL.
+- [ ] TCPA / consent wording for both forms.
+
+#### Disclaimer add-ons that will be needed later
+
+From the 2026 disclaimer sheet, these apply once real content goes up:
+
+- **Any page showing market data** (SB Residency "Nitty Gritty"):
+  "Properties may or may not be listed by the office/agent presenting this
+  information. Information is deemed reliable but not guaranteed and is based
+  on data from MLS as of (date)." Listing attribution rules also apply — each
+  featured property needs its listing agent and brokerage named.
+- **Sold-property content**: "Properties may or may not be represented by the
+  office/agent presenting this information. Based on information obtained from
+  the MLS as of (date)."
+- **Any AI-generated or digitally enhanced imagery**: the disclaimer gains
+  "Some images were digitally enhanced or AI-generated and are for illustration
+  only; they may not reflect actual properties or conditions. For unaltered
+  images, visit (website address)."
+
+### Rules this site must keep following
+
+- Company logo on the home page at minimum; clear space on all sides of at
+  least the height of the "H" in Hathaway.
+- The company logo may not be animated, tinted, resized disproportionately,
+  used as wallpaper or watermark, or **combined with another graphic**. The
+  Salt Seal and the BHHS logo must stay separate.
+- Personal logos may not be larger than the company logo and must sit at least
+  one X-height away from it.
+- Write "Berkshire Hathaway HomeServices California Properties" in full at
+  least once in copy. Never use "BHHS" alone in public-facing text, and never
+  "Berkshire" or "HomeServices" on their own.
+- No references to Warren Buffett or Berkshire Hathaway Inc., and no linking to
+  pages that discuss them.
+- No company statistics or market-share claims.
+- Photography must look premium and authentic, not like stock. Avoid subjects
+  looking straight at the camera. AI-generated imagery should be avoided for
+  real properties, people, or places (p11).
+- Approved hashtags: #goodtoknow, #goodtoask, #GTK, #BHHS, #BHHSrealestate,
+  #ForeverAgent, #YourForeverAgent, #ForEveryone, #ForeverBrand,
+  #RealEstatesForeverBrand.
+
+### Content still outstanding
+
+- [ ] Three testimonials, three sold properties, first real SB Residency issue
+- [ ] Photography — hero, portraits, work cards, client photos
 - [ ] Stand up `/lead` and `/instagram`, then fill in `CONFIG`
-- [ ] Point DNS, enable HTTPS
+- [ ] Enable HTTPS once GitHub's DNS check passes
 - [ ] Connect the Mailchimp RSS campaign
 
 ### Where the compliance details live

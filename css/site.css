@@ -292,19 +292,38 @@ p { margin: 0 0 1.15rem; max-width: var(--measure); }
   margin: 1.5rem 0 1rem;
   flex-wrap: wrap;
 }
-.legal__badge-slot {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 46px;
-  padding: 0.5rem 1rem;
-  border: 1px dashed var(--bone-faint);
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--bone-dim);
+/* --- BHHS company logo ---------------------------------------------------
+   Brand Guidelines (Jul 2025) p13: the company logo must appear on the home
+   page at minimum, with clear space on all sides of at least the height of
+   the "H" in Hathaway. In the secondary lockup that cap height is roughly
+   18% of the logo's width, so the 2.25rem margin below comfortably clears it
+   at the rendered size. The logo is never tinted, animated, or combined with
+   another graphic — the Salt Seal stays in its own part of the footer.
+------------------------------------------------------------------------- */
+.legal__logo { margin: 2.25rem 0; }
+.legal__logo img {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
 }
+
+.legal__disclaimer {
+  font-size: 0.7rem;
+  line-height: 1.8;
+  color: var(--bone-dim);
+  max-width: 88ch;
+}
+
+.legal__badges {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem 0 0;
+  flex-wrap: wrap;
+}
+.legal__badge { height: 42px; width: auto; opacity: 0.85; }
+.legal__badge--realtor { height: 34px; }
+
 .legal__note {
   font-size: 0.68rem;
   font-style: italic;
