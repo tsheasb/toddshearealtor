@@ -128,10 +128,10 @@ p { margin: 0 0 1.15rem; max-width: var(--measure); }
 .lede {
   font-size: clamp(1.1rem, 1.9vw, 1.4rem);
   line-height: 1.5;
-  color: var(--bone);
+  color: var(--asphalt);
 }
 
-.muted { color: var(--bone-dim); }
+.muted { color: var(--asphalt-dim); }
 
 /* ---------- Buttons ---------- */
 
@@ -258,8 +258,18 @@ p { margin: 0 0 1.15rem; max-width: var(--measure); }
 .section--tight { padding-block: clamp(3rem, 6vw, 5rem); }
 /* Dark contrast block — used sparingly against the Bone base */
 .section--dark { background: var(--asphalt); color: var(--bone); }
-.section--dark .muted { color: var(--bone-dim); }
-.section--dark .eyebrow--dim { color: var(--bone-dim); }
+
+/* Any dark surface flips the text helpers back to the Bone tokens.
+   Keep this list in sync with the dark surfaces: .section--dark,
+   .section--panel, .hero, .offmarket, and .site-footer. */
+.section--dark .lede, .section--panel .lede, .hero .lede,
+.offmarket .lede, .site-footer .lede { color: var(--bone); }
+
+.section--dark .muted, .section--panel .muted, .hero .muted,
+.offmarket .muted, .site-footer .muted { color: var(--bone-dim); }
+
+.section--dark .eyebrow--dim, .section--panel .eyebrow--dim,
+.hero .eyebrow--dim, .site-footer .eyebrow--dim { color: var(--bone-dim); }
 .section--dark h1, .section--dark h2, .section--dark h3, .section--dark h4 { color: var(--bone); }
 .section--panel h1, .section--panel h2, .section--panel h3, .section--panel h4 { color: var(--bone); }
 .section--dark .btn { border-color: var(--bone); color: var(--bone); }
@@ -273,8 +283,6 @@ p { margin: 0 0 1.15rem; max-width: var(--measure); }
 .section--light .muted { color: var(--asphalt-dim); }
 .section--light .eyebrow--dim { color: var(--asphalt-dim); }
 .section--panel { background: var(--asphalt); color: var(--bone); }
-.section--panel .muted { color: var(--bone-dim); }
-.section--panel .eyebrow--dim { color: var(--bone-dim); }
 
 .section-head { margin-bottom: clamp(2.25rem, 4vw, 3.5rem); }
 
@@ -294,6 +302,7 @@ p { margin: 0 0 1.15rem; max-width: var(--measure); }
 }
 @media (max-width: 800px) { .site-footer__grid { grid-template-columns: 1fr; } }
 
+.site-footer h4 { color: var(--bone-dim); }
 .site-footer__mark img { width: 220px; margin-bottom: 1.25rem; }
 
 .footer-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
