@@ -122,7 +122,7 @@ def load_posts():
 SHELL_HEADER = """<header class="site-header">
   <div class="shell site-header__inner">
     <a class="site-header__logo" href="/" aria-label="Todd Shea Real Estate — home">
-      <img src="/assets/shea-secondary-on-dark.svg" alt="Todd Shea Real Estate">
+      <img src="/assets/shea-secondary-on-light.svg" alt="Todd Shea Real Estate">
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav" aria-label="Main">
