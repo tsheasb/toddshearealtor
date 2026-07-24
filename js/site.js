@@ -13,7 +13,6 @@
   */
   var CONFIG = {
     captureEndpoint: '',              // e.g. https://api.toddshearealtor.com/lead
-    instagramEndpoint: '',            // e.g. https://api.toddshearealtor.com/instagram
     instagramProfile: 'https://www.instagram.com/toddshearealtor/'
   };
 
@@ -122,50 +121,10 @@
     if (btn.dataset.label) btn.textContent = btn.dataset.label;
   }
 
-  /* ---------- Instagram feed ----------
-     Reads from a server-side endpoint that calls the Instagram Graph API
-     with a long-lived token. Token refresh + caching happen server-side;
-     the browser only ever sees public post data.
-     Expected shape: { data: [ { id, media_url, permalink, caption, media_type } ] }
+  /* ---------- Instagram ----------
+     The grid is a hand-picked static set in index.html, not a live feed.
+     To refresh it: swap the eight images in /assets/ig/ and update the
+     permalinks on each <a class="ig-cell">. See README.
   */
-
-  var grid = document.querySelector('[data-ig-grid]');
-
-  if (grid && CONFIG.instagramEndpoint) {
-    var count = parseInt(grid.getAttribute('data-ig-count'), 10) || 8;
-
-    fetch(CONFIG.instagramEndpoint)
-      .then(function (r) {
-        if (!r.ok) throw new Error('Instagram request failed: ' + r.status);
-        return r.json();
-      })
-      .then(function (payload) {
-        var posts = (payload && payload.data ? payload.data : []).slice(0, count);
-        if (!posts.length) return;
-
-        grid.innerHTML = '';
-        posts.forEach(function (post) {
-          var a = document.createElement('a');
-          a.className = 'ig-cell';
-          a.href = post.permalink || CONFIG.instagramProfile;
-          a.target = '_blank';
-          a.rel = 'noopener';
-
-          var img = document.createElement('img');
-          img.src = post.media_url || post.thumbnail_url;
-          img.loading = 'lazy';
-          img.alt = post.caption
-            ? post.caption.slice(0, 110).replace(/\s+\S*$/, '') + '…'
-            : 'Instagram post from @toddshearealtor';
-
-          a.appendChild(img);
-          grid.appendChild(a);
-        });
-      })
-      .catch(function (err) {
-        console.error('[instagram]', err);
-        // Placeholder cells stay in place on failure — no broken layout.
-      });
-  }
 
 })();

@@ -140,7 +140,7 @@ SHELL_FOOTER = """<footer class="site-footer">
     <div class="site-footer__grid">
       <div class="site-footer__mark">
         <img src="/assets/shea-secondary-on-dark.svg" alt="Todd Shea Real Estate">
-        <p class="muted" style="font-size:0.85rem">Santa Ynez Valley to Ventura.<br>Based in Santa Barbara.</p>
+        <p class="muted" style="font-size:0.85rem">Based in Santa Barbara.</p>
       </div>
       <div>
         <h4 class="muted">Site</h4>
