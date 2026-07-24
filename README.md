@@ -312,12 +312,21 @@ Captions sit over photography with a gradient behind them.
 
 ### Life mosaic shape
 
-**⚠ Every slot is portrait on purpose.** All four source photos are 3:4.
-An earlier version used a 16:7 wide banner for the fourth slot, which kept
-only **34% of the image height** and cropped Todd and Melissa off at the
-chest. The layout is now two tall anchors (golf, Melissa) flanking a
-stacked pair (surf, kitchen). If you add a wide slot back, check what
-percentage of the source height survives before committing to it.
+**⚠ Slot ratios track the source images, not a single grid value.** The
+layout is two tall anchors (golf 0.652, Melissa 0.652) flanking a stacked
+pair (surf 0.800, kitchen 0.800).
+
+- **Desktop:** anchors match their sources exactly; the centre pair is
+  cropped to 1.177 so it fits beside them. Verified that crop removes only
+  empty sky and ceiling — 100% of subject detail is retained.
+- **Tablet and phone:** every slot matches its source exactly, so nothing
+  is cropped at all.
+
+Two earlier versions got this wrong. A 16:7 banner kept only 34% of the
+height and cut Todd and Melissa off at the chest. A shared 4/3.6 mobile
+slot cut 41% — the top of the golf swing and both their heads. If you
+change these numbers, compare the slot ratio to the source ratio for each
+photo before shipping.
 
 ### Everything else
 
