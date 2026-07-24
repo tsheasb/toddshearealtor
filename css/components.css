@@ -17,42 +17,34 @@
 .hero__media img { width: 100%; height: 100%; object-fit: cover; }
 /* Hero scrim.
 
-   Legibility is handled by a soft radial pool anchored to the lower-left
-   where the copy sits, plus a light bottom gradient. A full-width scrim
-   strong enough for the headline was measured pushing the wharf and town
-   on the right to 0.03–0.06 luminance, i.e. deleting the subject of the
-   photograph. This keeps the darkening where the text is and lets the
-   rest of the image stay an image.
-
-   Verified on the rendered page — see the hero contrast test in the
-   README before changing these values. */
+   Retuned for the video, which sits around 0.19 mean luminance — roughly
+   half as bright as the still it replaced. A lighter pool is enough for
+   the headline here, which keeps more of the golden-hour footage visible.
+   Verified on the rendered page against the actual glyph positions. */
 .hero__scrim {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(135% 125% at 8% 92%,
-      rgba(22,19,17,0.93) 0%,
-      rgba(22,19,17,0.86) 26%,
-      rgba(22,19,17,0.68) 44%,
-      rgba(22,19,17,0.34) 62%,
-      rgba(22,19,17,0.08) 80%,
-      rgba(22,19,17,0.00) 92%),
+    radial-gradient(132% 118% at 8% 90%,
+      rgba(22,19,17,0.86) 0%,
+      rgba(22,19,17,0.72) 26%,
+      rgba(22,19,17,0.48) 46%,
+      rgba(22,19,17,0.20) 66%,
+      rgba(22,19,17,0.00) 86%),
     linear-gradient(to top,
-      rgba(22,19,17,0.58) 0%,
-      rgba(22,19,17,0.26) 28%,
-      rgba(22,19,17,0.06) 58%,
+      rgba(22,19,17,0.45) 0%,
+      rgba(22,19,17,0.18) 28%,
+      rgba(22,19,17,0.02) 60%,
       rgba(22,19,17,0.00) 100%);
 }
 
 @media (max-width: 720px) {
-  /* Narrow screens stack the copy over most of the frame, so the
-     vertical gradient does the work instead of a corner pool. */
   .hero__scrim {
     background: linear-gradient(to top,
-      rgba(22,19,17,0.93) 0%,
-      rgba(22,19,17,0.72) 40%,
-      rgba(22,19,17,0.34) 72%,
-      rgba(22,19,17,0.14) 100%);
+      rgba(22,19,17,0.88) 0%,
+      rgba(22,19,17,0.64) 40%,
+      rgba(22,19,17,0.26) 74%,
+      rgba(22,19,17,0.10) 100%);
   }
 }
 /* The hero sits on a dark scrimmed photograph, so every element inside it
@@ -461,13 +453,29 @@
    later on the Todd page. Keep captions to one short line — the pictures
    are doing the work, not the copy.                                     */
 
+/* Offset grid — alternating tall/short with a vertical stagger so the
+   row reads as a composed set rather than four equal boxes. Collapses
+   to a plain two-up, then one-up, where the offset would just create
+   awkward gaps. */
 .life__band {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+  gap: clamp(0.9rem, 1.8vw, 1.5rem);
+  align-items: start;
 }
-@media (max-width: 900px) { .life__band { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 460px) { .life__band { grid-template-columns: 1fr; } }
+.life__item--tall  { margin-top: 0; }
+.life__item--short { margin-top: clamp(2rem, 5vw, 4.5rem); }
+
+@media (max-width: 900px) {
+  .life__band { grid-template-columns: repeat(2, 1fr); }
+  .life__item--short { margin-top: clamp(1.5rem, 4vw, 3rem); }
+  .life__item:nth-child(3) { margin-top: 0; }
+  .life__item:nth-child(4) { margin-top: clamp(1.5rem, 4vw, 3rem); }
+}
+@media (max-width: 460px) {
+  .life__band { grid-template-columns: 1fr; }
+  .life__item, .life__item--short { margin-top: 0; }
+}
 
 .life__item { margin: 0; }
 .life__media {
@@ -475,6 +483,12 @@
   overflow: hidden;
   margin-bottom: 0.85rem;
   background: var(--panel-light);
+}
+.life__item--tall  .life__media { aspect-ratio: 3 / 4.4; }
+.life__item--short .life__media { aspect-ratio: 4 / 4.6; }
+@media (max-width: 460px) {
+  .life__item--tall .life__media,
+  .life__item--short .life__media { aspect-ratio: 4 / 5; }
 }
 .life__media img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -514,3 +528,75 @@
 .section--panel .wide-figure figcaption { color: var(--bone-dim); }
 
 
+
+/* ---------- Hero video ----------
+   The video plays on capable devices; the <picture> underneath is the
+   fallback for reduced-motion, save-data, narrow screens, and any browser
+   that can't play either source. JS in motion.js decides which shows.   */
+
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;                 /* revealed by JS once it can play */
+}
+.hero__still { display: block; width: 100%; height: 100%; }
+.hero__still img { width: 100%; height: 100%; object-fit: cover; }
+
+[data-hero-video="on"] .hero__video { display: block; }
+[data-hero-video="on"] .hero__still { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__video { display: none !important; }
+  .hero__still { display: block !important; }
+}
+
+/* Credentials grid — six items, so allow a natural wrap rather than
+   forcing three columns. Smaller numerals since several are words
+   ("Currently", "Nominated") rather than figures. */
+.proof--creds {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  row-gap: clamp(2rem, 4vw, 3rem);
+}
+.proof--creds .proof__num { font-size: clamp(1.5rem, 2.6vw, 2.1rem); }
+.proof--creds .proof__item:nth-child(4) { border-top-color: var(--clay); }
+.proof--creds .proof__item:nth-child(5) { border-top-color: var(--gold); }
+.proof--creds .proof__item:nth-child(6) { border-top-color: var(--deep); }
+
+/* ---------- Review stars ----------
+   Used in place of client photos, which we don't have. Honest, on-brand,
+   and keeps the two-column quote layout intact.                        */
+
+.quote__stars {
+  padding-top: 0.4rem;
+}
+.quote__stars svg {
+  width: 108px;
+  height: auto;
+  fill: var(--gold);
+}
+@media (max-width: 760px) {
+  .quote__stars { padding-top: 0; margin-bottom: 0.25rem; }
+  .quote__stars svg { width: 92px; }
+}
+
+/* Inline text links — underlined so they read as links without relying
+   on colour alone, which fails for anyone who can't distinguish it. */
+.inline-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--deep-text);
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 2px;
+  transition: color 0.16s ease, text-decoration-color 0.16s ease;
+}
+.inline-link:hover, .inline-link:focus-visible {
+  color: var(--deep-text);
+  text-decoration-color: currentColor;
+}
+.section--dark .inline-link, .hero .inline-link, .offmarket .inline-link {
+  text-decoration-color: var(--shorebreak);
+}
+.section--dark .inline-link:hover, .offmarket .inline-link:hover { color: var(--shorebreak); }

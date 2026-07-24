@@ -34,11 +34,18 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero__media" data-parallax="0.18">
-        <picture>
-          <source media="(max-width: 720px)" srcset="/assets/hero/hero-tall.jpg">
-          <img src="/assets/hero/hero-wide.jpg"
-               alt="Santa Barbara coastline and Stearns Wharf at golden hour"
-               width="2400" height="1348" fetchpriority="high">
+        <video class="hero__video"
+               autoplay muted loop playsinline
+               poster="/assets/hero/hero-poster.jpg"
+               aria-hidden="true" tabindex="-1">
+          <source src="/assets/hero/hero.webm" type="video/webm">
+          <source src="/assets/hero/hero.mp4" type="video/mp4">
+        </video>
+        <picture class="hero__still">
+          <source media="(max-width: 720px)" srcset="/assets/hero/hero-poster-tall.jpg">
+          <img src="/assets/hero/hero-poster.jpg"
+               alt="Santa Barbara coastline at golden hour"
+               width="1600" height="900" fetchpriority="high">
         </picture>
       </div>
     <div class="hero__scrim"></div>
@@ -63,19 +70,19 @@
       </div>
 
       <div class="life__band">
-        <figure class="life__item" data-reveal data-reveal-delay="0">
+        <figure class="life__item life__item--tall" data-reveal>
           <div class="life__media"><img src="/assets/life/golf.jpg" alt="Todd Shea mid-swing on a Santa Barbara course" width="1000" height="1250" loading="lazy" data-scroll-scale></div>
           <figcaption>Tee time before the first showing.</figcaption>
         </figure>
-        <figure class="life__item" data-reveal data-reveal-delay="110">
+        <figure class="life__item life__item--short" data-reveal data-reveal-delay="110">
           <div class="life__media"><img src="/assets/life/surf.jpg" alt="Todd Shea walking into the water with a board" width="1000" height="1250" loading="lazy" data-scroll-scale></div>
           <figcaption>In the water whenever it's worth it.</figcaption>
         </figure>
-        <figure class="life__item" data-reveal data-reveal-delay="220">
-          <div class="life__media"><img src="/assets/life/cooking.jpg" alt="Todd Shea cooking at home in Goleta" width="1000" height="1250" loading="lazy" data-scroll-scale></div>
+        <figure class="life__item life__item--short" data-reveal data-reveal-delay="220">
+          <div class="life__media"><img src="/assets/life/cooking.jpg" alt="Todd Shea cooking at home" width="1000" height="1250" loading="lazy" data-scroll-scale></div>
           <figcaption>Most nights end at the cutting board.</figcaption>
         </figure>
-        <figure class="life__item" data-reveal data-reveal-delay="330">
+        <figure class="life__item life__item--tall" data-reveal data-reveal-delay="330">
           <div class="life__media"><img src="/assets/life/melissa.jpg" alt="Todd and Melissa Shea on the beach at sunset" width="1000" height="1250" loading="lazy" data-scroll-scale></div>
           <figcaption>Twenty-plus years with Melissa.</figcaption>
         </figure>
@@ -91,12 +98,13 @@
         <div class="stripes"><span></span><span></span></div>
         <p class="eyebrow eyebrow--clay">What this is</p>
         <h2>This is not where you browse houses.</h2>
-        <p class="lede">Zillow does that fine. What it can't tell you is which street floods, which permit
-        never got pulled, or which seller will actually move on price.</p>
+        <p class="lede">The listings are everywhere. What they can't tell you is which block holds its
+        value, which remodel was permitted, or which seller is actually ready to move.</p>
         <p class="muted">Todd pairs a general contracting and marketing background with real, hands-on
-        property knowledge &mdash; and deep roots in the Santa Barbara Association of Realtors, where he
-        served as 2023 President and remains a board member. That translates directly into smoother
-        negotiations and wider exposure for every listing.</p>
+        property knowledge &mdash; so the questions that matter get asked before the offer, not after.</p>
+        <p class="muted">And after nine years here, including a term as President of the Santa Barbara
+        Association of Realtors, he knows the agents on the other side of most deals. That network is
+        how listings find the right buyer early, and how offers get taken seriously.</p>
         <p><a class="btn btn--blue" href="/about.html">The whole story</a></p>
       </div>
     </div>
@@ -164,7 +172,7 @@
         <div class="stripes"><span></span><span></span></div>
         <p class="eyebrow">Every other week</p>
         <h2>SB Residency</h2>
-        <p class="muted" style="max-width:52ch">The market, three listings worth a look, and whatever's currently holding my attention. Straight to your inbox.</p>
+        <p class="muted" style="max-width:52ch">Three listings worth a look, a few must-follows, and the thinking that keeps you in the know. Straight to your inbox every other week.</p>
       </div>
       <div class="issue-list" data-issue-list data-reveal>
 

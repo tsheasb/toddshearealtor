@@ -1,3 +1,47 @@
+
+/* ============================================================
+   Hero video
+
+   Runs outside the reduced-motion guard below because it has its own
+   rules: the video is skipped for reduced-motion users, for anyone on
+   a metered/save-data connection, and on narrow screens where a 2MB
+   download isn't worth it. In every skip case the poster image is
+   already on screen, so nothing shifts.
+   ============================================================ */
+
+(function () {
+  'use strict';
+
+  var video = document.querySelector('.hero__video');
+  if (!video) return;
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var conn = navigator.connection || {};
+  var saveData = conn.saveData === true;
+  var slow = /^(slow-)?2g$/.test(conn.effectiveType || '');
+  var narrow = window.matchMedia('(max-width: 720px)').matches;
+
+  if (reduced || saveData || slow || narrow) return;   // poster stays
+
+  function show() {
+    document.documentElement.setAttribute('data-hero-video', 'on');
+    video.removeEventListener('canplay', show);
+  }
+
+  // Only swap in the video once it can actually play, so we never show
+  // a blank box while it buffers.
+  if (video.readyState >= 3) show();
+  else video.addEventListener('canplay', show);
+
+  var p = video.play();
+  if (p && typeof p.catch === 'function') {
+    p.catch(function () {
+      // Autoplay blocked — leave the poster in place.
+      document.documentElement.removeAttribute('data-hero-video');
+    });
+  }
+})();
+
 /* ============================================================
    Scroll motion — Todd Shea Real Estate
 
