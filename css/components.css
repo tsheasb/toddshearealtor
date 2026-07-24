@@ -132,6 +132,7 @@
    4:5 slot, which was clipping 313px off the bottom (his legs). This
    variant matches the source so the full frame shows. */
 .split__media--tall { aspect-ratio: 1075 / 1657; }
+.split__media--coaching { aspect-ratio: 1200 / 845; }  /* cropped at jersey/shorts seam — matches source so cover() doesn't re-crop */
 .split__media img { width: 100%; height: 100%; object-fit: cover; }
 /* The mark is artwork, not a photograph — it is never cropped or
    stretched to fill the slot. Scale proportionally, centred, with room
@@ -657,12 +658,9 @@
   .life__cell:nth-of-type(2) { grid-column: 2; grid-row: 1; }
   .life__cell:nth-of-type(3) { grid-column: 1; grid-row: 2; }
   .life__cell:nth-of-type(4) { grid-column: 2; grid-row: 2; }
-  /* Same reasoning as the phone breakpoint: the two 0.652 portraits get
-     their own ratio so nothing is cropped. */
   .life__hero .life__media,
-  .life__cell:nth-of-type(4) .life__media { aspect-ratio: 1000 / 1533; }
-  .life__cell:nth-of-type(2) .life__media,
-  .life__cell:nth-of-type(3) .life__media { aspect-ratio: 4 / 5; }
+  .life__cell .life__media,
+  .life__cell:nth-of-type(4) .life__media { aspect-ratio: 3 / 4; }
 }
 @media (max-width: 520px) {
   .life__mosaic { grid-template-columns: 1fr; }
@@ -670,14 +668,9 @@
   .life__cell:nth-of-type(2), .life__cell:nth-of-type(3), .life__cell:nth-of-type(4) {
     grid-column: 1; grid-row: auto;
   }
-  /* Single column on phones, so each slot takes its source ratio rather
-     than a shared landscape box. A 4/3.6 slot was cutting 41% of the
-     height off the two 0.652 portraits — the top of the golf swing and
-     Todd and Melissa's heads. */
   .life__hero .life__media,
-  .life__cell:nth-of-type(4) .life__media { aspect-ratio: 1000 / 1533; }
-  .life__cell:nth-of-type(2) .life__media,
-  .life__cell:nth-of-type(3) .life__media { aspect-ratio: 4 / 5; }
+  .life__cell .life__media,
+  .life__cell:nth-of-type(4) .life__media { aspect-ratio: 4 / 3.6; }
 }
 
 /* ---------- Areas map ---------- */

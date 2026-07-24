@@ -12,7 +12,7 @@
      to a friendly message and log the payload.
   */
   var CONFIG = {
-    captureEndpoint: '',              // e.g. https://api.toddshearealtor.com/lead
+    captureEndpoint: 'https://api.toddshearealtor.com/lead',
     instagramProfile: 'https://www.instagram.com/toddshearealtor/'
   };
 
