@@ -127,6 +127,11 @@
 }
 @media (max-width: 880px) { .split { grid-template-columns: 1fr; } }
 .split__media { aspect-ratio: 4 / 5; }
+
+/* The waving-at-the-door photo is 0.65 aspect — taller than the standard
+   4:5 slot, which was clipping 313px off the bottom (his legs). This
+   variant matches the source so the full frame shows. */
+.split__media--tall { aspect-ratio: 1075 / 1657; }
 .split__media img { width: 100%; height: 100%; object-fit: cover; }
 /* The mark is artwork, not a photograph — it is never cropped or
    stretched to fill the slot. Scale proportionally, centred, with room
@@ -586,32 +591,36 @@
 
 
 /* ---------- Life mosaic ----------
-   One large anchor image with three smaller cells beside it, captions
-   set over the photograph rather than beneath. Deliberately asymmetric
-   so the set reads as composed rather than a row of equal squares.   */
+   Two tall columns flanking a stacked pair. Every slot is portrait
+   because all four source photos are 3:4 — the previous layout had a
+   16:7 banner that kept only 34% of the image height and cropped
+   people off at the chest. Captions sit over the photograph.        */
 
 .life__mosaic {
   display: grid;
-  grid-template-columns: 1.35fr 1fr 1fr;
+  grid-template-columns: 1.25fr 1fr 1.25fr;
   grid-template-rows: auto auto;
   gap: clamp(0.85rem, 1.6vw, 1.4rem);
+  align-items: stretch;
 }
-.life__hero { grid-row: 1 / span 2; grid-column: 1; margin: 0; }
-.life__cell { margin: 0; }
+
+/* Left anchor spans both rows */
+.life__hero { grid-column: 1; grid-row: 1 / span 2; margin: 0; }
+/* Centre column stacks two */
 .life__cell:nth-of-type(2) { grid-column: 2; grid-row: 1; }
-.life__cell:nth-of-type(3) { grid-column: 3; grid-row: 1; }
-.life__cell:nth-of-type(4) { grid-column: 2 / span 2; grid-row: 2; }
+.life__cell:nth-of-type(3) { grid-column: 2; grid-row: 2; }
+/* Right anchor spans both rows */
+.life__cell:nth-of-type(4) { grid-column: 3; grid-row: 1 / span 2; }
+.life__cell { margin: 0; }
 
 .life__hero, .life__cell { position: relative; overflow: hidden; }
-.life__hero .life__media { aspect-ratio: 3 / 4.5; height: 100%; margin: 0; }
+.life__hero .life__media,
+.life__cell:nth-of-type(4) .life__media { aspect-ratio: 3 / 4.6; height: 100%; margin: 0; }
 .life__cell:nth-of-type(2) .life__media,
-.life__cell:nth-of-type(3) .life__media { aspect-ratio: 1 / 1.12; margin: 0; }
-.life__cell:nth-of-type(4) .life__media { aspect-ratio: 16 / 7.2; margin: 0; }
+.life__cell:nth-of-type(3) .life__media { aspect-ratio: 4 / 3.4; margin: 0; }
 
 .life__hero img, .life__cell img { width: 100%; height: 100%; object-fit: cover; }
 
-/* Caption sits over the image on a gradient so it reads without a
-   separate text block under each photo. */
 .life__hero figcaption,
 .life__cell figcaption {
   position: absolute;
@@ -642,13 +651,15 @@
   margin-bottom: 0.3rem;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .life__mosaic { grid-template-columns: 1fr 1fr; }
-  .life__hero { grid-row: 1; grid-column: 1 / span 2; }
-  .life__hero .life__media { aspect-ratio: 16 / 9; }
-  .life__cell:nth-of-type(2) { grid-column: 1; grid-row: 2; }
-  .life__cell:nth-of-type(3) { grid-column: 2; grid-row: 2; }
-  .life__cell:nth-of-type(4) { grid-column: 1 / span 2; grid-row: 3; }
+  .life__hero { grid-column: 1; grid-row: 1; }
+  .life__cell:nth-of-type(2) { grid-column: 2; grid-row: 1; }
+  .life__cell:nth-of-type(3) { grid-column: 1; grid-row: 2; }
+  .life__cell:nth-of-type(4) { grid-column: 2; grid-row: 2; }
+  .life__hero .life__media,
+  .life__cell .life__media,
+  .life__cell:nth-of-type(4) .life__media { aspect-ratio: 3 / 4; }
 }
 @media (max-width: 520px) {
   .life__mosaic { grid-template-columns: 1fr; }
@@ -656,14 +667,19 @@
   .life__cell:nth-of-type(2), .life__cell:nth-of-type(3), .life__cell:nth-of-type(4) {
     grid-column: 1; grid-row: auto;
   }
-  .life__hero .life__media { aspect-ratio: 4 / 3; }
+  .life__hero .life__media,
   .life__cell .life__media,
-  .life__cell:nth-of-type(4) .life__media { aspect-ratio: 4 / 3; }
+  .life__cell:nth-of-type(4) .life__media { aspect-ratio: 4 / 3.6; }
 }
 
 /* ---------- Areas map ---------- */
 
-.areas__map { max-width: 900px; margin-inline: auto; }
+/* The map is a vertical list, not a geographic projection. The coastal
+   towns sit within ~20 miles of each other, so a true-to-scale horizontal
+   map crammed Santa Barbara, Montecito, Summerland and Carpinteria into
+   overlapping labels. This version guarantees legibility by construction:
+   one row per town, pins on a shared axis, labels parallel. */
+.areas__map { max-width: 620px; margin-inline: auto; }
 .areas__map img { width: 100%; height: auto; display: block; }
 
 /* ---------- Centred closing block ---------- */

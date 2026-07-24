@@ -1,68 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" role="img"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 718" role="img"
      aria-labelledby="mapTitle mapDesc" class="area-map" preserveAspectRatio="xMidYMid meet">
   <title id="mapTitle">Areas Todd Shea serves</title>
-  <desc id="mapDesc">Stylised locator marking Los Olivos, Buellton, Santa Ynez, Goleta, Santa Barbara,
-  Montecito, Summerland, Carpinteria, Ojai and Ventura.</desc>
+  <desc id="mapDesc">Los Olivos, Santa Ynez and Buellton in the Santa Ynez Valley; Goleta,
+  Santa Barbara, Montecito, Summerland and Carpinteria on the South Coast; Ojai and Ventura
+  in Ventura County.</desc>
 
   <style>
-    .sea   { fill: #85B7EB; opacity: 0.18; }
-    .coast { stroke: #2968A7; stroke-width: 3; stroke-linecap: round; }
+    .coast { stroke: #85B7EB; stroke-width: 30; stroke-linecap: round; fill: none; opacity: 0.30; }
+    .spine { stroke: #161311; stroke-width: 1.5; opacity: 0.14; }
     .pin circle { fill: #D85A30; }
     .pin text {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 15px; font-weight: 700; letter-spacing: 0.06em;
+      font-size: 21px; font-weight: 700; letter-spacing: 0.07em;
       fill: #161311; text-transform: uppercase;
+    }
+    .group {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.20em;
+      fill: #2968A7; text-transform: uppercase;
     }
   </style>
 
-  <path class="sea"
-        d="M 40 316 C 160 282, 250 262, 340 274
-           C 445 288, 535 314, 630 332
-           C 735 352, 830 366, 970 356
-           L 970 430 L 40 430 Z"/>
-  <path class="coast" fill="none"
-        d="M 40 316 C 160 282, 250 262, 340 274
-           C 445 288, 535 314, 630 332
-           C 735 352, 830 366, 970 356"/>
+  <path class="coast" d="M 84 28 C 132 178, 60 318, 120 458 C 176 588, 96 618, 140 688"/>
+  <line class="spine" x1="232" y1="40" x2="232" y2="634"/>
 
+    <text class="group" x="198" y="36" text-anchor="end">Santa Ynez Valley</text>
     <g class="pin">
-      <circle cx="166.4" cy="80.0" r="6.5"/>
-      <text x="166.4" y="58.0" text-anchor="middle">Los Olivos</text>
+      <circle cx="232" cy="58" r="7"/>
+      <text x="262" y="64">Los Olivos</text>
     </g>
     <g class="pin">
-      <circle cx="100.0" cy="118.9" r="6.5"/>
-      <text x="100.0" y="150.9" text-anchor="middle">Buellton</text>
+      <circle cx="232" cy="120" r="7"/>
+      <text x="262" y="126">Santa Ynez</text>
     </g>
     <g class="pin">
-      <circle cx="193.8" cy="118.9" r="6.5"/>
-      <text x="193.8" y="78.9" text-anchor="middle">Santa Ynez</text>
+      <circle cx="232" cy="182" r="7"/>
+      <text x="262" y="188">Buellton</text>
+    </g>
+    <text class="group" x="198" y="222" text-anchor="end">South Coast</text>
+    <g class="pin">
+      <circle cx="232" cy="244" r="7"/>
+      <text x="262" y="250">Goleta</text>
     </g>
     <g class="pin">
-      <circle cx="403.7" cy="240.2" r="6.5"/>
-      <text x="403.7" y="218.2" text-anchor="middle">Goleta</text>
+      <circle cx="232" cy="306" r="7"/>
+      <text x="262" y="312">Santa Barbara</text>
     </g>
     <g class="pin">
-      <circle cx="510.8" cy="250.5" r="6.5"/>
-      <text x="510.8" y="282.5" text-anchor="middle">Santa Barbara</text>
+      <circle cx="232" cy="368" r="7"/>
+      <text x="262" y="374">Montecito</text>
     </g>
     <g class="pin">
-      <circle cx="565.6" cy="239.5" r="6.5"/>
-      <text x="565.6" y="199.5" text-anchor="middle">Montecito</text>
+      <circle cx="232" cy="430" r="7"/>
+      <text x="262" y="436">Summerland</text>
     </g>
     <g class="pin">
-      <circle cx="594.6" cy="250.5" r="6.5"/>
-      <text x="594.6" y="302.5" text-anchor="middle">Summerland</text>
+      <circle cx="232" cy="492" r="7"/>
+      <text x="262" y="498">Carpinteria</text>
+    </g>
+    <text class="group" x="198" y="532" text-anchor="end">Ventura County</text>
+    <g class="pin">
+      <circle cx="232" cy="554" r="7"/>
+      <text x="262" y="560">Ojai</text>
     </g>
     <g class="pin">
-      <circle cx="660.2" cy="265.5" r="6.5"/>
-      <text x="660.2" y="297.5" text-anchor="middle">Carpinteria</text>
-    </g>
-    <g class="pin">
-      <circle cx="885.9" cy="232.0" r="6.5"/>
-      <text x="885.9" y="210.0" text-anchor="middle">Ojai</text>
-    </g>
-    <g class="pin">
-      <circle cx="900.0" cy="350.0" r="6.5"/>
-      <text x="900.0" y="382.0" text-anchor="middle">Ventura</text>
+      <circle cx="232" cy="616" r="7"/>
+      <text x="262" y="622">Ventura</text>
     </g>
 </svg>

@@ -309,6 +309,16 @@ Captions sit over photography with a gradient behind them.
   correct method is to set the text to `transparent`, screenshot, then
   sample the exact glyph boxes.
 
+
+### Life mosaic shape
+
+**⚠ Every slot is portrait on purpose.** All four source photos are 3:4.
+An earlier version used a 16:7 wide banner for the fourth slot, which kept
+only **34% of the image height** and cropped Todd and Melissa off at the
+chest. The layout is now two tall anchors (golf, Melissa) flanking a
+stacked pair (surf, kitchen). If you add a wide slot back, check what
+percentage of the source height survives before committing to it.
+
 ### Everything else
 
 All text/background pairs across all pages pass WCAG AA (4.5:1 normal,
@@ -434,6 +444,21 @@ issue pages drift out of sync.
 ---
 
 ## Content decisions worth preserving
+
+**⚠ The areas map is a list, not a projection.** `assets/area-map.svg` is
+generated as a vertical column — one row per town, pins on a shared axis,
+labels parallel, grouped under Santa Ynez Valley / South Coast / Ventura
+County. A geographically accurate horizontal version was built first and
+failed: the coastal towns sit within ~20 miles of each other, so Santa
+Barbara, Montecito, Summerland and Carpinteria overlapped no matter how the
+labels were staggered. The vertical form makes collisions impossible by
+construction. The group headings also handle the county problem below.
+
+**⚠ Some images bypass the standard slot ratio.** `.split__media` is 4:5,
+but the waving-at-the-door photo is 0.649 aspect and was losing 313px —
+his legs — to that crop. It uses `.split__media--tall`, which matches the
+source exactly. If a photo looks clipped, compare its aspect to the slot
+before reaching for a different crop anchor.
 
 **⚠ Service area language.** Todd works Los Olivos, Buellton, Santa Ynez,
 Goleta, Santa Barbara, Montecito, Summerland, Carpinteria, Ojai and
