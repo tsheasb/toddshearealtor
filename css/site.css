@@ -296,11 +296,12 @@ p { margin: 0 0 1.15rem; max-width: var(--measure); }
 }
 .site-footer__grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: clamp(2rem, 5vw, 4rem);
   align-items: start;
 }
-@media (max-width: 800px) { .site-footer__grid { grid-template-columns: 1fr; } }
+@media (max-width: 800px) { .site-footer__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .site-footer__grid { grid-template-columns: 1fr; } }
 
 .site-footer h4 { color: var(--bone-dim); }
 .site-footer__mark img { width: 220px; margin-bottom: 1.25rem; }
