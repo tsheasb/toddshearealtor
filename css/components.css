@@ -478,7 +478,7 @@
   .life__item--tall .life__media,
   .life__item--short .life__media { aspect-ratio: 4 / 5; }
 }
-.life__media img { width: 100%; height: 100%; object-fit: cover; }
+.life__media img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 
 .life__item figcaption {
   font-size: 0.82rem;
