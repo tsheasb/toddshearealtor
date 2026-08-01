@@ -1,51 +1,51 @@
 ---
-title: The SB Residency — Slim Pickings
-date: 2026-08-04
+title: The SB Residency: Slim Pickings
+date: 2026-08-05
 number: 1
-teaser: Santa Barbara inventory is down 23% year-over-year — here's what that means for buyers and sellers, plus three properties worth a look.
+teaser: Santa Barbara inventory is down 23% year-over-year. Here's what that means for buyers and sellers, plus three properties worth a look.
 hero: /assets/posts/2026-issue-01-slim-pickings-hero.jpg
-hero_alt: The SB Residency — Issue No. 001, Slim Pickings
+hero_alt: The SB Residency, Issue No. 001: Slim Pickings
 ---
 
-Santa Barbara just hit the mid-year mark, and the story isn't "hot" or "cold" — it's slim pickings. Active listings are down almost a quarter from a year ago, which is why we're calling this issue what it is. Fewer homes, faster sales, and buyers who show up ready to move. Here's what's actually happening on the ground, plus three places worth a second look.
+Santa Barbara just hit the mid-year mark, and the story isn't "hot" or "cold." It's slim pickings. Active listings are down almost a quarter from a year ago, which is why we're calling this issue what it is. Fewer homes, faster sales, and buyers who show up ready to move. Here's what's actually happening on the ground, plus three places worth a second look.
 
 ## The Nitty Gritty
 
 *This issue's market, by the numbers.*
 
-**Santa Barbara City — Single-Family Homes (June 2026, via FLEX MLS)**
+**Santa Barbara City, Single-Family Homes (June 2026, via FLEX MLS)**
 
-- Active listings: 201 — down 23.3% year-over-year (262 in June 2025)
-- Median sold price: $1,712,500 — down 6.2% year-over-year ($1,825,000 in June 2025), essentially flat to slightly softer, not a crash
-- Average days on market: 37.9 days — up 30.2% year-over-year (29.1 days in June 2025)
+- Active listings: 201, down 23.3% year-over-year (262 in June 2025)
+- Median sold price: $1,712,500, down 6.2% year-over-year ($1,825,000 in June 2025), essentially flat to slightly softer, not a crash
+- Average days on market: 37.9 days, up 30.2% year-over-year (29.1 days in June 2025)
 
-The read: inventory is the real story here. Down almost a quarter from a year ago, which is why homes are sitting a bit longer even as prices barely move — there's simply less to compete for. If you've been waiting for more choices to show up, they're not coming. If you've been sitting on the fence about listing, you're facing less competition than you were a year ago.
+The read: inventory is the real story here. Down almost a quarter from a year ago, which is why homes are sitting a bit longer even as prices barely move. There's simply less to compete for. If you've been waiting for more choices to show up, they're not coming. If you've been sitting on the fence about listing, you're facing less competition than you were a year ago.
 
-*Stats reflect single-family homes in the City of Santa Barbara only — not condos, not the wider county. We rotate through a different market each issue.*
+*Stats reflect single-family homes in the City of Santa Barbara only, not condos, not the wider county. We rotate through a different market each issue.*
 
 ## Window Shopping
 
 *Some listings that caught my eye this issue.*
 
-**3661 Sunset Drive, Santa Barbara — $2,995,000**
+**[3661 Sunset Drive, Santa Barbara](https://www.flexmls.com/share/EOPZx/3661-Sunset-Drive-SANTA-BARBARA-CA-93105): $2,995,000**
 
 ![3661 Sunset Drive San Roque Santa Barbara home for sale](https://cdn.resize.sparkplatform.com/sbr/2048x1600/true/20260728224352075241000000-o.jpg)
 
 San Roque single-level, fully reworked inside and out. French oak floors, a kitchen that means business, in-ceiling speakers, updated wiring and networking, and a backyard that got the same love as the interior. Quiet neighborhood, walkable, done right. 3 bed | 3 bath | 2,288 sqft | 0.21 acre. Listing courtesy of Aaron Gilles, Village Properties. (MLS #26-2513)
 
-**1249 Diana Lane, Santa Barbara — $3,175,000**
+**[1249 Diana Lane, Santa Barbara](https://www.flexmls.com/share/EOPbV/1249-Diana-Lane-SANTA-BARBARA-CA-93103): $3,175,000**
 
 ![1249 Diana Lane Santa Barbara home for sale](https://cdn.resize.sparkplatform.com/sbr/2048x1600/true/20260728154921286679000000-o.jpg)
 
-Compact footprint, big price — proof that in this market, location and finish beat square footage every time. 3 bed | 3 bath | 1,381 sqft | 0.17 acre. Listing courtesy of Pippa Davis, Compass. (MLS #26-2488)
+Compact footprint, big price: proof that in this market, location and finish beat square footage every time. 3 bed | 3 bath | 1,381 sqft | 0.17 acre. Listing courtesy of Pippa Davis, Compass. (MLS #26-2488)
 
-**1461–1463 Edgecliff Lane, Montecito — $58,500,000**
+**[1461-1463 Edgecliff Lane, Montecito](https://www.flexmls.com/share/EOPbx/1461-1463-Edgecliff-Lane-MONTECITO-CA-93108): $58,500,000**
 
 ![Montecito oceanfront estate 1461 Edgecliff Lane for sale](https://cdn.resize.sparkplatform.com/sbr/2048x1600/true/20260722203015915061000000-o.jpg)
 
-This one's not for browsing, it's for gawking. A gated, dual-parcel oceanfront compound with 195+ feet of Montecito coastline, four structures — main house, guest house, beach pavilion with a wellness center and art studio, plus a beach cottage — private access to Hammonds Beach, and a four-car garage, which on this stretch of coast is basically a unicorn. 9 bed | 11 bath | 8,934 sqft | 0.86 acre. Listing courtesy of Timothy Di Prizito, Christie's International RE SoCal. (MLS #26-2458)
+This one's not for browsing, it's for gawking. A gated, dual-parcel oceanfront compound with 195+ feet of Montecito coastline, four structures (main house, guest house, beach pavilion with a wellness center and art studio, plus a beach cottage), private access to Hammonds Beach, and a four-car garage, which on this stretch of coast is basically a unicorn. 9 bed | 11 bath | 8,934 sqft | 0.86 acre. Listing courtesy of Timothy Di Prizito, Christie's International RE SoCal. (MLS #26-2458)
 
-See something you like? Reach out and let's talk. Not my listings — sharing because they caught my eye. I'm happy to show you any of these or find something that fits even better.
+See something you like? Reach out and let's talk. Not my listings. Sharing because they caught my eye. I'm happy to show you any of these or find something that fits even better.
 
 ## This Issue's Vibe
 
@@ -71,20 +71,22 @@ Six quiet, contactless boutique rooms in downtown Carpinteria, just opened this 
 
 Everything we're listening to here in Santa Barbara, updated all the time. [Listen on Spotify](https://open.spotify.com/playlist/7gexMzDUJ3CiGideZIzdlg)
 
-On repeat this issue: *BLINK (Deluxe Edition)* — Bob Moses. Dropped July 10. Electronic, 14 tracks, exactly the record for a drive up the 101 with the windows down.
+On repeat this issue: *BLINK (Deluxe Edition)* by Bob Moses. Dropped July 10. Electronic, 14 tracks, exactly the record for a drive up the 101 with the windows down.
 
 **Currently Obsessed With: Claude AI**
 
-*Whatever's got my attention this cycle — tool, trend, or otherwise.*
+*Whatever's got my attention this cycle: tool, trend, or otherwise.*
 
-![Claude AI chat interface — Todd's actual setup](/assets/posts/2026-issue-01-claude-screenshot.png)
+![Claude AI chat interface, Todd's actual setup](/assets/posts/2026-issue-01-claude-screenshot.png)
 
-I've been deep in it the last couple weeks — rebuilt my website, built out a virtual assistant, set up an email checker, and yeah, this newsletter you're reading is part of it too. It's making me faster, more efficient, and more connected to my clients than I thought possible, without losing my voice in the process. If you're curious how any of it works, ask me next time we talk.
+I've been deep in it the last couple weeks. Rebuilt my website, built out a virtual assistant, set up an email checker, and yeah, this newsletter you're reading is part of it too. It's making me faster, more efficient, and more connected to my clients than I thought possible, without losing my voice in the process. If you're curious how any of it works, ask me next time we talk.
+
+And it's not just a smarter Google. If you don't know how to do something, it'll walk you through it step by step: screenshots, explanations, the works, like having a patient expert sitting next to you instead of a search bar spitting out ten blue links you have to sort through yourself. I've had it walk me through coding, which I had zero background in going in, one step at a time until it actually worked. Basically: if you can think it, you can try it. That's been the real shift for me, not just getting answers faster, but actually building things I had no business being able to build on my own.
 
 ## Ready When You Are
 
-*Buying, selling, or just curious what it's worth — I'm here.*
+*Buying, selling, or just curious what it's worth? I'm here.*
 
-Thinking about buying, selling, or just want to know what your place is worth in this market? Let's talk — no pressure. It's always worth the conversation.
+Thinking about buying, selling, or just want to know what your place is worth in this market? Let's talk. No pressure. It's always worth the conversation.
 
 [Get in touch →](/contact.html)
