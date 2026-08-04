@@ -304,7 +304,7 @@ def splice_issue_list(path, new_list):
         content = f.read()
 
     pattern = re.compile(
-        r'(<div class="issue-list" data-issue-list>)(.*?)(\n\s*</div>)',
+        r'(<div class="issue-list"[^>]*data-issue-list[^>]*>)(.*?)(\n\s*</div>)',
         re.DOTALL
     )
     if not pattern.search(content):
