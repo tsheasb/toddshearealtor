@@ -1,6 +1,6 @@
 ---
 title: The SB Residency: Slim Pickings
-date: 2026-08-05
+date: 2026-08-04
 number: 1
 teaser: Santa Barbara inventory is down 23% year-over-year. Here's what that means for buyers and sellers, plus three properties worth a look.
 hero: /assets/posts/2026-issue-01-slim-pickings-hero.jpg
