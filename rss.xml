@@ -8,7 +8,7 @@
     <atom:link href="https://toddshearealtor.com/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Every other week: the Santa Barbara market, three listings worth a look, and whatever's holding my attention.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Aug 2026 19:22:54 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2026 19:23:02 +0000</lastBuildDate>
     <item>
       <title>The SB Residency: Slim Pickings</title>
       <link>https://toddshearealtor.com/posts/slim-pickings.html</link>
@@ -61,31 +61,6 @@
 <p><em>Buying, selling, or just curious what it's worth? I'm here.</em></p>
 <p>Thinking about buying, selling, or just want to know what your place is worth in this market? Let's talk. No pressure. It's always worth the conversation.</p>
 <p><a href="/contact.html">Get in touch →</a></p>]]></content:encoded>
-    </item>
-    <item>
-      <title>Placeholder Issue Title</title>
-      <link>https://toddshearealtor.com/posts/placeholder-issue-01.html</link>
-      <guid isPermaLink="true">https://toddshearealtor.com/posts/placeholder-issue-01.html</guid>
-      <pubDate>Wed, 22 Jul 2026 00:00:00 +0000</pubDate>
-      <description>One-line teaser that shows on the hub page and in the RSS feed.</description>
-      <content:encoded><![CDATA[<p><img src="https://toddshearealtor.com/assets/posts/issue-01-hero.jpg" alt="Placeholder hero image description"></p>
-<p>Placeholder opening line. Short, confident, salty — the brand voice. One or two sentences that set up the issue.</p>
-<h2>The Nitty Gritty</h2>
-<p>Placeholder market stats section. Median price, days on market, inventory, whatever the numbers say that week.</p>
-<ul>
-<li>Placeholder stat one</li>
-<li>Placeholder stat two</li>
-<li>Placeholder stat three</li>
-</ul>
-<h2>Window Shopping</h2>
-<p>Placeholder intro to the three listings.</p>
-<p><strong>Placeholder Address One</strong> — Placeholder note about why it's worth a look. $0,000,000</p>
-<p><strong>Placeholder Address Two</strong> — Placeholder note. $0,000,000</p>
-<p><strong>Placeholder Address Three</strong> — Placeholder note. $0,000,000</p>
-<h2>This Issue's Vibe</h2>
-<p>Placeholder section. Following / listening / reading, condensed.</p>
-<h2>Ready When You Are</h2>
-<p>Placeholder call to action.</p>]]></content:encoded>
     </item>
   </channel>
 </rss>
