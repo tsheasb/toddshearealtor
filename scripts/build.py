@@ -51,7 +51,6 @@ def md_to_html(md):
 
     def inline(t):
         t = html.escape(t, quote=False)
-        t = re.sub(r"!\[([^\]]*)\]\(([^)]+)\)", r'<img src="\2" alt="\1" loading="lazy">', t)
         t = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', t)
         t = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", t)
         t = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", t)
@@ -305,7 +304,7 @@ def splice_issue_list(path, new_list):
         content = f.read()
 
     pattern = re.compile(
-        r'(<div class="issue-list"[^>]*>)(.*?)(\n\s*</div>)',
+        r'(<div class="issue-list" data-issue-list>)(.*?)(\n\s*</div>)',
         re.DOTALL
     )
     if not pattern.search(content):
