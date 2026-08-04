@@ -265,28 +265,13 @@ def render_rss(posts):
     items = []
     for p in posts:
         link = f"{SITE_URL}/posts/{p['slug']}.html"
-
-        # Hero image for the feed only. The live page already renders the hero
-        # via render_post(); here we inline it at the top of content:encoded so
-        # it flows into the Mailchimp RSS email. Must be an ABSOLUTE URL —
-        # relative /assets paths break in email clients.
-        feed_body = p["body_html"]
-        if p["hero"]:
-            hero_src = p["hero"]
-            if hero_src.startswith("/"):
-                hero_src = SITE_URL + hero_src
-            hero_img = (f'<img src="{html.escape(hero_src)}" '
-                        f'alt="{html.escape(p["hero_alt"])}" '
-                        f'style="width:100%;height:auto;margin:0 0 1.5rem;" />')
-            feed_body = hero_img + "\n" + feed_body
-
         items.append(f"""    <item>
       <title>{html.escape(p['title'])}</title>
       <link>{link}</link>
       <guid isPermaLink="true">{link}</guid>
       <pubDate>{format_datetime(p['date'])}</pubDate>
       <description>{html.escape(p['teaser'])}</description>
-      <content:encoded><![CDATA[{feed_body}]]></content:encoded>
+      <content:encoded><![CDATA[{p['body_html']}]]></content:encoded>
     </item>""")
 
     return f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -314,7 +299,7 @@ def splice_issue_list(path, new_list):
         content = f.read()
 
     pattern = re.compile(
-        r'(<div class="issue-list" data-issue-list[^>]*>)(.*?)(\n\s*</div>)',
+        r'(<div class="issue-list" data-issue-list>)(.*?)(\n\s*</div>)',
         re.DOTALL
     )
     if not pattern.search(content):
