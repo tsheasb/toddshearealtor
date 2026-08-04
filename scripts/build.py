@@ -266,13 +266,18 @@ def render_rss(posts):
     items = []
     for p in posts:
         link = f"{SITE_URL}/posts/{p['slug']}.html"
+        feed_body = p['body_html']
+        if p.get('hero'):
+            hero_img = (f'<p><img src="{SITE_URL}{html.escape(p["hero"])}" '
+                        f'alt="{html.escape(p.get("hero_alt", ""))}"></p>\n')
+            feed_body = hero_img + feed_body
         items.append(f"""    <item>
       <title>{html.escape(p['title'])}</title>
       <link>{link}</link>
       <guid isPermaLink="true">{link}</guid>
       <pubDate>{format_datetime(p['date'])}</pubDate>
       <description>{html.escape(p['teaser'])}</description>
-      <content:encoded><![CDATA[{p['body_html']}]]></content:encoded>
+      <content:encoded><![CDATA[{feed_body}]]></content:encoded>
     </item>""")
 
     return f"""<?xml version="1.0" encoding="UTF-8"?>
