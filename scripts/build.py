@@ -276,7 +276,7 @@ def render_rss(posts):
       <link>{link}</link>
       <guid isPermaLink="true">{link}</guid>
       <pubDate>{format_datetime(p['date'])}</pubDate>
-      <description><![CDATA[{feed_body}]]></description>
+      <description>{html.escape(p['teaser'])}</description>
       <content:encoded><![CDATA[{feed_body}]]></content:encoded>
     </item>""")
 
