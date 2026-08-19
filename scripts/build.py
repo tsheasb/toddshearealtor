@@ -266,7 +266,10 @@ def render_rss(posts):
     items = []
     for p in posts:
         link = f"{SITE_URL}/posts/{p['slug']}.html"
-        feed_body = p['body_html']
+        # Root-relative image paths (/assets/...) resolve fine on the site itself
+        # but have no origin to resolve against inside an email, so they must be
+        # made absolute here for the feed even though body_html keeps them relative.
+        feed_body = re.sub(r'src="(/[^"]*)"', f'src="{SITE_URL}\\1"', p['body_html'])
         if p.get('hero'):
             hero_img = (f'<p><img src="{SITE_URL}{html.escape(p["hero"])}" '
                         f'alt="{html.escape(p.get("hero_alt", ""))}"></p>\n')
