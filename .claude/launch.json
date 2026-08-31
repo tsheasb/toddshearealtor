@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "sb-residency-local",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8642", "--directory", "/Users/toddshea/Documents/toddshearealtor"],
+      "port": 8642
+    }
+  ]
+}
