@@ -55,9 +55,13 @@ See something you like? Reach out and let's talk. Not my listings. Sharing becau
 
 **Follow:** [@themulletsb](https://www.instagram.com/themulletsb/)
 
+![The Mullet cocktail bar sign Santa Barbara](/assets/posts/2026-issue-03-the-mullet.jpg)
+
 The Mullet, a cocktail bar with a name and a sign that doesn't take itself too seriously. Good drinks, better people-watching.
 
 **Follow:** [@neighborhoodbunker](https://www.instagram.com/neighborhoodbunker/)
+
+![Neighborhood Bunker home golf simulator setup](/assets/posts/2026-issue-03-neighborhood-bunker.jpg)
 
 A golf simulator setup that'll make you want to build one in your own garage. Fitting, since this issue's obsession lives in a closet, not a course.
 
