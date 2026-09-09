@@ -71,7 +71,7 @@ The Housing Authority of the City of Santa Barbara does the unglamorous, essenti
 
 Everything we're listening to here in Santa Barbara, updated all the time. [Listen on Spotify](https://open.spotify.com/playlist/7gexMzDUJ3CiGideZIzdlg)
 
-On repeat this issue: **Sugar Water** and **Late Nights**, two tracks that hit right for a slow evening at home.
+On repeat this issue: **Sugar Water** and **Late Nights**, both from **Vatos Tristes**. If you haven't come across them yet, they're an Elgin, Illinois band blending Midwest emo with Spanish hardcore and Latin influences (frontman Christian Cuellar calls it "Mexwestemo," which feels about right). The band started as a couple of guys jamming at community college and turned into a full lineup that's been packing rooms like Cobra Lounge and Lincoln Hall in Chicago. These two tracks are the ones I keep coming back to lately, good energy without being loud for the sake of being loud.
 
 **Currently Obsessed With: Camarones al Mojo de Ajo**
 
