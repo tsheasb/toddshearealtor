@@ -13,7 +13,7 @@ Santa Barbara isn't rushing anywhere, and neither should you. Here's what's actu
 
 *This issue's market, by the numbers.*
 
-**Santa Barbara City, Single-Family Homes**
+**Santa Barbara City, Single-Family Homes (August 10 to September 9, 2026, via FLEX MLS)**
 
 - Median close price: $1,865,000, up about 5% from the prior 30 days.
 - Median days on market: 23
