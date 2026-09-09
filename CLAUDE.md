@@ -66,22 +66,39 @@ that isn't reconstructable from first principles.
    - `<pubDate>` is well-formed.
 6. Commit and push to `main`.
 
-## Known bug already fixed in build.py — verify it stays fixed
+## RSS feed shape and the Mailchimp template's merge tags (corrected Aug 19, 2026)
 
-`render_rss()` in `scripts/build.py` must put the **full HTML body** (hero +
-all sections) into `<description>`, not a short teaser. This is because
-Mailchimp's RSS campaign template reads `*|RSSITEM:DESCRIPTION|*` for the
-main content merge tag, not `*|RSSITEM:CONTENT|*` (that tag does not reliably
-render the way you'd expect in this account's template).
+**Superseded note:** an earlier version of this section said `<description>`
+needed the full HTML body duplicated into it, and that the Mailchimp template
+should read `*|RSSITEM:DESCRIPTION|*` for the main content. That diagnosis
+was wrong and was itself the root cause of the Issue 02 (Aug 18, 2026) send
+bug — `RSSITEM:DESCRIPTION` isn't even a documented Mailchimp merge tag, and
+jamming full HTML into `<description>` also broke the inbox preview-text
+snippet, which reads from the same field.
 
-If you ever see `<description>` reverting to a short teaser while
-`<content:encoded>` has the full body, that's the exact bug that caused a
-broken send on Issue 02 (Aug 18, 2026). Fix it in `render_rss()`, never by
-hand-editing `rss.xml` after the fact.
+**Correct, current, live-verified setup:**
 
-`<content:encoded>` can stay as-is (full body, standard RSS convention) for
-any other RSS reader that might use it. `<description>` needs the same full
-HTML duplicated into it specifically for Mailchimp's template to work.
+- `render_rss()` in `scripts/build.py` keeps `<description>` as the **short
+  teaser** (`p['teaser']`) and puts the **full HTML body** in
+  `<content:encoded>`, standard RSS convention. Verify this stays this way —
+  don't let `<description>` grow the full body again.
+- The live Mailchimp campaign template (`a2fb321312`) uses
+  `*|RSSITEM:CONTENT_FULL|*` (full HTML, from `<content:encoded>`) for the
+  main content block, and `*|RSSITEM:CONTENT_TEXT|*` (short plain text, from
+  `<description>`) for the preheader/preview-text div. These are Mailchimp's
+  actual documented tags — see https://mailchimp.com/help/rss-merge-tags/.
+- Root-relative image paths (`/assets/...`) resolve fine on the live site but
+  have no origin to resolve against inside an email. `render_rss()` rewrites
+  `src="/..."` to absolute `SITE_URL` links specifically for the feed output
+  — this is separate from `body_html`, which stays relative for the website.
+- Known, deferred, cosmetic-only issue: `*|RSSITEM:PUBDATE:F j, Y|*` renders
+  one day earlier than the real `<pubDate>` (verified via live test sends on
+  Issues 02 and 03). Doesn't affect send timing, since Mailchimp's "is this
+  new" check isn't driven by that formatted display string. Not yet fixed.
+
+If you ever see `<description>` reverting to the full body, or the template
+reverting to `RSSITEM:DESCRIPTION`, that's a regression — fix it back to the
+setup above, never by hand-editing `rss.xml` or the live template ad hoc.
 
 ## Mailchimp merge tag format
 
