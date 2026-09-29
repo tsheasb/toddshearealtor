@@ -9,7 +9,9 @@ hero_alt: The SB Residency, Issue No. 005: Small Town, Small Sample
 
 This issue is all Carpinteria. Small town, small sample, and one story about why that matters before we get to the numbers.
 
-## Nitty Gritty
+## The Nitty Gritty
+
+*This issue's market, by the numbers.*
 
 **The story behind the title.** Carpinteria closed 21 homes in the last 60 days. That is not a lot of data, and it means one sale can rewrite the headline. Case in point: one single family home closed at $15.8M this window. Count it, and the median single family price looks up 5% from the prior 60 days. Leave it out, and the market is flat. Same town, same two months, two different stories. So I split the data at $5M and told you how many sales sit above it, instead of letting one big closing do the talking.
 
@@ -45,6 +47,8 @@ Condos moved faster than the prior 60 days (14 days versus 69) at a higher price
 
 ## Window Shopping
 
+*Some listings that caught my eye this issue.*
+
 Four listings this issue: two in Carpinteria, two in Santa Barbara, and one that is a little out there.
 
 **[74 Chase Drive, Santa Barbara: $2,549,000](https://www.flexmls.com/share/EfIaG/74-Chase-Drive-SANTA-BARBARA-CA-93108)**
@@ -67,31 +71,35 @@ Listing courtesy of Eric Haskell, The Agency (MLS #26-3249), and Trevor Wright, 
 4 bed, 2 bath, 1,758 sq ft on about 0.22 of an acre, built in 1953. Oceanfront, and a bedroom with corner windows onto the water.
 Listing courtesy of Gregg Leach, Village Properties. (MLS #26-3192)
 
-Quick note: none of the above are my listings, just four that caught my eye this issue. Full credit to the listing agents and offices named above.
+*Quick note: none of the above are my listings, just four that caught my eye this issue. Full credit to the listing agents and offices named above.*
 
 ## This Issue's Vibe
 
-Two Instagram follows this time.
+*Local adventurers, storytellers, eats & other must-follows.*
 
 [![Santa Barbara Bodhi Path flyer](/assets/posts/2026-issue-05-bodhi-path.jpg)](https://www.instagram.com/santabarbarabodhipath/)
 
-**Follow [@santabarbarabodhipath](https://www.instagram.com/santabarbarabodhipath/).** A Buddhist center right here in Santa Barbara that hosts teachings and discussions. Worth a look if you are curious about the practice, or just want a calmer corner of your feed.
+**Follow:** [@santabarbarabodhipath](https://www.instagram.com/santabarbarabodhipath/) A Buddhist center right here in Santa Barbara that hosts teachings and discussions. Worth a look if you are curious about the practice, or just want a calmer corner of your feed.
 
 [![State of Mind Cafe: what it is](/assets/posts/2026-issue-05-state-of-mind-cafe.jpg)](https://www.instagram.com/stateofmind.sb/)
 
-**Follow [@stateofmind.sb](https://www.instagram.com/stateofmind.sb/).** A nonprofit cafe planned for downtown Santa Barbara, designed with and for the disability community. It plans to hire people with disabilities, host an arts hub with free space for local artists of all abilities, and put its profits back into local nonprofits. The target opening is December. Good one to know about early. More at [stateofmindcafe.com](https://stateofmindcafe.com).
+**Follow:** [@stateofmind.sb](https://www.instagram.com/stateofmind.sb/) A nonprofit cafe planned for downtown Santa Barbara, designed with and for the disability community. It plans to hire people with disabilities, host an arts hub with free space for local artists of all abilities, and put its profits back into local nonprofits. The target opening is December. Good one to know about early. More at [stateofmindcafe.com](https://stateofmindcafe.com).
 
-## House Radio
+**House Radio**
 
-**Featured this issue: StigBar.**
-
-Found them in a surf video while I was working, and I haven't stopped listening. It's a California beach sound that will have you grabbing your surfboard and beach gear and heading to your local surf break. Start with "Burning," then play "Something I Should Tell You."
+*The soundtrack to the SB Residency, updated all the time.*
 
 [![House Radio on Spotify](/assets/posts/2026-issue-05-house-radio-cover.jpg)](https://open.spotify.com/playlist/7gexMzDUJ3CiGideZIzdlg)
 
-[Listen to the House Radio playlist on Spotify](https://open.spotify.com/playlist/7gexMzDUJ3CiGideZIzdlg)
+Everything we're listening to here in Santa Barbara, updated all the time.
 
-## Currently Obsessed With: Crystal Cove
+*On repeat this issue:* StigBar. Found them in a surf video while I was working, and I haven't stopped listening. It's a California beach sound that will have you grabbing your surfboard and beach gear and heading to your local surf break. Start with "Burning," then play "Something I Should Tell You."
+
+[Listen on Spotify](https://open.spotify.com/playlist/7gexMzDUJ3CiGideZIzdlg)
+
+**Currently Obsessed With: Crystal Cove**
+
+*Whatever's got my attention this cycle, tool, trend, or otherwise.*
 
 We were down in Newport Beach for a family trip, celebrating my mom's birthday. My parents came up from San Diego, my brother and his family joined us, and Newport was a good place to meet in the middle. We stayed at Marriott's Newport Coast Villas, and on morning walks by myself and my brother and his wife, we stumbled upon a hidden gem called Crystal Cove.
 
@@ -111,6 +119,8 @@ Booking is challenging, and I will not pretend otherwise. But that is true of an
 - Per the Conservancy's site as of September 2026, dorm-style rooms run about $55 to $161 a night and standard cottages about $300 to $354 a night, sleeping 4 to 9. Rates vary by season and exclude the 10% Newport Beach transient occupancy tax.
 
 ## Ready When You Are
+
+*Buying, selling, or just curious what it's worth? I'm here.*
 
 Thinking about Carpinteria, or anywhere on the South Coast? Let's talk.
 
