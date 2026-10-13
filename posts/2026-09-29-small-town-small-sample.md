@@ -1,5 +1,5 @@
 ---
-title: Small Town, Small Sample
+title: The SB Residency: Small Town, Small Sample
 date: 2026-09-29
 number: 5
 teaser: Carpinteria by the numbers, small sample and all: single family, condos, and four listings that caught my eye.
