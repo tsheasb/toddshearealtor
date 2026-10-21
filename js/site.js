@@ -142,7 +142,8 @@
   function say(el, msg, kind) {
     if (!el) return;
     el.textContent = msg;
-    el.style.color = kind === 'error' ? 'var(--asphalt)' : 'var(--bone)';
+    var onLight = !!el.closest('.paths__panel');
+    el.style.color = (kind === 'error' || onLight) ? 'var(--asphalt)' : 'var(--bone)';
   }
 
   function resetBtn(btn) {

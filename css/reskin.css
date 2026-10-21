@@ -515,3 +515,34 @@ h4 {
   .paths__panel { min-height: 0; }
 }
 #start { scroll-margin-top: 80px; }
+
+/* Start here, revised: one quiet block instead of two contrasting cards.
+   Both sides share the Paper tint, split by a single hairline. */
+.paths__grid { gap: 0; background: var(--paper); }
+.paths__panel--buy, .paths__panel--sell { background: transparent; color: var(--asphalt); }
+.paths__panel--buy h2 { color: var(--asphalt); }
+.paths__panel--buy p, .paths__panel--buy .eyebrow { color: var(--ink-soft); }
+.paths__panel + .paths__panel { border-left: 1px solid var(--rule); }
+.paths__panel--buy .capture { border-bottom-color: var(--asphalt); }
+.paths__panel--buy .capture input[type="email"] { color: var(--asphalt); }
+.paths__panel--buy .capture input[type="email"]::placeholder { color: var(--ink-soft); }
+.paths__panel--buy .capture .btn { color: var(--asphalt); }
+.paths__panel--buy .capture .btn:hover, .paths__panel--buy .capture .btn:focus-visible { color: var(--clay); }
+.paths__panel--buy .capture-note { color: var(--ink-soft); }
+@media (max-width: 820px) {
+  .paths__panel + .paths__panel { border-left: 0; border-top: 1px solid var(--rule); }
+}
+
+/* Start here buttons: clean outline at rest, Clay only on hover/focus. */
+.paths__panel .btn, .paths__panel .btn--clay {
+  background: transparent; border: 1px solid var(--asphalt); color: var(--asphalt);
+}
+.paths__panel .btn:hover, .paths__panel .btn:focus-visible,
+.paths__panel .btn--clay:hover, .paths__panel .btn--clay:focus-visible {
+  background: var(--clay); border-color: var(--clay); color: var(--bone);
+}
+/* The email sign-up keeps its text-style submit (it sits on the underline). */
+.paths__panel .capture .btn, .paths__panel .capture .btn:hover, .paths__panel .capture .btn:focus-visible {
+  background: transparent; border: 0;
+}
+.paths__panel .capture .btn:hover, .paths__panel .capture .btn:focus-visible { color: var(--clay); }
