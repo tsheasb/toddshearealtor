@@ -74,6 +74,16 @@ page head and from `scripts/build.py`, and restore the previous `index.html`.
 
 ---
 
+
+### Cache busting
+
+Every page links its CSS and JS with `?v=YYYYMMDDx` (for example
+`css/reskin.css?v=20261021b`). **After any CSS or JS change, bump that value on
+every page and in `scripts/build.py`, then rebuild.** Without it, browsers keep
+an old stylesheet and new markup shows up unstyled.
+
+---
+
 ## Who this site is for, and what it is deliberately not
 
 **⚠ decided.** Four competitor sites were reviewed at the start of this
