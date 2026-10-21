@@ -485,3 +485,33 @@ h4 {
 
 /* Meet Todd, under the life section copy */
 .who__cta { margin-top: 2rem; }
+
+/* ---------- Hero: clean, one quiet link down to "Start here" ---------- */
+.hero__start {
+  display: inline-block; color: var(--bone); text-decoration: none; font-weight: 500;
+  border-bottom: 1px solid rgba(244,241,232,.6); padding-bottom: 4px; font-size: 1.05rem;
+}
+.hero__start:hover, .hero__start:focus-visible { color: var(--bone); border-color: var(--clay); }
+
+/* ---------- Start here: buying / selling ---------- */
+.paths__eyebrow { margin-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+.paths__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(0.75rem, 1.5vw, 1.25rem); }
+.paths__panel {
+  display: flex; flex-direction: column; gap: 1.25rem;
+  padding: clamp(2rem, 5vw, 4.5rem); min-height: clamp(380px, 46vh, 520px);
+}
+.paths__panel h2 { margin: 0; font-size: clamp(2rem, 3.6vw, 3.2rem); }
+.paths__panel p { margin: 0; max-width: 40ch; }
+.paths__panel .eyebrow { margin: 0; }
+.paths__form, .paths__action { margin-top: auto; padding-top: 1rem; }
+.paths__panel--buy { background: var(--asphalt); color: var(--bone); }
+.paths__panel--buy h2 { color: var(--bone); }
+.paths__panel--buy p, .paths__panel--buy .eyebrow { color: var(--bone-soft); }
+.paths__panel--buy .capture-note { color: rgba(244,241,232,.7); }
+.paths__panel--sell { background: var(--paper); }
+.paths__panel--sell p { color: var(--ink-soft); }
+@media (max-width: 820px) {
+  .paths__grid { grid-template-columns: minmax(0, 1fr); }
+  .paths__panel { min-height: 0; }
+}
+#start { scroll-margin-top: 80px; }

@@ -60,10 +60,7 @@
         <h1>Live life<br>on vacation.</h1>
         <div>
           <p class="hero__lede">It isn't just a motto &mdash; it's the mindset Todd brings to every client, and the feeling you'll have living here in Santa Barbara.</p>
-          <div class="hero__actions">
-            <a class="btn btn--clay" href="#offmarket">Buying? Get off-market access &rarr;</a>
-            <a class="btn btn--onDark" href="/contact.html?interest=sell">Selling? Request a private valuation &rarr;</a>
-          </div>
+          <a class="hero__start" href="#start">Buying or selling? Start here &darr;</a>
         </div>
       </div>
     </div>
@@ -124,6 +121,37 @@
           <div><b>2023</b><span>President, SB Association of Realtors</span></div>
         </div>
         <p><a class="text-link" href="/about.html">The whole story</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- START HERE: two doors -->
+  <section class="section paths" id="start">
+    <div class="shell">
+      <p class="eyebrow paths__eyebrow">Start here</p>
+      <div class="paths__grid">
+        <div class="paths__panel paths__panel--buy" data-reveal>
+          <p class="eyebrow">Buying</p>
+          <h2>Get off&#8209;market access.</h2>
+          <p>Pocket listings, quiet sellers, and office exclusives across Santa Barbara County. One list. No noise.</p>
+          <div class="paths__form">
+            <form class="capture" data-capture="offmarket-start" novalidate>
+              <label class="hp" for="st-company">Company</label>
+              <input class="hp" type="text" id="st-company" name="company" tabindex="-1" autocomplete="off">
+              <label class="hp" for="st-email">Email address</label>
+              <input type="email" id="st-email" name="email" placeholder="you@email.com" required autocomplete="email">
+              <button class="btn" type="submit">Get on the list</button>
+            </form>
+            <p class="capture-status" data-capture-status role="status" aria-live="polite"></p>
+            <p class="capture-note">Off-market notices only. Unsubscribe any time.</p>
+          </div>
+        </div>
+        <div class="paths__panel paths__panel--sell" data-reveal data-reveal-delay="120">
+          <p class="eyebrow">Selling</p>
+          <h2>Request a private valuation.</h2>
+          <p>What your home could bring, priced from recent sales nearby and the buyers looking right now. Kept between us.</p>
+          <p class="paths__action"><a class="btn btn--clay" href="/contact.html?interest=sell">Request a private valuation &rarr;</a></p>
+        </div>
       </div>
     </div>
   </section>
