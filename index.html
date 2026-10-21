@@ -9,14 +9,17 @@
 <link rel="alternate" type="application/rss+xml" title="SB Residency" href="/rss.xml">
 <link rel="stylesheet" href="css/site.css">
 <link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="https://use.typekit.net/rta8wjb.css">
+<link rel="stylesheet" href="css/reskin.css">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header">
+<header class="site-header site-header--over" data-over-hero>
   <div class="shell site-header__inner">
     <a class="site-header__logo" href="/" aria-label="Todd Shea Real Estate — home">
-      <img src="/assets/shea-secondary-on-light.svg" alt="Todd Shea Real Estate">
+      <img class="logo-on-light" src="/assets/shea-secondary-on-light.svg" alt="Todd Shea Real Estate">
+      <img class="logo-on-dark" src="/assets/shea-secondary-on-dark.svg" alt="">
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav" aria-label="Main">
@@ -31,8 +34,8 @@
 
 <main id="main">
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- HERO: the doors open on the view -->
+  <section class="hero hero--film">
     <div class="hero__media" data-parallax="0.18">
         <video class="hero__video"
                autoplay muted loop playsinline
@@ -49,45 +52,51 @@
         </picture>
       </div>
     <div class="hero__scrim"></div>
+    <div class="hero__door hero__door--l" aria-hidden="true"></div>
+    <div class="hero__door hero__door--r" aria-hidden="true"></div>
     <div class="hero__inner shell">
-      <div class="stripes" data-reveal><span></span><span></span></div>
-      <h1 data-words>Live life on vacation.</h1>
-      <p class="hero__lede" data-reveal data-reveal-delay="180">It isn't just a motto &mdash; it's the mindset Todd brings to every client, and the feeling you'll have living here in Santa Barbara.</p>
-      <div class="hero__actions" data-reveal data-reveal-delay="280">
-        <a class="btn btn--clay" href="#offmarket">Get off-market access</a>
-        <a class="btn btn--onDark" href="/about.html">Meet Todd</a>
+      <div class="hero__grid hero__rise">
+        <h1>Live life<br>on vacation.</h1>
+        <div>
+          <p class="hero__lede">It isn't just a motto &mdash; it's the mindset Todd brings to every client, and the feeling you'll have living here in Santa Barbara.</p>
+          <div class="hero__actions">
+            <a class="btn btn--clay" href="#offmarket">Get off-market access &rarr;</a>
+            <a class="btn btn--onDark" href="/about.html">Meet Todd</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- WHO -->
-  <section class="section section--tight life">
+  <section class="section who">
     <div class="shell">
-      <div class="section-head" data-reveal>
-        <div class="stripes"><span></span><span></span></div>
-        <p class="eyebrow">Who you're working with</p>
-        <h2>I don't work this market. I live in it.</h2>
+      <div class="who__grid">
+        <div class="who__type" data-reveal>
+          <p class="eyebrow">Who you're working with</p>
+          <h2>I don't work this market. <span class="who__accent">I live in it.</span></h2>
+          <p class="muted">Golf before the first showing, surf when the swell shows up, most nights at the cutting board, and two decades with Melissa.</p>
+        </div>
+        <figure class="bw bw--graded who__portrait" data-reveal data-reveal-delay="120">
+          <div class="bw__frame"><img src="/assets/life/melissa-palm.jpg" alt="Todd hugging Melissa against a palm tree on the beach" width="1717" height="2576" loading="lazy"></div>
+        </figure>
       </div>
-
-      <div class="life__mosaic">
-        <figure class="life__hero" data-reveal>
-          <div class="life__media"><img src="/assets/life/golf.jpg" alt="Todd Shea mid-swing on a Santa Barbara course" width="1000" height="1250" loading="lazy" data-scroll-scale></div>
-          <figcaption><span class="life__label">Golf</span>Tee time before the first showing.</figcaption>
+      <div class="who__strip">
+        <figure class="bw" data-reveal data-reveal-delay="0">
+          <div class="bw__frame z-golf"><img src="/assets/life/golf.jpg" alt="Todd Shea mid-swing on a Santa Barbara course" width="1000" height="1533" loading="lazy"></div>
+          <figcaption><span class="label">Golf</span></figcaption>
         </figure>
-
-        <figure class="life__cell" data-reveal data-reveal-delay="110">
-          <div class="life__media"><img src="/assets/life/surf.jpg" alt="Todd Shea walking into the water with a board" width="1000" height="1250" loading="lazy" data-scroll-scale></div>
-          <figcaption><span class="life__label">Water</span>Surf, sand, sun.</figcaption>
+        <figure class="bw" data-reveal data-reveal-delay="90">
+          <div class="bw__frame z-surf"><img src="/assets/life/surf.jpg" alt="Todd Shea walking into the water with a board" width="1000" height="1250" loading="lazy"></div>
+          <figcaption><span class="label">Water</span></figcaption>
         </figure>
-
-        <figure class="life__cell" data-reveal data-reveal-delay="220">
-          <div class="life__media"><img src="/assets/life/cooking.jpg" alt="Todd Shea cooking at home" width="1000" height="1250" loading="lazy" data-scroll-scale></div>
-          <figcaption><span class="life__label">Kitchen</span>Most nights end at the cutting board.</figcaption>
+        <figure class="bw" data-reveal data-reveal-delay="180">
+          <div class="bw__frame z-cook"><img src="/assets/life/cooking.jpg" alt="Todd Shea cooking at home" width="1000" height="1250" loading="lazy"></div>
+          <figcaption><span class="label">Kitchen</span></figcaption>
         </figure>
-
-        <figure class="life__cell" data-reveal data-reveal-delay="330">
-          <div class="life__media"><img src="/assets/life/melissa.jpg" alt="Todd and Melissa Shea on the beach at sunset" width="1000" height="1533" loading="lazy" data-scroll-scale></div>
-          <figcaption><span class="life__label">Home</span>Two decades with Melissa.</figcaption>
+        <figure class="bw who__wide" data-reveal data-reveal-delay="270">
+          <div class="bw__frame"><img src="/assets/life/toast-wide.jpg" alt="The Santa Barbara Association of Realtors membership raising a toast to Todd Shea at his installation as 2023 President" width="1600" height="900" loading="lazy"></div>
+          <figcaption><span class="label">2023 &middot; SBAOR President</span></figcaption>
         </figure>
       </div>
     </div>
@@ -95,11 +104,10 @@
 
   <!-- POSITIONING -->
   <section class="section section--tint">
-    <div class="shell split">
-      <div class="split__media split__media--tall" data-reveal><img src="/assets/life/todd-door.jpg" alt="Todd Shea at the front door of a Santa Barbara listing" width="1000" height="1541" data-scroll-scale></div>
-      <div>
-        <div class="stripes"><span></span><span></span></div>
-        <p class="eyebrow eyebrow--clay">What this is</p>
+    <div class="shell pos__grid">
+      <div class="pos__media" data-reveal><img src="/assets/life/todd-door.jpg" alt="Todd Shea at the front door of a Santa Barbara listing" width="1000" height="1541" loading="lazy" data-scroll-scale></div>
+      <div class="pos__copy">
+        <p class="eyebrow">What this is</p>
         <h2>This is not where you browse houses.</h2>
         <p class="lede">The listings are everywhere. What they can't tell you is which block holds its
         value, which remodel was permitted, or which seller is actually ready to move.</p>
@@ -108,50 +116,53 @@
         <p class="muted">The other half is people. Working here since 2017, he knows the agents on the other
         side of most deals, and they know him. That's how a listing reaches the right buyer before it
         ever hits the market, and why his offers get a second look when they land.</p>
-        <p><a class="btn btn--blue" href="/about.html">The whole story</a></p>
+        <div class="pos__stats">
+          <div><b data-count="116">116</b><span>Closings</span></div>
+          <div><b>2017</b><span>In Santa Barbara since</span></div>
+          <div><b>2023</b><span>President, SB Association of Realtors</span></div>
+        </div>
+        <p><a class="text-link" href="/about.html">The whole story</a></p>
       </div>
     </div>
   </section>
 
-  <!-- RECENT WORK -->
-  <section class="section">
+  <!-- RECENT WORK: full-bleed -->
+  <section class="section sold">
+    <div class="shell sold__head" data-reveal>
+      <h2>A few that closed.</h2>
+      <p class="eyebrow">Recent work</p>
+    </div>
+    <a class="bleed" href="/testimonials.html">
+      <img src="/assets/work/palomino-ridge.jpg" alt="2800 Palomino Ridge Lane, Santa Barbara" loading="lazy" width="1600" height="1200">
+      <div class="bleed__copy shell">
+        <div><p class="eyebrow">Sold &middot; Represented seller</p><h3>2800 Palomino Ridge Lane</h3><small>Santa Barbara</small></div>
+        <span class="bleed__price">$2,255,000</span>
+      </div>
+    </a>
+    <a class="bleed" href="/testimonials.html">
+      <img src="/assets/work/conejo-road.jpg" alt="350 Conejo Road, Santa Barbara" loading="lazy" width="1600" height="1200">
+      <div class="bleed__copy shell">
+        <div><p class="eyebrow">Sold &middot; Represented seller</p><h3>350 Conejo Road</h3><small>Santa Barbara</small></div>
+        <span class="bleed__price">$2,100,000</span>
+      </div>
+    </a>
+    <a class="bleed" href="/testimonials.html">
+      <img src="/assets/work/ortega-hill.jpg" alt="2176 Ortega Hill Road, Summerland" loading="lazy" width="1600" height="1200">
+      <div class="bleed__copy shell">
+        <div><p class="eyebrow">Sold &middot; Represented seller</p><h3>2176 Ortega Hill Road</h3><small>Summerland</small></div>
+        <span class="bleed__price">$2,040,000</span>
+      </div>
+    </a>
     <div class="shell">
-      <div class="section-head" data-reveal>
-        <div class="stripes"><span></span><span></span></div>
-        <p class="eyebrow">Recent work</p>
-        <h2>A few that closed</h2>
-      </div>
-      <div class="work">
-        <a class="work__card" href="#" data-reveal data-reveal-delay="0">
-          <div class="work__media"><img src="/assets/work/palomino-ridge.jpg" alt="2800 Palomino Ridge Lane, Santa Barbara" data-scroll-scale loading="lazy" width="1600" height="1200"></div>
-          <div class="work__tag">Sold &middot; Represented seller</div>
-          <div class="work__title">2800 Palomino Ridge Lane</div>
-          <div class="work__meta">Santa Barbara &middot; $2,255,000</div>
-        </a>
-        <a class="work__card" href="#" data-reveal data-reveal-delay="130">
-          <div class="work__media"><img src="/assets/work/conejo-road.jpg" alt="350 Conejo Road, Santa Barbara" data-scroll-scale loading="lazy" width="1600" height="1200"></div>
-          <div class="work__tag">Sold &middot; Represented seller</div>
-          <div class="work__title">350 Conejo Road</div>
-          <div class="work__meta">Santa Barbara &middot; $2,100,000</div>
-        </a>
-        <a class="work__card" href="#" data-reveal data-reveal-delay="260">
-          <div class="work__media"><img src="/assets/work/ortega-hill.jpg" alt="2176 Ortega Hill Road, Summerland" data-scroll-scale loading="lazy" width="1600" height="1200"></div>
-          <div class="work__tag">Sold &middot; Represented seller</div>
-          <div class="work__title">2176 Ortega Hill Road</div>
-          <div class="work__meta">Summerland &middot; $2,040,000</div>
-        </a>
-      </div>
       <p class="work__disclaimer">Properties may or may not be represented by the office/agent presenting
       this information. Based on information obtained from the MLS as of July 22, 2026.</p>
     </div>
   </section>
 
-  <!-- OFF-MARKET -->
   <!-- AREAS -->
   <section class="section section--tight areas">
     <div class="shell">
       <div class="section-head" data-reveal>
-        <div class="stripes"><span></span><span></span></div>
         <p class="eyebrow">Where</p>
         <h2>Ten towns, one coastline.</h2>
       </div>
@@ -161,10 +172,11 @@
     </div>
   </section>
 
+  <!-- OFF-MARKET -->
   <section class="section offmarket" id="offmarket">
     <div class="shell offmarket__inner" data-reveal>
       <div>
-        <div class="stripes"><span style="background:var(--bone)"></span><span style="background:var(--asphalt)"></span></div>
+        <p class="eyebrow">Off-market</p>
         <h2>The best ones never hit the MLS.</h2>
         <p>Pocket listings, quiet sellers, and office exclusives across Santa Barbara County. One list. No noise.</p>
       </div>
@@ -183,44 +195,25 @@
   </section>
 
   <!-- SB RESIDENCY TEASER -->
-  <section class="section">
+  <section class="section res-teaser">
     <div class="shell">
-      <div class="section-head" data-reveal>
-        <div class="stripes"><span></span><span></span></div>
+      <div class="res-head" data-reveal>
         <p class="eyebrow">Every other week</p>
         <h2>SB Residency</h2>
-        <p class="muted" style="max-width:52ch">Three listings worth a look, a few must-follows, and the thinking that keeps you in the know. Straight to your inbox every other week.</p>
+        <p>Three listings worth a look, a few must-follows, and the thinking that keeps you in the know. Straight to your inbox every other week.</p>
       </div>
       <div class="issue-list" data-issue-list data-reveal>
 
-        <a class="issue" href="/posts/endless-summer-montecito-edition.html">
-          <span class="issue__date">Oct 13, 2026</span>
+        <a class="issue" href="/posts/slim-pickings.html">
+          <span class="issue__date">Aug 4, 2026</span>
           <span>
-            <span class="issue__title">The SB Residency: Endless Summer, Montecito Edition</span>
-            <p class="issue__sub">Montecito by the numbers. Priced right, gone in a week. Priced hopeful, priced again. Plus three listings that caught my eye.</p>
+            <span class="issue__title">The SB Residency: Slim Pickings</span>
+            <p class="issue__sub">Santa Barbara inventory is down 23% year-over-year. Here&#x27;s what that means for buyers and sellers, plus three properties worth a look.</p>
           </span>
-          <span class="issue__no">No. 006</span>
-        </a>
-
-        <a class="issue" href="/posts/small-town-small-sample.html">
-          <span class="issue__date">Sep 29, 2026</span>
-          <span>
-            <span class="issue__title">The SB Residency: Small Town, Small Sample</span>
-            <p class="issue__sub">Carpinteria by the numbers, small sample and all: single family, condos, and four listings that caught my eye.</p>
-          </span>
-          <span class="issue__no">No. 005</span>
-        </a>
-
-        <a class="issue" href="/posts/steady-as-she-goes.html">
-          <span class="issue__date">Sep 15, 2026</span>
-          <span>
-            <span class="issue__title">The SB Residency: Steady as She Goes</span>
-            <p class="issue__sub">Santa Barbara City&#x27;s market holds its pace this issue, plus three listings worth a second look and a garlic shrimp dinner on repeat.</p>
-          </span>
-          <span class="issue__no">No. 004</span>
+          <span class="issue__no">No. 001</span>
         </a>
       </div>
-      <p style="margin-top:2rem"><a class="btn" href="/residency.html">All issues</a></p>
+      <p style="margin-top:2.5rem"><a class="text-link" href="/residency.html">All issues</a></p>
     </div>
   </section>
 

@@ -1,0 +1,449 @@
+/* ============================================================
+   RESKIN — October 2026
+   Loaded after site.css and components.css on every page. It overrides
+   type, buttons, and surfaces; it does not touch measured values (hero
+   scrim, BHHS clear space) or brand colours.
+
+   To roll the whole reskin back: remove the reskin.css <link> and the
+   Typekit <link> from each page head (and from scripts/build.py).
+
+   Direction, as decided with Todd:
+   - One family: Neue Haas Grotesk (Adobe Fonts kit rta8wjb).
+     Display cut for headlines, Text cut for everything else.
+   - Mixed case, regular weight, tight tracking. Uppercase only on
+     small labels and nav.
+   - No stripes or eyebrow stacks above headings.
+   - Bone and Asphalt carry the page. Clay is the one accent.
+     Gold and Shorebreak stay in the mark.
+   - Square corners, hairline rules, more space.
+   - Small text runs larger than before (13px labels minimum).
+   ============================================================ */
+
+:root {
+  --display: "neue-haas-grotesk-display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --text: "neue-haas-grotesk-text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --sans: var(--text);
+  --rule: rgba(22, 19, 17, 0.14);
+  --rule-dark: rgba(244, 241, 232, 0.16);
+  --bone-soft: rgba(244, 241, 232, 0.86);
+  --ink-soft: #5C554E;          /* 6.7:1 on Bone */
+  --paper: #EFEBE0;             /* tint of Bone */
+  --gutter: clamp(1rem, 5vw, 4.5rem);
+  --shell: 1320px;
+}
+
+body { font-family: var(--text); font-size: 18px; line-height: 1.6; }
+
+:focus-visible { outline: 1px solid var(--clay); outline-offset: 4px; }
+.section--dark :focus-visible, .section--panel :focus-visible, .hero :focus-visible,
+.site-footer :focus-visible, .offmarket :focus-visible { outline-color: var(--clay); }
+
+/* ---------- Type ---------- */
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 500;              /* Display 55 Roman */
+  text-transform: none;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(2.8rem, 7.6vw, 6.4rem); letter-spacing: -0.03em; line-height: 0.98; }
+h2 { font-size: clamp(2.1rem, 4.6vw, 4rem); letter-spacing: -0.03em; }
+h3 { font-family: var(--text); font-weight: 500; font-size: clamp(1.25rem, 1.9vw, 1.6rem); letter-spacing: -0.01em; line-height: 1.2; }
+h4 {
+  font-family: var(--text); font-weight: 500; font-size: 13px;
+  letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.4;
+}
+
+.lede { font-family: var(--text); font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.5; }
+.muted { color: var(--ink-soft); }
+.section--dark .muted, .section--panel .muted, .hero .muted,
+.offmarket .muted, .site-footer .muted { color: var(--bone-soft); }
+
+/* Eyebrows become quiet labels. No clay, no bold. */
+.eyebrow, .eyebrow--clay, .eyebrow--dim, .eyebrow--blue, .label {
+  font-family: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1.25rem;
+}
+.section--dark .eyebrow, .section--panel .eyebrow, .hero .eyebrow,
+.offmarket .eyebrow, .site-footer .eyebrow,
+.section--dark .label, .offmarket .label { color: var(--bone-soft); }
+
+/* The stripe device retires from the site chrome. It stays in the mark. */
+.stripes { display: none !important; }
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  font-family: var(--text);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  padding: 0.95rem 1.6rem;
+  border: 1px solid var(--asphalt);
+  border-radius: 0;
+  line-height: 1.2;
+}
+.btn--clay { background: var(--clay); border-color: var(--clay); color: var(--bone); }
+.btn--clay:hover, .btn--clay:focus-visible { background: #C24E28; border-color: #C24E28; color: var(--bone); }
+.btn--blue { background: transparent; border-color: var(--asphalt); color: var(--asphalt); }
+.btn--blue:hover, .btn--blue:focus-visible { background: var(--asphalt); color: var(--bone); }
+
+/* Over the hero: frosted glass, per Todd */
+.hero .btn--clay {
+  background: rgba(216, 90, 48, 0.42);
+  border-color: rgba(216, 90, 48, 0.9);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.hero .btn--clay:hover, .hero .btn--clay:focus-visible { background: rgba(216, 90, 48, 0.88); border-color: var(--clay); }
+.btn--onDark {
+  border-color: rgba(244, 241, 232, 0.7); color: var(--bone);
+  background: rgba(22, 19, 17, 0.18);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.btn--onDark:hover, .btn--onDark:focus-visible { background: rgba(244, 241, 232, 0.92); color: var(--asphalt); }
+
+/* Text link with an arrow, used where a full button is too loud */
+.text-link {
+  font-family: var(--text); font-weight: 500; text-decoration: none;
+  border-bottom: 1px solid currentColor; padding-bottom: 3px;
+  transition: color .2s, border-color .2s;
+}
+.text-link:hover, .text-link:focus-visible { color: var(--clay); border-color: var(--clay); }
+
+/* ---------- Header ---------- */
+
+.site-header { border-bottom: 1px solid var(--rule); }
+.site-header__inner { padding-block: 1.25rem; }
+.site-header__logo img { height: 40px; }
+.site-header__logo .logo-on-dark { display: none; }
+
+.nav a {
+  font-family: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+  border-bottom: 1px solid transparent;
+}
+.nav a[aria-current="page"] { color: var(--asphalt); border-bottom-color: var(--clay); }
+.nav-toggle {
+  font-family: var(--text); font-size: 13px; font-weight: 500; letter-spacing: 0.12em;
+  border: 1px solid var(--rule);
+}
+
+/* Homepage: header floats over the film, then settles to Bone on scroll.
+   Each state uses the logo file made for its background — on-dark over the
+   video, on-light on Bone. Never collapse these to one file (see README). */
+.site-header--over { position: fixed; left: 0; right: 0; top: 0; background: transparent; border-bottom-color: transparent;
+  transition: background-color .35s ease, border-color .35s ease; }
+.site-header--over .logo-on-dark { display: block; }
+.site-header--over .logo-on-light { display: none; }
+.site-header--over .nav a { color: var(--bone-soft); }
+.site-header--over .nav a:hover, .site-header--over .nav a:focus-visible,
+.site-header--over .nav a[aria-current="page"] { color: var(--bone); }
+.site-header--over .nav-toggle { color: var(--bone); border-color: rgba(244,241,232,.4); }
+
+.site-header--over[data-solid="true"] { background: var(--bone); border-bottom-color: var(--rule); }
+.site-header--over[data-solid="true"] .logo-on-dark { display: none; }
+.site-header--over[data-solid="true"] .logo-on-light { display: block; }
+.site-header--over[data-solid="true"] .nav a { color: var(--ink-soft); }
+.site-header--over[data-solid="true"] .nav a:hover,
+.site-header--over[data-solid="true"] .nav a[aria-current="page"] { color: var(--asphalt); }
+.site-header--over[data-solid="true"] .nav-toggle { color: var(--asphalt); border-color: var(--rule); }
+
+@media (max-width: 860px) {
+  .nav a { font-size: 15px; }
+  .site-header--over .nav a, .site-header--over .nav a[aria-current="page"] { color: var(--asphalt); }
+}
+
+/* ---------- Sections ---------- */
+
+.section { padding-block: clamp(5rem, 11vw, 10rem); }
+.section--tight { padding-block: clamp(3.5rem, 7vw, 6rem); }
+.section--tint { background: var(--paper); }
+.section-head { margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
+
+/* Page mastheads (Todd, Clients, Contact, legal pages) */
+.masthead { padding-block: clamp(4.5rem, 10vw, 8rem) clamp(2.5rem, 5vw, 4rem); }
+.masthead h1 { max-width: 16ch; }
+.masthead__lede { max-width: 48ch; margin-top: 1.5rem; }
+
+/* Split masthead — SB Residency hub */
+.masthead--split .shell {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 34ch);
+  gap: 1.5rem 3rem; align-items: end;
+}
+.masthead--split .shell::after { content: ""; grid-column: 1 / -1; height: 1px; background: var(--asphalt); margin-top: clamp(0.5rem, 2vw, 1.5rem); }
+.masthead--split h1 { font-size: clamp(3.4rem, 10vw, 8.6rem); line-height: 0.9; margin: 0; max-width: none; }
+.masthead--split .eyebrow { grid-column: 1 / -1; margin: 0; }
+.masthead--split .masthead__lede { margin: 0; font-size: 1.1rem; color: var(--ink-soft); }
+@media (max-width: 760px) { .masthead--split .shell { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Proof / credentials ---------- */
+
+.proof__item, .proof__item:nth-child(n) { border-top: 1px solid var(--rule) !important; padding-top: 1.25rem; }
+.section--dark .proof__item { border-top-color: var(--rule-dark) !important; }
+.proof__num { font-family: var(--display); font-weight: 500; letter-spacing: -0.02em; }
+.proof__label {
+  font-size: 0.95rem; font-weight: 400; letter-spacing: 0; text-transform: none;
+  color: var(--ink-soft); line-height: 1.45;
+}
+.proof h3 { margin-bottom: 0.6rem; }
+
+/* ---------- Figures and captions ---------- */
+
+.wide-figure figcaption, .life__item figcaption { font-size: 1rem; color: var(--ink-soft); }
+.section--dark .wide-figure figcaption { color: var(--bone-soft); }
+
+/* ---------- Off-market panel ----------
+   Moves from the blue panel to Asphalt so Clay stays the only accent.
+   Bone on Asphalt is 16.9:1; the softened Bone is ~13:1. */
+
+.offmarket { background: var(--asphalt); }
+.offmarket p { color: var(--bone-soft); }
+.offmarket h2 { color: var(--bone); }
+.capture { gap: 0; border-bottom: 1px solid rgba(244,241,232,.55); flex-wrap: nowrap; }
+.capture input[type="email"] {
+  font-family: var(--text); font-size: 1.05rem; border: 0; padding: 1rem 0; background: transparent;
+}
+.capture input[type="email"]::placeholder { color: rgba(244,241,232,0.55); }
+.capture input[type="email"]:focus-visible { outline: 1px solid var(--clay); outline-offset: 4px; }
+.capture .btn {
+  background: transparent; border: 0; color: var(--bone); padding: 1rem 0 1rem 1rem; white-space: nowrap;
+}
+.capture .btn::after { content: " \2192"; }
+.capture .btn:hover, .capture .btn:focus-visible { background: transparent; color: var(--clay); }
+.capture-note { font-size: 0.9rem; }
+.offmarket .capture-note { color: rgba(244,241,232,0.7); }
+.capture-status { font-size: 1rem; font-weight: 500; letter-spacing: 0; }
+
+/* ---------- Testimonials ---------- */
+
+.quote { border-bottom-color: var(--rule); }
+.quote__name { font-family: var(--display); font-size: clamp(1.4rem, 2.2vw, 1.9rem); font-weight: 500; letter-spacing: -0.01em; text-transform: none; }
+.quote__meta { font-size: 13px; font-weight: 500; letter-spacing: 0.12em; color: var(--ink-soft); }
+.quote__stars svg { fill: var(--clay); }
+.quote__toggle {
+  font-family: var(--text); font-size: 1rem; font-weight: 500; letter-spacing: 0; text-transform: none;
+  border-bottom: 1px solid var(--asphalt);
+}
+.quote__toggle:hover { color: var(--clay); border-color: var(--clay); }
+
+/* ---------- SB Residency issue list ---------- */
+
+.issue { border-bottom-color: var(--rule); grid-template-columns: 9.5rem minmax(0, 1fr) auto; }
+.issue:first-child { border-top-color: var(--rule); }
+.issue__date, .issue__no {
+  font-size: 1rem; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+.issue__title { font-family: var(--display); font-size: clamp(1.5rem, 2.6vw, 2.2rem); font-weight: 500; letter-spacing: -0.02em; text-transform: none; }
+.issue__sub { font-size: 1rem; color: var(--ink-soft); }
+.issue:hover, .issue:focus-visible { background: var(--paper); }
+
+/* Articles keep their layout; only the type family updates. */
+.article__meta { font-size: 13px; font-weight: 500; letter-spacing: 0.12em; color: var(--ink-soft); }
+.article h2 { letter-spacing: -0.01em; }
+
+/* ---------- Contact ---------- */
+
+.field label, .contact-direct__label {
+  font-size: 13px; font-weight: 500; letter-spacing: 0.12em; color: var(--ink-soft);
+}
+.field input, .field textarea, .field select {
+  font-family: var(--text); font-size: 1.05rem; border: 1px solid var(--rule); border-radius: 0;
+}
+.field input:focus-visible, .field textarea:focus-visible, .field select:focus-visible { outline: 1px solid var(--clay); }
+.consent { font-size: 0.95rem; color: var(--ink-soft); }
+.consent a { color: var(--asphalt); }
+.contact-direct__row { border-top-color: var(--rule); }
+.contact-direct__value { font-size: 1.2rem; }
+.contact-direct__value:hover, .contact-direct__value:focus-visible { color: var(--clay); }
+
+/* ---------- Links ---------- */
+
+.inline-link { text-decoration-color: var(--clay); text-decoration-thickness: 1px; }
+.inline-link:hover, .inline-link:focus-visible { color: var(--asphalt); text-decoration-color: currentColor; }
+.section--dark .inline-link, .hero .inline-link, .offmarket .inline-link { text-decoration-color: var(--clay); }
+.section--dark .inline-link:hover, .offmarket .inline-link:hover { color: var(--bone); }
+.ig-handle { font-size: 13px; font-weight: 500; letter-spacing: 0.12em; color: var(--bone-soft); }
+
+/* ---------- Legal documents ---------- */
+
+.legal-doc h2 {
+  font-family: var(--display); font-size: clamp(1.4rem, 2.6vw, 1.9rem); font-weight: 500;
+  letter-spacing: -0.01em; text-transform: none; border-bottom: 1px solid var(--rule);
+}
+.legal-doc h3 { font-family: var(--text); font-weight: 500; }
+.legal-doc p, .legal-doc li { font-size: 1.02rem; color: var(--ink-soft); }
+.legal-doc a { color: var(--asphalt); text-decoration-color: var(--clay); }
+.legal-doc .legal-doc__updated { font-size: 0.95rem; font-style: normal; }
+.legal-doc__sms { background: var(--paper); border-left: 1px solid var(--clay); }
+
+/* ---------- Footer ---------- */
+
+.site-footer { border-top: 0; padding-block: clamp(4rem, 8vw, 6rem) 2.5rem; }
+.site-footer h4 { color: var(--bone-soft); margin-bottom: 1.25rem; }
+.footer-links { gap: 0.8rem; }
+.footer-links a { font-size: 1rem; letter-spacing: 0; color: var(--bone-soft); }
+.legal { border-top-color: var(--rule-dark); font-size: 0.85rem; color: rgba(244,241,232,.72); }
+.legal__identity p { font-size: 0.95rem; }
+.legal__disclaimer { font-size: 0.82rem; line-height: 1.7; color: rgba(244,241,232,.72); }
+.legal__note { font-size: 0.82rem; }
+
+/* ============================================================
+   HOMEPAGE
+   ============================================================ */
+
+/* ---------- Hero ---------- */
+
+.hero--film { min-height: clamp(560px, 92vh, 980px); }
+.hero--film .hero__media img, .hero--film .hero__video {
+  filter: sepia(.22) saturate(.8) contrast(1.06) brightness(.95);
+}
+.hero--film::after {           /* film grain */
+  content: ""; position: absolute; inset: -50%; z-index: 1; pointer-events: none; opacity: .14; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grain 1.2s steps(6) infinite;
+}
+@keyframes grain { 0%{transform:translate(0,0)} 33%{transform:translate(-3%,2%)} 66%{transform:translate(2%,-3%)} 100%{transform:translate(0,0)} }
+
+.hero--film .hero__inner { z-index: 2; padding-block: clamp(3rem, 8vh, 5.5rem); }
+.hero--film .hero__grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 36ch);
+  align-items: end; gap: 2rem 3rem;
+}
+.hero--film h1 { margin: 0; max-width: 11ch; font-size: clamp(3rem, 8.6vw, 7.6rem); }
+.hero--film .hero__lede { font-size: clamp(1.05rem, 1.4vw, 1.15rem); margin-bottom: 1.75rem; max-width: none; }
+@media (max-width: 860px) { .hero--film .hero__grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* The doors: two Bone panels part to reveal the view, once, on load. */
+.hero__door {
+  position: absolute; top: 0; bottom: 0; width: 50.5%; z-index: 3; background: var(--bone);
+  animation: door-l 1.5s cubic-bezier(.7,0,.2,1) .3s forwards; pointer-events: none;
+}
+.hero__door--l { left: 0; }
+.hero__door--r { right: 0; animation-name: door-r; }
+.hero__door::after { content: ""; position: absolute; top: 0; bottom: 0; width: 1px; background: var(--rule); }
+.hero__door--l::after { right: 0; } .hero__door--r::after { left: 0; }
+@keyframes door-l { to { transform: translateX(-101%); visibility: hidden; } }
+@keyframes door-r { to { transform: translateX(101%); visibility: hidden; } }
+.hero__rise { opacity: 0; transform: translateY(14px); animation: rise 1s ease 1.3s forwards; }
+@keyframes rise { to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__door { display: none; }
+  .hero__rise { opacity: 1; transform: none; animation: none; }
+  .hero--film::after { animation: none; }
+}
+
+/* ---------- Who you're working with ---------- */
+
+.who__grid {
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(1.5rem, 5vw, 5rem); align-items: center;
+}
+.who__type h2 { font-size: clamp(2.8rem, 6.4vw, 6rem); line-height: 0.98; margin: 0; }
+.who__type .who__accent { color: var(--clay); display: block; }
+.who__type p { max-width: 40ch; margin-top: 1.75rem; font-size: 1.15rem; }
+.who__strip {
+  display: grid; grid-template-columns: 1fr 1fr 1fr 2fr;
+  gap: clamp(0.75rem, 1.6vw, 1.5rem); margin-top: clamp(3rem, 7vw, 7rem); align-items: end;
+}
+.who__strip figcaption { margin-top: 0.85rem; }
+.who__strip figcaption .label { margin: 0; color: var(--asphalt); }
+@media (max-width: 820px) {
+  .who__grid { grid-template-columns: minmax(0, 1fr); }
+  .who__strip { grid-template-columns: 1fr 1fr; }
+  .who__strip .who__wide { grid-column: 1 / -1; }
+}
+
+/* Black and white, graded to match the palm photo: bright, soft, lifted
+   blacks. Colour returns on hover. The palm photo arrives already graded. */
+.bw { margin: 0; }
+.bw .bw__frame { overflow: hidden; }
+.bw img { width: 100%; height: auto; display: block; object-fit: cover;
+  filter: grayscale(1) contrast(.85) brightness(1.3);
+  transition: filter .7s ease, transform 1.2s cubic-bezier(.2,.7,.2,1); }
+.bw:hover img, .bw:focus-within img { filter: none; }
+.bw--graded img, .bw--graded:hover img { filter: none; }
+.who__portrait img { aspect-ratio: 1717 / 2576; }
+.who__strip .bw img { aspect-ratio: 4 / 5; }
+.who__strip .who__wide img { aspect-ratio: 16 / 9; }
+/* Tighter crops on the three small photos */
+.z-golf img { transform: scale(1.55); transform-origin: 30% 14%; }
+.z-surf img { transform: scale(1.6);  transform-origin: 48% 58%; }
+.z-cook img { transform: scale(1.55); transform-origin: 46% 42%; }
+
+/* ---------- What this is ---------- */
+
+.pos__grid {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(2rem, 7vw, 7.5rem); align-items: center;
+}
+.pos__media { overflow: hidden; }
+.pos__media img { width: 100%; height: auto; aspect-ratio: 1075 / 1657; object-fit: cover; }
+.pos__copy { display: grid; gap: 1.5rem; max-width: 54ch; }
+.pos__copy h2, .pos__copy p, .pos__copy .eyebrow { margin: 0; }
+.pos__stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--rule); margin-top: 0.5rem; }
+.pos__stats div { padding: 1.25rem 1rem 0 0; }
+.pos__stats b { display: block; font-family: var(--display); font-weight: 500; font-size: clamp(2rem, 3.4vw, 2.9rem); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.pos__stats span { display: block; margin-top: 0.5rem; font-size: 0.95rem; color: var(--ink-soft); line-height: 1.4; }
+@media (max-width: 880px) { .pos__grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Sold: full-bleed ---------- */
+
+.sold { padding-bottom: clamp(3rem, 6vw, 5rem); }
+.sold__head { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; flex-wrap: wrap; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
+.sold__head h2, .sold__head .eyebrow { margin: 0; }
+.bleed { position: relative; display: block; height: clamp(420px, 82vh, 880px); overflow: hidden; color: var(--bone); text-decoration: none; margin-top: 6px; background: var(--panel); }
+.bleed img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.6s cubic-bezier(.2,.7,.2,1); }
+.bleed:hover img, .bleed:focus-visible img { transform: scale(1.025); }
+.bleed::after { content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(22,19,17,.66) 0%, rgba(22,19,17,.2) 34%, rgba(22,19,17,0) 58%); }
+.bleed__copy { position: absolute; left: 0; right: 0; bottom: clamp(1.5rem, 4vw, 3.5rem); z-index: 1;
+  display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; flex-wrap: wrap; }
+.bleed__copy .eyebrow { color: var(--bone-soft); margin: 0 0 0.6rem; }
+.bleed__copy h3 { font-family: var(--display); font-size: clamp(1.9rem, 3.8vw, 3.2rem); letter-spacing: -0.02em; color: var(--bone); margin: 0; }
+.bleed__copy small { display: block; margin-top: 0.4rem; font-size: 1.05rem; color: var(--bone-soft); }
+.bleed__price { font-size: clamp(1.15rem, 1.6vw, 1.4rem); font-variant-numeric: tabular-nums; }
+.sold .work__disclaimer { margin-top: 2.5rem; font-size: 0.85rem; color: var(--ink-soft); }
+
+/* ---------- SB Residency teaser ---------- */
+
+.res-head {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 34ch); gap: 1.5rem 3rem; align-items: end;
+  padding-bottom: clamp(2rem, 4vw, 3rem); border-bottom: 1px solid var(--asphalt); margin-bottom: 0;
+}
+.res-head .eyebrow { grid-column: 1 / -1; margin: 0; }
+.res-head h2 { font-size: clamp(3.2rem, 9vw, 8rem); line-height: 0.9; margin: 0; }
+.res-head p { margin: 0; color: var(--ink-soft); font-size: 1.1rem; }
+.res-teaser .issue-list .issue:first-child { border-top: 0; }
+@media (max-width: 760px) { .res-head { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Instagram ---------- */
+
+.ig-grid { gap: 6px; }
+.section--dark h2 { color: var(--bone); }
+
+/* Off-market grid children must be allowed to shrink, or the form's
+   flex basis pushes the page wider than a phone. */
+.offmarket__inner > * { min-width: 0; }
+.capture input[type="email"] { flex: 1 1 auto; min-width: 0; }
+
+@media (max-width: 720px) {
+  .issue { grid-template-columns: minmax(0, 1fr); gap: 0.4rem; }
+}
+@media (max-width: 820px) {
+  .who__strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.section--dark .ig-handle { color: var(--bone-soft); }
+.section--dark .ig-handle:hover, .section--dark .ig-handle:focus-visible { color: var(--clay); }

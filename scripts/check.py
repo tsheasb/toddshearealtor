@@ -49,7 +49,7 @@ def parse(c):
 
 
 PAGES = ['', 'about.html', 'testimonials.html', 'residency.html',
-         'contact.html', 'posts/placeholder-issue-01.html']
+         'contact.html', 'privacy.html', 'terms.html', 'posts/slim-pickings.html']
 
 allok = True
 with sync_playwright() as p:

@@ -38,6 +38,24 @@
     });
   }
 
+  /* ---------- Homepage header over the hero ----------
+     Transparent over the film, solid Bone once the hero has scrolled
+     past or the mobile menu is open. Each state shows its own logo file. */
+
+  var overHeader = document.querySelector('[data-over-hero]');
+  var heroEl = document.querySelector('.hero');
+  if (overHeader && heroEl) {
+    var setSolid = function () {
+      var menuOpen = nav && nav.getAttribute('data-open') === 'true';
+      var past = window.scrollY > heroEl.offsetHeight - overHeader.offsetHeight - 10;
+      overHeader.setAttribute('data-solid', String(past || menuOpen));
+    };
+    window.addEventListener('scroll', setSolid, { passive: true });
+    window.addEventListener('resize', setSolid);
+    if (toggle) toggle.addEventListener('click', function () { setTimeout(setSolid, 0); });
+    setSolid();
+  }
+
   /* ---------- Testimonial expand / collapse ---------- */
 
   document.querySelectorAll('[data-quote-toggle]').forEach(function (btn) {

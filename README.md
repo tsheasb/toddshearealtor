@@ -46,6 +46,34 @@ CNAME                 toddshearealtor.com
 
 ---
 
+## Reskin — October 2026
+
+**⚠ decided.** The site was reskinned so it reads as a custom luxury site rather than a template.
+All of it lives in `css/reskin.css`, loaded after `site.css` and `components.css`, plus the Adobe
+Fonts kit `rta8wjb` (Neue Haas Grotesk Display + Text; domains: toddshearealtor.com, www,
+tsheasb.github.io, localhost, 127.0.0.1). **To roll back,** remove those two `<link>` tags from each
+page head and from `scripts/build.py`, and restore the previous `index.html`.
+
+- One family, mixed case, regular weight. Uppercase only on 13px labels and nav.
+- Stripes and eyebrow stacks are hidden site-wide. The brand-sheet rule "Helvetica Bold, all caps"
+  is superseded for the website by this decision.
+- Clay is the single accent. The off-market panel moved from Deep Shorebreak to Asphalt.
+- Minimum small-text size is 13px; captions and footer text run at ~16px.
+- Homepage: header floats over the hero (on-dark logo) and turns solid Bone (on-light logo) past
+  the hero; both files are in the markup, never one. Bone "doors" part on load (skipped for
+  reduced motion). Hero copy and buttons are the original wording; buttons are frosted glass.
+- Life section: palm portrait (`assets/life/melissa-palm.jpg`, already graded by the photographer)
+  opposite the headline, with a strip of golf / water / kitchen / SBAOR toast below. The strip is
+  black and white, graded to match the palm photo, and returns to colour on hover.
+- Sold homes run full-bleed (Hamilton Co. reference). **Source photos are 1600px wide — replace
+  with 2400px+ originals.**
+- **The homepage now carries a three-stat strip** (116 closings / since 2017 / 2023 President) in
+  "What this is". This reverses the earlier "stats live on the Todd page" rule below; Todd approved
+  it in the mockup. Remove the `.pos__stats` block to go back.
+- Pending from Todd: a 12–15s hero cut from the bio film, better life photos, 2400px sold photos.
+
+---
+
 ## Who this site is for, and what it is deliberately not
 
 **⚠ decided.** Four competitor sites were reviewed at the start of this
