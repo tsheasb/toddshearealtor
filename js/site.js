@@ -56,6 +56,18 @@
     setSolid();
   }
 
+  /* ---------- Contact form: preselect "I'm looking to" ----------
+     Links like /contact.html?interest=sell (the homepage seller button)
+     arrive with the matching option already chosen. */
+
+  var interestSelect = document.getElementById('c-interest');
+  if (interestSelect) {
+    var wanted = new URLSearchParams(window.location.search).get('interest');
+    if (wanted && interestSelect.querySelector('option[value="' + wanted + '"]')) {
+      interestSelect.value = wanted;
+    }
+  }
+
   /* ---------- Testimonial expand / collapse ---------- */
 
   document.querySelectorAll('[data-quote-toggle]').forEach(function (btn) {

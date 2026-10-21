@@ -132,6 +132,7 @@ SHELL_HEADER = """<header class="site-header">
       <a href="/testimonials.html">Clients</a>
       <a href="/residency.html" aria-current="page">SB Residency</a>
       <a href="/contact.html">Contact</a>
+      <a class="nav__phone" href="sms:8054537730" aria-label="Text Todd at 805-453-7730"><span class="nav__phone-label">Text Todd &middot; </span>805-453-7730</a>
     </nav>
   </div>
 </header>"""

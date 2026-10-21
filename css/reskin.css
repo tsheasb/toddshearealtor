@@ -460,3 +460,28 @@ h4 {
 .room--bleed { padding-top: 0; }
 .room__bleed { height: clamp(380px, 72vh, 820px); overflow: hidden; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
 .room__bleed img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+
+/* ---------- Header phone: "Text Todd" ----------
+   Sits at the end of the nav. Full label on wide screens, number only on
+   mid-size screens, and a normal row inside the mobile menu. */
+.nav .nav__phone {
+  margin-left: clamp(0.5rem, 1.5vw, 1.25rem);
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--rule);
+  color: var(--asphalt);
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+.nav .nav__phone:hover, .nav .nav__phone:focus-visible { border-color: var(--clay); color: var(--clay); }
+.site-header--over .nav .nav__phone { color: var(--bone); border-color: rgba(244,241,232,.45); }
+.site-header--over[data-solid="true"] .nav .nav__phone { color: var(--asphalt); border-color: var(--rule); }
+@media (max-width: 1180px) { .nav__phone-label { display: none; } }
+@media (max-width: 860px) {
+  .nav .nav__phone, .site-header--over .nav .nav__phone {
+    margin: 0.75rem 0 0; border: 1px solid var(--rule); color: var(--asphalt); text-align: center;
+  }
+  .nav__phone-label { display: inline; }
+}
+
+/* Meet Todd, under the life section copy */
+.who__cta { margin-top: 2rem; }
