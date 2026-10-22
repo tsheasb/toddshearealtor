@@ -63,7 +63,7 @@ Same format every issue, content swapped in:
 **Primary post — 30–45 second vertical video.** Todd on camera, same setup each time. One hook (the standout Nitty Gritty stat), a quick tease of one Window Shopping listing, "full issue's live, link in bio."
 
 **Secondary post — carousel, fixed slide order:**
-1. Hero card (issue name/number)
+1. Hero photo (no text; the title and number are generated).
 2. Key stat, big and bold
 3–5. The three Window Shopping photos with price
 6. CTA: "Full issue — link in bio"

@@ -546,3 +546,60 @@ h4 {
   background: transparent; border: 0;
 }
 .paths__panel .capture .btn:hover, .paths__panel .capture .btn:focus-visible { color: var(--clay); }
+
+/* ---------- SB Residency issue pages (reskin, Oct 2026) ----------
+   Append to the end of css/reskin.css.
+   Keys: Neue Haas type, full-bleed photo hero, Bone/Asphalt with Clay as the one accent.
+   Square corners, hairline rules. No stripes, no eyebrow stacks. */
+
+.issue-head { padding-block: clamp(2.5rem, 7vw, 5rem) clamp(1.75rem, 4vw, 2.75rem); }
+.issue-head__meta {
+  font-family: var(--text); font-size: 13px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft);
+  margin: 0 0 1.25rem;
+}
+.issue-head h1 { font-size: clamp(2.6rem, 6.4vw, 5.6rem); max-width: 14ch; margin: 0 0 1.25rem; }
+.issue-head__teaser { font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.5; color: var(--ink-soft); max-width: 46ch; margin: 0; }
+
+/* Full bleed: edge to edge at the photo's natural shape, no crop, no text baked in */
+.issue-hero { margin: 0 0 clamp(2.75rem, 6vw, 4.5rem); }
+.issue-hero img {
+  display: block; width: 100%;
+  height: auto;            /* full width, never cropped: the photo keeps its own shape */
+  border-radius: 0;
+}
+
+/* Body */
+.article p img { border-radius: 0; }
+.article { max-width: 68ch; }
+.article h2 {
+  font-family: var(--display); font-weight: 500; text-transform: none;
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem); letter-spacing: -0.02em; line-height: 1.05;
+  border-top: 1px solid var(--rule); padding-top: clamp(1.75rem, 4vw, 2.5rem);
+  margin: clamp(3rem, 7vw, 4.5rem) 0 0.6rem;
+}
+.article h2:first-of-type { margin-top: 0; }
+.article h2 + p em:only-child { color: var(--ink-soft); font-style: normal; font-size: 15px; }
+/* Issue 07+: every landscape photo in the body runs full bleed at its natural shape, like the hero.
+   Scoped to .article--bleed so Issues 01 to 06 keep their framed photos. */
+main { overflow-x: clip; }
+.article--bleed p img {
+  display: block;
+  width: 100vw; max-width: none;
+  margin: clamp(1.5rem, 4vw, 2.75rem) 0 clamp(1.25rem, 3vw, 2rem) calc(50% - 50vw);
+  height: auto;            /* full width at the photo's own aspect ratio, no cropping */
+  border-radius: 0;
+}
+.article a { color: var(--asphalt); text-decoration: underline; text-decoration-color: var(--clay); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+.article a:hover, .article a:focus-visible { color: var(--clay); }
+.article strong { font-weight: 600; }
+.article__signoff { border-top: 1px solid var(--rule); margin-top: clamp(3rem, 7vw, 4.5rem); padding-top: 1.5rem; }
+
+/* Exceptions: portrait photos and square graphics stay in the column at their natural shape.
+   Name the file with "-inset" (or it's the House Radio cover) and it opts out of full bleed. */
+.article--bleed p img[src*="-inset"],
+.article--bleed p img[src*="house-radio-cover"] {
+  width: 100%; max-width: 32rem;
+  height: auto; object-fit: initial;
+  margin: clamp(1.25rem, 3vw, 2rem) 0;
+}

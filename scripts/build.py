@@ -12,6 +12,7 @@ Usage:  python3 scripts/build.py
 
 import os
 import re
+import sys
 import html
 import glob
 from datetime import datetime, timezone
@@ -21,7 +22,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 POSTS_DIR = os.path.join(ROOT, "posts")
 
 SITE_URL = "https://toddshearealtor.com"
-SITE_TITLE = "SB Residency — Todd Shea Real Estate"
+SITE_TITLE = "SB Residency | Todd Shea Real Estate"
 SITE_DESC = ("Every other week: the Santa Barbara market, three listings worth a look, "
              "and whatever's holding my attention.")
 
@@ -191,13 +192,13 @@ SHELL_FOOTER = """<footer class="site-footer">
 </footer>"""
 
 
-def render_post(post):
+def render_post_legacy(post):
     hero = ""
     if post["hero"]:
         hero = (f'<div class="article__hero"><img src="{html.escape(post["hero"])}" '
                 f'alt="{html.escape(post["hero_alt"])}"></div>')
     else:
-        hero = '<div class="article__hero ph" data-ph="Issue hero — 1600×900"></div>'
+        hero = '<div class="article__hero ph" data-ph="Issue hero, 2400x1600 photo"></div>'
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -247,6 +248,67 @@ def render_post(post):
 """
 
 
+def render_post(post):
+    return render_post_v2(post) if post["number"] >= 7 else render_post_legacy(post)
+
+
+def render_post_v2(post):
+    """Reskin layout: title block, full-bleed photo hero, article. No stripes."""
+    hero = ""
+    if post["hero"]:
+        hero = (f'  <figure class="issue-hero"><img src="{html.escape(post["hero"])}" '
+                f'alt="{html.escape(post["hero_alt"])}"></figure>\n')
+    date = post["date"].strftime("%B %-d, %Y")
+    title = post["title"].replace("The SB Residency: ", "")
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{html.escape(post['title'])} | SB Residency</title>
+<meta name="description" content="{html.escape(post['teaser'])}">
+<link rel="icon" href="/assets/shea-mark-on-dark-128.png">
+<link rel="alternate" type="application/rss+xml" title="SB Residency" href="/rss.xml">
+<link rel="stylesheet" href="/css/site.css?v=20261022a">
+<link rel="stylesheet" href="/css/components.css?v=20261022a">
+<link rel="stylesheet" href="https://use.typekit.net/rta8wjb.css">
+<link rel="stylesheet" href="/css/reskin.css?v=20261022a">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+{SHELL_HEADER}
+
+<main id="main">
+<article>
+  <header class="issue-head shell">
+    <p class="issue-head__meta">SB Residency · No. {post['number']:03d} · {date}</p>
+    <h1>{html.escape(title)}</h1>
+    <p class="issue-head__teaser">{html.escape(post['teaser'])}</p>
+  </header>
+{hero}  <div class="shell">
+    <div class="article article--bleed" data-reveal>
+      {post['body_html']}
+      <div class="article__signoff">
+        <p class="muted" style="font-size:0.95rem">Live On Vacation | The Vibe is Right | Made in Santa Barbara<br>
+        Todd Shea · Santa Barbara ·
+        <a href="/residency.html">All issues</a> ·
+        <a href="/rss.xml">RSS</a></p>
+      </div>
+    </div>
+  </div>
+</article>
+</main>
+
+{SHELL_FOOTER}
+
+<script src="/js/site.js?v=20261022a"></script>
+<script src="/js/motion.js?v=20261022a"></script>
+</body>
+</html>
+"""
+
+
 def render_issue_list(posts, limit=None):
     items = posts[:limit] if limit else posts
     rows = []
@@ -264,6 +326,18 @@ def render_issue_list(posts, limit=None):
     return "\n\n".join(rows)
 
 
+def feed_header(p):
+    """Issue 07+: issue label + title above the hero in the feed, so the email has a header."""
+    if p["number"] < 7:
+        return ""
+    label = f'SB Residency · No. {p["number"]:03d} · {p["date"].strftime("%B %-d, %Y")}'
+    title = html.escape(p["title"].replace("The SB Residency: ", ""))
+    return (f'<p style="font-size:13px;letter-spacing:0.12em;text-transform:uppercase;'
+            f'color:#5C554E;margin:0 0 8px">{label}</p>\n'
+            f'<h1 style="font-weight:500;letter-spacing:-0.02em;line-height:1.05;'
+            f'margin:0 0 20px;color:#161311">{title}</h1>\n')
+
+
 def render_rss(posts):
     now = format_datetime(datetime.now(timezone.utc))
     items = []
@@ -277,6 +351,7 @@ def render_rss(posts):
             hero_img = (f'<p><img src="{SITE_URL}{html.escape(p["hero"])}" '
                         f'alt="{html.escape(p.get("hero_alt", ""))}"></p>\n')
             feed_body = hero_img + feed_body
+        feed_body = feed_header(p) + feed_body
         items.append(f"""    <item>
       <title>{html.escape(p['title'])}</title>
       <link>{link}</link>
@@ -326,11 +401,42 @@ def splice_issue_list(path, new_list):
 
 # ---------------------------------------------------------------- main
 
+def validate_posts(posts):
+    """Stop the build on front matter or asset mistakes instead of publishing them."""
+    errors, seen = [], {}
+    for p in posts:
+        tag = p["slug"]
+        if not p["title"].startswith("The SB Residency: "):
+            errors.append(f"{tag}: title must start with 'The SB Residency: '")
+        if p["number"] <= 0:
+            errors.append(f"{tag}: missing or invalid 'number' in front matter")
+        elif p["number"] in seen:
+            errors.append(f"{tag}: number {p['number']} is also used by {seen[p['number']]}")
+        else:
+            seen[p["number"]] = tag
+        if p["number"] >= 7:
+            if not p["hero"]:
+                errors.append(f"{tag}: issues 07+ need a hero photo")
+            text = p["title"] + p["teaser"] + p["body_html"]
+            if "—" in text or "–" in text:
+                errors.append(f"{tag}: contains an em or en dash")
+        paths = ([p["hero"]] if p["hero"] else []) + re.findall(r'src="(/assets/[^"]+)"', p["body_html"])
+        for src in paths:
+            if not os.path.isfile(os.path.join(ROOT, src.lstrip("/"))):
+                errors.append(f"{tag}: image not found: {src}")
+    if errors:
+        print("\nBuild stopped. Fix these in the post markdown, then rebuild:")
+        for e in errors:
+            print("  - " + e)
+        sys.exit(1)
+
+
 def main():
     posts = load_posts()
     if not posts:
         print("No posts found in posts/")
         return
+    validate_posts(posts)
 
     for p in posts:
         out = os.path.join(POSTS_DIR, f"{p['slug']}.html")

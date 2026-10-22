@@ -51,6 +51,11 @@ def parse(c):
 PAGES = ['', 'about.html', 'testimonials.html', 'residency.html',
          'contact.html', 'privacy.html', 'terms.html', 'posts/slim-pickings.html']
 
+import glob as _glob, re as _re
+_newest = sorted(_glob.glob('posts/*.md'))
+if _newest:
+    PAGES.append('posts/' + _re.sub(r'^\d{4}-\d{2}-\d{2}-', '', os.path.basename(_newest[-1])[:-3]) + '.html')
+
 allok = True
 with sync_playwright() as p:
     b = p.chromium.launch()

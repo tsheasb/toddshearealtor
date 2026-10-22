@@ -59,11 +59,16 @@ that isn't reconstructable from first principles.
    (`title`, `date`, `number`, `teaser`, `hero`, `hero_alt`).
 2. Confirm all referenced images exist under `assets/posts/`.
 3. Run `python3 scripts/build.py` from repo root.
-4. Verify clean output — no errors, correct post count.
+4. Verify clean output — no errors, correct post count. If the build prints
+   "Build stopped", fix the post markdown it names and rebuild (see "Layout v2
+   and build guards" below). Never loosen the check.
 5. Spot-check the generated `rss.xml`:
-   - Hero image present inside `<description>` (see RSS content bug below).
-   - `<description>` contains the FULL post body HTML, not a short teaser.
-   - `<pubDate>` is well-formed.
+   - The new item is first, and its hero `<img>` is in `<content:encoded>`
+     (Issue 07+: after the generated issue label and title).
+   - `<description>` is the SHORT teaser, never the full body (see the RSS
+     section below).
+   - `<pubDate>` is well-formed, and the issue date is a Tuesday on the
+     biweekly cadence.
 6. Commit and push to `main`.
 
 ## RSS feed shape and the Mailchimp template's merge tags (corrected Aug 19, 2026)
@@ -99,6 +104,32 @@ snippet, which reads from the same field.
 If you ever see `<description>` reverting to the full body, or the template
 reverting to `RSSITEM:DESCRIPTION`, that's a regression — fix it back to the
 setup above, never by hand-editing `rss.xml` or the live template ad hoc.
+
+## Layout v2 and build guards (Issue 07 onward, Oct 2026 reskin)
+
+- `render_post()` in `scripts/build.py` dispatches on front matter `number`.
+  Issues 01 to 06 use `render_post_legacy` (framed Poppins graphic hero).
+  Issue 07+ use `render_post_v2`: a title block generated from front matter, a
+  full-bleed photo hero, and body photos that run full bleed
+  (`.article--bleed`). A body image stays in the text column if its filename
+  contains `-inset` or it is the House Radio cover. Change the layout in
+  `build.py` and `css/reskin.css`, never in the generated HTML.
+- Issue 07+ heroes are photos with no baked-in text (spec in
+  `reference/brand-voice.md`). The title, number, and date come from front
+  matter, so a front matter typo is now how an issue goes out wrong.
+- `validate_posts()` stops the build for: a title without the
+  `The SB Residency: ` prefix, a missing or duplicate `number`, an Issue 07+
+  with no hero or with an em/en dash, and any `/assets/...` image that does not
+  exist. Fix the markdown; do not weaken the check.
+- For Issue 07+, `feed_header()` puts an issue label and title above the hero
+  in `<content:encoded>`. The Mailchimp template therefore must NOT print its
+  own title block, and should not print its own date line above the content,
+  or they show twice. Keep the subject line on `*|RSSITEM:TITLE|*`.
+- Do not "fix" the template's content tag to `*|RSSITEM:CONTENT|*`. `CONTENT`
+  is the short summary from `<description>`. The body is `CONTENT_FULL` and the
+  preheader is `CONTENT_TEXT`, as above.
+- `scripts/check.py` needs Playwright (`pip install playwright && playwright
+  install chromium`) and now always includes the newest issue page.
 
 ## Mailchimp merge tag format
 
