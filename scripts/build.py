@@ -122,7 +122,7 @@ def load_posts():
 
 SHELL_HEADER = """<header class="site-header">
   <div class="shell site-header__inner">
-    <a class="site-header__logo" href="/" aria-label="Todd Shea Real Estate — home">
+    <a class="site-header__logo" href="/" aria-label="Todd Shea Real Estate, home">
       <img src="/assets/shea-secondary-on-light.svg" alt="Todd Shea Real Estate">
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
@@ -204,14 +204,14 @@ def render_post(post):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{html.escape(post['title'])} — SB Residency</title>
+<title>{html.escape(post['title'])} | SB Residency</title>
 <meta name="description" content="{html.escape(post['teaser'])}">
 <link rel="icon" href="/assets/shea-mark-on-dark-128.png">
 <link rel="alternate" type="application/rss+xml" title="SB Residency" href="/rss.xml">
-<link rel="stylesheet" href="/css/site.css?v=20261021c">
-<link rel="stylesheet" href="/css/components.css?v=20261021c">
+<link rel="stylesheet" href="/css/site.css?v=20261022a">
+<link rel="stylesheet" href="/css/components.css?v=20261022a">
 <link rel="stylesheet" href="https://use.typekit.net/rta8wjb.css">
-<link rel="stylesheet" href="/css/reskin.css?v=20261021c">
+<link rel="stylesheet" href="/css/reskin.css?v=20261022a">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -240,8 +240,8 @@ def render_post(post):
 
 {SHELL_FOOTER}
 
-<script src="/js/site.js?v=20261021c"></script>
-<script src="/js/motion.js?v=20261021c"></script>
+<script src="/js/site.js?v=20261022a"></script>
+<script src="/js/motion.js?v=20261022a"></script>
 </body>
 </html>
 """
