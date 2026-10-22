@@ -48,8 +48,13 @@ Projects chat that used to handle content for this newsletter:
   dashes, ever), compliance requirements
 - `reference/flexmls-quirks.md` — FLEX MLS API quirks for pulling listings
   and market stats correctly
+- `reference/issue-bundle-checklist.md` — what a finished bundle from the
+  Projects chat must contain (one post `.md` plus images) and the file, photo,
+  and copy rules. Todd can paste it into the Projects chat.
+- `reference/mailchimp-template.html` — the live Mailchimp campaign template,
+  versioned here (see "Changing the Mailchimp template" below)
 
-Read all four before building or editing an issue. They contain hard-won
+Read the first four before building or editing an issue. They contain hard-won
 detail (exact regex patches, MLS field-name gotchas, brand color hex codes)
 that isn't reconstructable from first principles.
 
@@ -123,13 +128,42 @@ setup above, never by hand-editing `rss.xml` or the live template ad hoc.
   exist. Fix the markdown; do not weaken the check.
 - For Issue 07+, `feed_header()` puts an issue label and title above the hero
   in `<content:encoded>`. The Mailchimp template therefore must NOT print its
-  own title block, and should not print its own date line above the content,
-  or they show twice. Keep the subject line on `*|RSSITEM:TITLE|*`.
+  own title block, date line, or "Ready When You Are" block (the post carries
+  its own), or they show twice. Keep the subject line on `*|RSSITEM:TITLE|*`.
+  The template as set in Oct 2026 already follows this.
+- Email photo width: the template card is 720px, and photos are edge to edge
+  within it. That comes from `feed_bleed()` in `build.py`, which gives each
+  photo-only paragraph an inline `padding:0`. Inline styles are what desktop
+  Gmail honors reliably; do not move this into the template stylesheet. Photos
+  cannot span the whole Gmail window in a standard email, and Todd decided on
+  2026-10-22 to keep the 720px column. The House Radio cover and `-inset` photos
+  stay in the padded column.
 - Do not "fix" the template's content tag to `*|RSSITEM:CONTENT|*`. `CONTENT`
   is the short summary from `<description>`. The body is `CONTENT_FULL` and the
   preheader is `CONTENT_TEXT`, as above.
 - `scripts/check.py` needs Playwright (`pip install playwright && playwright
   install chromium`) and now always includes the newest issue page.
+
+## Changing the Mailchimp template
+
+A normal issue needs no template change. The template is versioned at
+`reference/mailchimp-template.html`; that file must match what Mailchimp serves.
+To change it (each live step needs Todd's go-ahead in that moment):
+
+1. Edit a copy of the file. Keep these tags: `*|RSSITEM:CONTENT_FULL|*` (body),
+   `*|RSSITEM:CONTENT_TEXT|*` (preheader), `*|RSSITEM:TITLE|*` (`<title>` only),
+   `*|LIST:ADDRESS|*`, `*|UNSUB|*`, and keep the BHHS compliance footer text.
+2. Preview it locally with the real live feed substituted for the tags. For email,
+   simulate what Mailchimp injects on every image
+   (`style="max-width:100%;width:100%;display:inline..." class="mcRssImage"`).
+3. Pause the campaign, `PUT /campaigns/a2fb321312/content` with `{"html": ...}`, and
+   `GET` it back to confirm the stored HTML equals what was sent.
+4. Send a test to Todd only (`POST .../actions/test`). A test pulls the newest item
+   from the LIVE feed, so push any feed change first.
+5. Resume the campaign. Confirm `status: sending` and that `last_sent` is unchanged.
+6. Save the final served HTML back to `reference/mailchimp-template.html` and commit.
+
+Todd opens the test in desktop Gmail, so his view of a test email is the real check.
 
 ## Mailchimp merge tag format
 

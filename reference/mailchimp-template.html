@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>*|RSSITEM:TITLE|*</title>
+<style type="text/css">
+  /* Auto-styles whatever raw HTML comes through the feed, so every future issue
+     stays on-brand without any manual formatting.
+     Issue 07+ look: Bone page, Asphalt text, Clay as the only accent (link
+     underlines and 1px rules). The feed supplies the issue label and title.
+     Text blocks use percentage side padding (8.3333% = 60px at 720px, so text lines stay about 600px wide). Photos run
+     edge to edge because the feed gives each photo's paragraph an inline
+     padding:0 (inline styles are the only thing desktop Gmail reliably honors);
+     the image rules below only need to fill that unpadded paragraph. */
+  .rss-body, .rss-body p, .rss-body li, .rss-body h1, .rss-body h2, .rss-body a, .rss-body em, .rss-body strong {
+    font-family: "neue-haas-grotesk-text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .rss-body h1 {
+    font-size: 38px;
+    padding: 0 8.3333%;
+  }
+  .rss-body h2 {
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: #161311;
+    text-transform: none;
+    border-top: 1px solid #D85A30;
+    padding: 24px 0 0 0;
+    margin: 40px 8.3333% 8px 8.3333%;
+  }
+  .rss-body p { margin: 0 0 14px 0; padding: 0 8.3333%; font-size: 16px; line-height: 1.6; color: #161311; }
+  .rss-body strong { color: #161311; font-weight: 600; }
+  .rss-body em { color: #5C554E; }
+  .rss-body a { color: #161311; text-decoration: underline; text-decoration-color: #D85A30; text-underline-offset: 3px; }
+  .rss-body ul { margin: 0 0 14px 0; padding: 0 8.3333% 0 12.3333%; }
+  .rss-body li { font-size: 16px; line-height: 1.6; color: #161311; margin-bottom: 6px; }
+  .rss-body img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+  }
+  .rss-body img[src*="house-radio-cover"], .rss-body img[src*="-inset"] {
+    max-width: 360px !important;
+  }
+</style>
+</head>
+<body style="margin:0; padding:0; background-color:#F4F1E8; font-family:'neue-haas-grotesk-text','Helvetica Neue',Helvetica,Arial,sans-serif; color:#161311;">
+<div style="display:none; font-size:1px; line-height:1px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; mso-hide:all;">*|RSSITEM:CONTENT_TEXT|*</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F4F1E8;">
+<tr><td align="center" style="padding:0;">
+<table role="presentation" width="720" cellpadding="0" cellspacing="0" style="max-width:720px; width:100%; background-color:#F4F1E8;">
+
+<!-- Header: text wordmark. The feed supplies the issue label and title below it. -->
+<tr><td align="left" style="padding:32px 8.3333% 28px 8.3333%;">
+  <div style="font-size:18px; font-weight:500; letter-spacing:4px; color:#161311;">TODD SHEA</div>
+  <div style="font-size:10px; font-weight:500; letter-spacing:3px; color:#5C554E; margin-top:2px;">REAL ESTATE</div>
+</td></tr>
+
+<!-- Issue content, pulled from the RSS feed: label, title, hero, body.
+     Auto-styled via .rss-body CSS above. -->
+<tr><td class="rss-body" style="padding:0 0 8px 0;">
+  *|RSSITEM:CONTENT_FULL|*
+</td></tr>
+
+<!-- Sign-off -->
+<tr><td align="left" style="padding:32px 8.3333% 48px 8.3333%;">
+  <div style="border-top:1px solid #D85A30; padding-top:28px;">
+  <p style="margin:0 0 18px 0; font-size:13px; letter-spacing:1px; color:#161311;">Live On Vacation &nbsp;|&nbsp; The Vibe is Right &nbsp;|&nbsp; Made in Santa Barbara</p>
+  <div style="font-size:18px; font-weight:500; letter-spacing:4px; color:#161311;">TODD SHEA</div>
+  <div style="font-size:10px; font-weight:500; letter-spacing:3px; color:#5C554E; margin-top:2px; margin-bottom:16px;">REAL ESTATE</div>
+  <p style="margin:0 0 4px 0; font-size:13px; color:#5C554E;">Todd Shea &middot; REALTOR&reg; &middot; DRE #02028163</p>
+  <p style="margin:0 0 4px 0; font-size:13px; color:#5C554E;">Berkshire Hathaway HomeServices California Properties</p>
+  <p style="margin:0 0 18px 0; font-size:13px; color:#5C554E;">(805) 453-7730 &middot; todd@toddshearealtor.com</p>
+  <p style="margin:0; font-size:11px; line-height:1.6; color:#5C554E;">
+    You are receiving this email because you opted in via our website, are a past or current client, or are just an awesome person!<br>
+    *|LIST:ADDRESS|*<br>
+    <a href="*|UNSUB|*" style="color:#5C554E;">Unsubscribe</a> &nbsp;|&nbsp; <a href="https://toddshearealtor.com/residency.html" style="color:#5C554E;">All issues</a>
+  </p>
+  </div>
+</td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
