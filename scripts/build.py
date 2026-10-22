@@ -338,6 +338,23 @@ def feed_header(p):
             f'margin:0 0 20px;color:#161311">{title}</h1>\n')
 
 
+def feed_bleed(feed_body, number):
+    """Issue 07+: photo-only paragraphs get inline zero padding so photos run edge to edge
+    in the email. Inline styles are the one thing every mail client, desktop Gmail included,
+    honors; the stylesheet width/negative-margin approach was ignored by desktop Gmail.
+    House Radio cover and -inset photos keep the padded column."""
+    if number < 7:
+        return feed_body
+
+    def repl(m):
+        src = re.search(r'src="([^"]+)"', m.group(1)).group(1)
+        if "house-radio-cover" in src or "-inset" in src:
+            return m.group(0)
+        return f'<p style="padding:0;margin:0 0 18px">{m.group(1)}</p>'
+
+    return re.sub(r'<p>((?:<a href="[^"]*">)?<img [^>]*>(?:</a>)?)</p>', repl, feed_body)
+
+
 def render_rss(posts):
     now = format_datetime(datetime.now(timezone.utc))
     items = []
@@ -351,7 +368,7 @@ def render_rss(posts):
             hero_img = (f'<p><img src="{SITE_URL}{html.escape(p["hero"])}" '
                         f'alt="{html.escape(p.get("hero_alt", ""))}"></p>\n')
             feed_body = hero_img + feed_body
-        feed_body = feed_header(p) + feed_body
+        feed_body = feed_header(p) + feed_bleed(feed_body, p["number"])
         items.append(f"""    <item>
       <title>{html.escape(p['title'])}</title>
       <link>{link}</link>
