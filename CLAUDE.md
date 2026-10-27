@@ -174,6 +174,26 @@ To change it (each live step needs Todd's go-ahead in that moment):
 
 Todd opens the test in desktop Gmail, so his view of a test email is the real check.
 
+### Verifying the real send path, and resending
+
+RSS test sends skip the CSS inlining that real sends apply, and a test of the RSS campaign
+cannot show it. Two ways to see the real thing:
+
+- After every real send, read the sent HTML (`GET /campaigns/<child id>/content`, see above)
+  and also the copy that reached Todd's own subscriber address, which is
+  `tshea.nvfd@gmail.com` (with the dot; Gmail's search view shows it without). Check the
+  `<img>` tags and the photo paragraphs' inline `padding:0`.
+- To fix and resend an issue: replicate the sent child campaign
+  (`POST /campaigns/<id>/actions/replicate`), `PUT` corrected HTML (resolve the RSS merge
+  tags yourself; leave `*|UNSUB|*` and `*|LIST:ADDRESS|*`), then send in two stages: first to
+  Todd's address only (set `recipients.segment_opts` with an `EmailAddress` `is` condition),
+  read the delivered copy, then replicate again and send to everyone else with an
+  `EmailAddress` `not` condition. Confirm `recipient_count` before each send. It is
+  irreversible, so it needs Todd's explicit go-ahead and an agreed subject line.
+- The Gmail connector's `newer_than:` filter is unreliable; use `after:YYYY/MM/DD`.
+- The list shrinks between sends (unsubscribes, bounces), so a recipient count a little
+  below the earlier one is normal.
+
 ## Mailchimp merge tag format
 
 Mailchimp's RSS merge tags use **PHP date() format codes**, not Python
