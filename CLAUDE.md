@@ -131,13 +131,22 @@ setup above, never by hand-editing `rss.xml` or the live template ad hoc.
   own title block, date line, or "Ready When You Are" block (the post carries
   its own), or they show twice. Keep the subject line on `*|RSSITEM:TITLE|*`.
   The template as set in Oct 2026 already follows this.
-- Email photo width: the template card is 720px, and photos are edge to edge
-  within it. That comes from `feed_bleed()` in `build.py`, which gives each
-  photo-only paragraph an inline `padding:0`. Inline styles are what desktop
-  Gmail honors reliably; do not move this into the template stylesheet. Photos
-  cannot span the whole Gmail window in a standard email, and Todd decided on
-  2026-10-22 to keep the 720px column. The House Radio cover and `-inset` photos
-  stay in the padded column.
+- Email layout lives INLINE in the feed. `feed_email()` in `build.py` (Issue 07+ only)
+  strips `loading="lazy"`, sizes every photo inline (never a `height` attribute, which
+  stretches photos), gives photo-only paragraphs `padding:0` so they run edge to edge,
+  and gives every text paragraph and list its own inline padding. The template card is
+  720px. The House Radio cover and `-inset` photos stay in the padded column.
+  Why: Mailchimp inlines the template stylesheet at REAL send time, but not for test
+  sends, and the inlined stylesheet padding overrode the feed's inline `padding:0`, so
+  photos came out inset. Never set padding or margin in the template stylesheet for
+  `p`, `h1`, `ul`, or `img`. Lazy loading broke the Issue 07 send on phones: only the
+  hero (the one non-lazy image) showed. Photos cannot span the whole Gmail window in a
+  standard email, and Todd chose the 720px column on 2026-10-22.
+- Test sends do NOT match real sends (see above). After every real send, read what
+  actually went out: each RSS send becomes its own `regular` campaign, found with
+  `GET /campaigns?list_id=90c669fbd4&sort_field=send_time&sort_dir=DESC`, and
+  `GET /campaigns/<id>/content` returns the sent HTML. Check its `<img>` tags and the
+  photo paragraphs' inline `padding` against the feed.
 - Do not "fix" the template's content tag to `*|RSSITEM:CONTENT|*`. `CONTENT`
   is the short summary from `<description>`. The body is `CONTENT_FULL` and the
   preheader is `CONTENT_TEXT`, as above.

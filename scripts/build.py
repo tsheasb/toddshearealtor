@@ -333,26 +333,49 @@ def feed_header(p):
     label = f'SB Residency · No. {p["number"]:03d} · {p["date"].strftime("%B %-d, %Y")}'
     title = html.escape(p["title"].replace("The SB Residency: ", ""))
     return (f'<p style="font-size:13px;letter-spacing:0.12em;text-transform:uppercase;'
-            f'color:#5C554E;margin:0 0 8px">{label}</p>\n'
-            f'<h1 style="font-weight:500;letter-spacing:-0.02em;line-height:1.05;'
-            f'margin:0 0 20px;color:#161311">{title}</h1>\n')
+            f'color:#5C554E;margin:0 0 8px;padding:0 {EMAIL_PAD}">{label}</p>\n'
+            f'<h1 style="font-size:38px;font-weight:500;letter-spacing:-0.02em;line-height:1.05;'
+            f'margin:0 0 20px;padding:0 {EMAIL_PAD};color:#161311">{title}</h1>\n')
 
 
-def feed_bleed(feed_body, number):
-    """Issue 07+: photo-only paragraphs get inline zero padding so photos run edge to edge
-    in the email. Inline styles are the one thing every mail client, desktop Gmail included,
-    honors; the stylesheet width/negative-margin approach was ignored by desktop Gmail.
-    House Radio cover and -inset photos keep the padded column."""
+EMAIL_PAD = "8.3333%"
+
+
+def feed_email(feed_body, number):
+    """Issue 07+: make the feed HTML self-sufficient for email.
+
+    - No loading="lazy": mail clients have no scrolling page for it to react to, so on phones
+      every lazy photo stayed blank (the hero, the only non-lazy image, was the only one shown).
+    - Explicit inline photo sizing, so no client has to guess a size. No height attribute, ever:
+      a fixed height is what stretches a photo.
+    - All layout padding is inline. Mailchimp inlines the template stylesheet at send time (test
+      sends skip this) and it overrode inline padding where the stylesheet also set it, which
+      pushed the photos in from the edges. Keep padding and margin out of the template stylesheet
+      for any element styled here.
+    Photo-only paragraphs run edge to edge; the House Radio cover and -inset photos keep the
+    padded column. Older issues were already sent, so their feed items are left alone."""
     if number < 7:
         return feed_body
 
-    def repl(m):
+    def fix_img(m):
+        tag = m.group(0).replace(' loading="lazy"', '')
+        src = re.search(r'src="([^"]+)"', tag).group(1)
+        w = 360 if ("house-radio-cover" in src or "-inset" in src) else 720
+        style = (f'display:block;width:100%;max-width:{w}px;height:auto;border:0;'
+                 f'outline:none;text-decoration:none')
+        return tag.replace('<img ', f'<img width="{w}" style="{style}" ', 1)
+
+    def photo_p(m):
         src = re.search(r'src="([^"]+)"', m.group(1)).group(1)
         if "house-radio-cover" in src or "-inset" in src:
             return m.group(0)
         return f'<p style="padding:0;margin:0 0 18px">{m.group(1)}</p>'
 
-    return re.sub(r'<p>((?:<a href="[^"]*">)?<img [^>]*>(?:</a>)?)</p>', repl, feed_body)
+    feed_body = re.sub(r'<img [^>]*>', fix_img, feed_body)
+    feed_body = re.sub(r'<p>((?:<a href="[^"]*">)?<img [^>]*>(?:</a>)?)</p>', photo_p, feed_body)
+    feed_body = feed_body.replace("<p>", f'<p style="margin:0 0 14px;padding:0 {EMAIL_PAD}">')
+    feed_body = feed_body.replace("<ul>", f'<ul style="margin:0 0 14px;padding:0 {EMAIL_PAD} 0 12.3333%">')
+    return feed_body
 
 
 def render_rss(posts):
@@ -368,7 +391,7 @@ def render_rss(posts):
             hero_img = (f'<p><img src="{SITE_URL}{html.escape(p["hero"])}" '
                         f'alt="{html.escape(p.get("hero_alt", ""))}"></p>\n')
             feed_body = hero_img + feed_body
-        feed_body = feed_header(p) + feed_bleed(feed_body, p["number"])
+        feed_body = feed_header(p) + feed_email(feed_body, p["number"])
         items.append(f"""    <item>
       <title>{html.escape(p['title'])}</title>
       <link>{link}</link>
