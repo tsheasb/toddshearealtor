@@ -6,20 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>*|RSSITEM:TITLE|*</title>
 <style type="text/css">
-  /* Auto-styles whatever raw HTML comes through the feed, so every future issue
-     stays on-brand without any manual formatting.
-     Issue 07+ look: Bone page, Asphalt text, Clay as the only accent (link
-     underlines and 1px rules). The feed supplies the issue label and title.
-     Text blocks use percentage side padding (8.3333% = 60px at 720px, so text lines stay about 600px wide). Photos run
-     edge to edge because the feed gives each photo's paragraph an inline
-     padding:0 (inline styles are the only thing desktop Gmail reliably honors);
-     the image rules below only need to fill that unpadded paragraph. */
+  /* Fonts and colors for whatever comes through the feed. Layout (padding, margins, photo
+     sizing) is set INLINE by the feed (build.py feed_email), not here. Mailchimp inlines this
+     stylesheet when it really sends (test sends skip that) and the inlined copy overrode
+     inline padding where both set it, which pushed photos in from the edges. So do not set
+     padding or margin here for p, h1, ul, or img.
+     Issue 07+ look: Bone page, Asphalt text, Clay as the only accent (link underlines
+     and 1px rules). */
   .rss-body, .rss-body p, .rss-body li, .rss-body h1, .rss-body h2, .rss-body a, .rss-body em, .rss-body strong {
     font-family: "neue-haas-grotesk-text", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-  .rss-body h1 {
-    font-size: 38px;
-    padding: 0 8.3333%;
   }
   .rss-body h2 {
     font-size: 26px;
@@ -32,24 +27,13 @@
     padding: 24px 0 0 0;
     margin: 40px 8.3333% 8px 8.3333%;
   }
-  .rss-body p { margin: 0 0 14px 0; padding: 0 8.3333%; font-size: 16px; line-height: 1.6; color: #161311; }
+  .rss-body p { font-size: 16px; line-height: 1.6; color: #161311; }
   .rss-body strong { color: #161311; font-weight: 600; }
   .rss-body em { color: #5C554E; }
   .rss-body a { color: #161311; text-decoration: underline; text-decoration-color: #D85A30; text-underline-offset: 3px; }
-  .rss-body ul { margin: 0 0 14px 0; padding: 0 8.3333% 0 12.3333%; }
   .rss-body li { font-size: 16px; line-height: 1.6; color: #161311; margin-bottom: 6px; }
-  .rss-body img {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    margin: 0 !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-  }
-  .rss-body img[src*="house-radio-cover"], .rss-body img[src*="-inset"] {
-    max-width: 360px !important;
-  }
+  .rss-body img { display: block !important; border: 0 !important; border-radius: 0 !important; }
+  .rss-body img[src*="house-radio-cover"], .rss-body img[src*="-inset"] { max-width: 360px !important; }
 </style>
 </head>
 <body style="margin:0; padding:0; background-color:#F4F1E8; font-family:'neue-haas-grotesk-text','Helvetica Neue',Helvetica,Arial,sans-serif; color:#161311;">
