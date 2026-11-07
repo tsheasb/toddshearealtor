@@ -415,6 +415,12 @@ h4 {
 .bleed__copy h3 { font-family: var(--display); font-size: clamp(1.9rem, 3.8vw, 3.2rem); letter-spacing: -0.02em; color: var(--bone); margin: 0; }
 .bleed__copy small { display: block; margin-top: 0.4rem; font-size: 1.05rem; color: var(--bone-soft); }
 .bleed__price { font-size: clamp(1.15rem, 1.6vw, 1.4rem); font-variant-numeric: tabular-nums; }
+.listed { padding-bottom: 0; }
+.bleed__stats { margin-top: 0.2rem; }
+.bleed__side { display: flex; flex-direction: column; align-items: flex-end; gap: 0.6rem; }
+.bleed__cta { font-size: 1rem; border-bottom: 1px solid rgba(244,241,232,.6); padding-bottom: 2px; transition: border-color .2s; }
+.bleed:hover .bleed__cta, .bleed:focus-visible .bleed__cta { border-color: var(--clay); }
+@media (max-width: 720px) { .bleed__side { align-items: flex-start; } }
 .sold .work__disclaimer { margin-top: 2.5rem; font-size: 0.85rem; color: var(--ink-soft); }
 
 /* ---------- SB Residency teaser ---------- */
