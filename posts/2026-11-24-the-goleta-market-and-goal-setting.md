@@ -2,7 +2,7 @@
 title: The SB Residency: The Goleta Market and Goal Setting
 date: 2026-11-24
 number: 8
-teaser: Goleta by the numbers. Prices held steady and homes still sold in 15 days. Plus my new Ventura listing, three listings that caught my eye, and why I put a brothers weekend on the calendar every year.
+teaser: Goleta by the numbers. Prices held steady and homes still sold in 15 days. Plus my new Ventura listing, three listings that caught my eye, and why I put a brothers weekend on the calendar every quarter.
 hero: /assets/posts/2026-issue-08-ellwood-bluffs-hero.jpg
 hero_alt: Aerial view of the Ellwood bluffs at golden hour, with a dirt trail along the cliff edge, grassy fields on the left, and surf breaking on the beach on the right
 ---
