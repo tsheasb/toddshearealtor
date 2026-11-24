@@ -117,7 +117,7 @@ setup above, never by hand-editing `rss.xml` or the live template ad hoc.
   Issue 07+ use `render_post_v2`: a title block generated from front matter, a
   full-bleed photo hero, and body photos that run full bleed
   (`.article--bleed`). A body image stays in the text column if its filename
-  contains `-inset` or it is the House Radio cover. Change the layout in
+  contains `-inset` or it is an old-style House Radio cover (`house-radio-cover` in the name; Issue 08 on uses a full-bleed House Radio banner named `...-house-radio.jpg`). Change the layout in
   `build.py` and `css/reskin.css`, never in the generated HTML.
 - Issue 07+ heroes are photos with no baked-in text (spec in
   `reference/brand-voice.md`). The title, number, and date come from front
@@ -135,7 +135,7 @@ setup above, never by hand-editing `rss.xml` or the live template ad hoc.
   strips `loading="lazy"`, sizes every photo inline (never a `height` attribute, which
   stretches photos), gives photo-only paragraphs `padding:0` so they run edge to edge,
   and gives every text paragraph and list its own inline padding. The template card is
-  720px. The House Radio cover and `-inset` photos stay in the padded column.
+  720px. `-inset` photos and old `house-radio-cover` files stay in the padded column; the 1200x900 House Radio banner (Issue 08 on) runs edge to edge like any photo.
   Why: Mailchimp inlines the template stylesheet at REAL send time, but not for test
   sends, and the inlined stylesheet padding overrode the feed's inline `padding:0`, so
   photos came out inset. Never set padding or margin in the template stylesheet for

@@ -54,7 +54,7 @@ Replaces the hero bullet in **Section 4 (Assets)** of `sb-residency-template-loc
 #### Body photos (Issue 07 onward)
 
 - **Every landscape photo runs full bleed**, edge to edge at its natural aspect ratio. Nothing gets cropped. That includes listing photos, follow photos, and Currently Obsessed With photos.
-- **Exceptions stay in the column at natural shape:** portrait photos and square graphics. Add `-inset` to the filename (example: `2026-issue-0X-cafe-inset.jpg`). The House Radio cover is automatically inset.
+- **Exceptions stay in the column at natural shape:** portrait photos and square graphics. Add `-inset` to the filename (example: `2026-issue-0X-cafe-inset.jpg`). The House Radio banner (name it `2026-issue-0X-house-radio.jpg`, no "cover") runs full bleed; an old `house-radio-cover` file is automatically inset.
 - **Ask for landscape photos when possible.** Full bleed rewards wide shots at least 1600px across. Small or portrait images get the inset treatment.
 
 #### Visual rules that apply to everything in the issue

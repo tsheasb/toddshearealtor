@@ -86,7 +86,7 @@ Listing courtesy of Adam McKaig, Douglas Elliman of California, Inc. (MLS #26-37
 
 *The soundtrack to the SB Residency, updated all the time.*
 
-[![House Radio on Spotify](/assets/posts/2026-issue-08-house-radio-cover.jpg)](https://open.spotify.com/playlist/7gexMzDUJ3CiGideZIzdlg)
+[![House Radio, the SB Residency playlist on Spotify](/assets/posts/2026-issue-08-house-radio.jpg)](https://open.spotify.com/playlist/7gexMzDUJ3CiGideZIzdlg)
 
 Everything we're listening to here in Santa Barbara, updated all the time.
 

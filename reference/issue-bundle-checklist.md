@@ -43,7 +43,7 @@ Reference them in the post as `/assets/posts/2026-issue-0N-<name>.jpg`.
 | Hero | A **photo**, not a graphic. Landscape, **2400px wide**, JPEG quality 90. No text on it. Todd's own photo or one he has the rights to. Not a listing photo. |
 | Body photos | JPEG, **landscape, at least 1600px wide**. They run edge to edge. |
 | Portrait, square, or small photos (under 1600px wide) | Add `-inset` to the filename, for example `2026-issue-0N-cafe-inset.jpg`. They stay in the text column instead of being stretched. |
-| House Radio cover | A copy named `2026-issue-0N-house-radio-cover.jpg` for each issue. It always stays in the column. |
+| House Radio banner | The SB Residency House Radio banner, 1200x900 landscape, named `2026-issue-0N-house-radio.jpg` (no "cover" in the name). It runs full bleed like any photo. |
 
 The build stops if the post points at an image that is not in the bundle.
 
