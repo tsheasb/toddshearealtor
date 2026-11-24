@@ -78,7 +78,7 @@ Listing courtesy of Adam McKaig, Douglas Elliman of California, Inc. (MLS #26-37
 
 **Follow:** [@neighborhoodbunker](https://www.instagram.com/neighborhoodbunker/) An indoor golf simulator, back in the Goodland at 5879 Hollister Avenue in Old Town Goleta.
 
-![Refrigerated case at Santa Cruz Markets stocked with ceviche, guacamole, pico de gallo, and salsa](/assets/posts/2026-issue-08-santa-cruz-markets-inset.jpg)
+![Green Santa Cruz Market sign hanging over the storefront, with a green awning below and a clear blue sky above](/assets/posts/2026-issue-08-santa-cruz-markets.jpg)
 
 **Follow:** [@santacruzmarkets](https://www.instagram.com/santacruzmarkets/) The go to in Goleta for an awesome butcher and fresh produce. Find them at 5757 Hollister Avenue.
 
