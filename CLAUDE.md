@@ -142,6 +142,14 @@ setup above, never by hand-editing `rss.xml` or the live template ad hoc.
   `p`, `h1`, `ul`, or `img`. Lazy loading broke the Issue 07 send on phones: only the
   hero (the one non-lazy image) showed. Photos cannot span the whole Gmail window in a
   standard email, and Todd chose the 720px column on 2026-10-22.
+- Email photo copies (Issue 08+): `email_image()` in `build.py` makes a lighter copy of each
+  feed photo at `assets/posts/email/` (1440px wide, JPEG quality 82; `-inset` photos and the
+  House Radio cover 720px), using macOS `sips`, and the feed points at those copies. The
+  site keeps the full-size files. Photos already at or under the target width are used as-is,
+  and if `sips` fails the full-size photo is used, so it cannot break an issue. Commit the
+  generated `assets/posts/email/` files with the issue, or the feed will point at images that
+  are not on GitHub Pages. Issue 08 went from 5.5 MB to 3.1 MB of photos with no visible loss
+  (checked at 100% against a lossless reference).
 - Test sends do NOT match real sends (see above). After every real send, read what
   actually went out: each RSS send becomes its own `regular` campaign, found with
   `GET /campaigns?list_id=90c669fbd4&sort_field=send_time&sort_dir=DESC`, and
@@ -193,6 +201,15 @@ cannot show it. Two ways to see the real thing:
 - The Gmail connector's `newer_than:` filter is unreliable; use `after:YYYY/MM/DD`.
 - The list shrinks between sends (unsubscribes, bounces), so a recipient count a little
   below the earlier one is normal.
+
+## If `git push` fails with "mmap failed: Operation canceled"
+
+`~/Documents` is managed by iCloud, which can offload repo files to the cloud ("dataless"
+stubs). Git then cannot read them and the push dies with that error. The repo is not
+damaged. Check with `find . -type f -flags +dataless | wc -l`, then bring the files back by
+reading them: `find . -type f -flags +dataless -exec cat {} + > /dev/null`. To keep it from
+recurring, Finder > right-click the `toddshearealtor` folder > "Keep Downloaded". Do not move
+the repo folder without care: Claude's project memory is keyed to its path.
 
 ## Mailchimp merge tag format
 

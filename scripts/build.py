@@ -15,6 +15,7 @@ import re
 import sys
 import html
 import glob
+import subprocess
 from datetime import datetime, timezone
 from email.utils import format_datetime
 
@@ -338,6 +339,43 @@ def feed_header(p):
             f'margin:0 0 20px;padding:0 {EMAIL_PAD};color:#161311">{title}</h1>\n')
 
 
+EMAIL_IMG_DIR = os.path.join(ROOT, "assets", "posts", "email")
+EMAIL_IMG_WIDTH = 1440        # 2x the 720px email card, so photos stay sharp on retina screens
+EMAIL_IMG_INSET_WIDTH = 720   # -inset photos and the House Radio cover show at 360px or less
+EMAIL_IMG_QUALITY = 82
+EMAIL_IMG_FROM_ISSUE = 8      # earlier issues were already sent; their feed items stay untouched
+
+
+def email_image(name):
+    """Return the /assets/posts path to use for a body photo in the email feed.
+
+    The site keeps the full-size photo. The email gets a lighter copy at assets/posts/email/,
+    made here with macOS sips and reused until the original changes. Photos already at or under
+    the target width are never upscaled or recompressed. If sips is missing or fails, or the copy
+    is not smaller, the original is used, so this can never break an issue."""
+    original = f"/assets/posts/{name}"
+    src = os.path.join(ROOT, "assets", "posts", name)
+    if not os.path.isfile(src):
+        return original
+    target = EMAIL_IMG_INSET_WIDTH if ("house-radio-cover" in name or "-inset" in name) else EMAIL_IMG_WIDTH
+    try:
+        dims = subprocess.run(["sips", "-g", "pixelWidth", src], capture_output=True, text=True, check=True).stdout
+        if int(re.search(r"pixelWidth:\s*(\d+)", dims).group(1)) <= target:
+            return original
+        dest = os.path.join(EMAIL_IMG_DIR, name)
+        if not (os.path.isfile(dest) and os.path.getmtime(dest) >= os.path.getmtime(src)):
+            os.makedirs(EMAIL_IMG_DIR, exist_ok=True)
+            subprocess.run(["sips", "--resampleWidth", str(target), "-s", "format", "jpeg",
+                            "-s", "formatOptions", str(EMAIL_IMG_QUALITY), src, "--out", dest],
+                           capture_output=True, text=True, check=True)
+        if os.path.getsize(dest) >= os.path.getsize(src):
+            return original
+        return f"/assets/posts/email/{name}"
+    except (OSError, subprocess.CalledProcessError, AttributeError, ValueError):
+        print(f"  ! could not make an email copy of {name}; the feed uses the full-size photo")
+        return original
+
+
 EMAIL_PAD = "8.3333%"
 
 
@@ -360,6 +398,9 @@ def feed_email(feed_body, number):
     def fix_img(m):
         tag = m.group(0).replace(' loading="lazy"', '')
         src = re.search(r'src="([^"]+)"', tag).group(1)
+        site_photo = re.fullmatch(re.escape(SITE_URL) + r"/assets/posts/([^/]+\.jpg)", src)
+        if number >= EMAIL_IMG_FROM_ISSUE and site_photo:
+            tag = tag.replace(src, SITE_URL + email_image(site_photo.group(1)), 1)
         w = 360 if ("house-radio-cover" in src or "-inset" in src) else 720
         style = (f'display:block;width:100%;max-width:{w}px;height:auto;border:0;'
                  f'outline:none;text-decoration:none')
